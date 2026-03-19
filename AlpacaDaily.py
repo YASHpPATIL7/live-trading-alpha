@@ -1,16 +1,17 @@
-# sma_crossover.py
-# Run this once — it checks signal and places/exits order automatically
-
 import alpaca_trade_api as tradeapi
 import yfinance as yf
-import pandas as pd
-from datetime import datetime, date
+from datetime import datetime
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
 
-API_KEY    = "PK2KLCSVJWIG5IQAKOT6ORFZBR"
-SECRET_KEY = "E17Ufqj3GZG3VKJZW6F8CTBxQ2GHsqVFj4paKCL9Wcez"
-BASE_URL   = "https://paper-api.alpaca.markets"  # paper trading URL
+API_KEY    = os.getenv("ALPACA_API_KEY")
+SECRET_KEY = os.getenv("ALPACA_SECRET_KEY")
+BASE_URL   = "https://paper-api.alpaca.markets"
 
+if not API_KEY or not SECRET_KEY:
+    raise EnvironmentError("Keys not found. Check your .env file.")
 
 api = tradeapi.REST(API_KEY, SECRET_KEY, BASE_URL, api_version="v2")
 
@@ -22,41 +23,39 @@ if datetime.today().weekday() >= 5:
     exit()
 
 # ============================================================
-# SPY SIGNAL — yfinance for MA calc only (closes are fine for MA)
+# SIGNAL
 # ============================================================
-spy    = yf.download("SPY", period="60d", auto_adjust=True, progress=False)
-ma_20  = float(spy["Close"].rolling(20).mean().iloc[-1].item())
-ma_50  = float(spy["Close"].rolling(50).mean().iloc[-1].item())
+spy          = yf.download("SPY", period="60d", auto_adjust=True, progress=False)
+ma_20        = float(spy["Close"].rolling(20).mean().iloc[-1].item())
+ma_50        = float(spy["Close"].rolling(50).mean().iloc[-1].item())
 latest_close = float(spy["Close"].iloc[-1].item())
 
 print(f"MA20: ${ma_20:.2f}  |  MA50: ${ma_50:.2f}")
 print(f"Signal: {'BULLISH (MA20 > MA50)' if ma_20 > ma_50 else 'BEARISH (MA20 < MA50)'}")
 
 # ============================================================
-# POSITION CHECK — Alpaca is source of truth
+# POSITION CHECK
 # ============================================================
 try:
-    position      = api.get_position("SPY")
-    shares        = int(position.qty)
-    avg_entry     = float(position.avg_entry_price)  # ACTUAL fill price
-    has_position  = True
-    unrealized    = (latest_close - avg_entry) * shares
-    print(f"Position:  Long {shares} shares")
-    print(f"Avg Entry: ${avg_entry:.3f}  (Alpaca actual fill)")
-    print(f"Ref P&L:   ${unrealized:+.2f} vs yfinance close")
-except:
+    position     = api.get_position("SPY")
+    shares       = int(position.qty)
+    avg_entry    = float(position.avg_entry_price)
+    has_position = True
+    print(f"Position:  Long {shares} shares @ ${avg_entry:.3f}")
+    print(f"Ref P&L:   ${(latest_close - avg_entry) * shares:+.2f}")
+except Exception:
     has_position = False
     print("Position:  FLAT")
 
 # ============================================================
-# ACCOUNT — Alpaca is source of truth
+# ACCOUNT
 # ============================================================
 account = api.get_account()
-print(f"Portfolio: ${float(account.equity):,.2f}  (Alpaca equity)")
+print(f"Equity:    ${float(account.equity):,.2f}")
 print(f"Cash:      ${float(account.cash):,.2f}")
 
 # ============================================================
-# SIGNAL + ACTION
+# ACTION
 # ============================================================
 if ma_20 > ma_50:
     if not has_position:
@@ -66,10 +65,10 @@ if ma_20 > ma_50:
         )
         print("ACTION: BUY ORDER SUBMITTED")
     else:
-        print("ACTION: HOLD — long, signal unchanged")
+        print("ACTION: HOLD")
 else:
     if has_position:
         api.close_position("SPY")
         print("ACTION: SELL — position closed")
     else:
-        print("ACTION: FLAT — no signal to buy")
+        print("ACTION: FLAT — waiting for Golden Cross")

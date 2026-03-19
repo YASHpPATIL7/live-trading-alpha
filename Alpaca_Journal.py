@@ -2,65 +2,102 @@ import alpaca_trade_api as tradeapi
 import yfinance as yf
 import pandas as pd
 from datetime import date
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 # ============================================================
 # CONFIG
 # ============================================================
-API_KEY    = "your_key"
-SECRET_KEY = "your_secret"
+API_KEY    = os.getenv("ALPACA_API_KEY")
+SECRET_KEY = os.getenv("ALPACA_SECRET_KEY")
 BASE_URL   = "https://paper-api.alpaca.markets"
+SYMBOL     = "SPY"
+STARTING_CASH = 100_000
 
-ENTRY_DATE     = "2026-03-09"
-EXIT_DATE      = "2026-03-12"    # None if still holding
-SHARES         = 10
-STARTING_CASH  = 100_000
+if not API_KEY or not SECRET_KEY:
+    raise EnvironmentError("Keys not found. Check your .env file.")
 
-# Pull ACTUAL fill prices from Alpaca activity (not yfinance)
-# From your activity log:
-ACTUAL_ENTRY   = (5330.56 + 1333.80) / 10   # = $666.436
-ACTUAL_EXIT    = (4007.94 + 2672.00) / 10   # = $667.994
-TAF_FEE        = 0.01
-REALIZED_PNL   = round((ACTUAL_EXIT - ACTUAL_ENTRY) * SHARES - TAF_FEE, 2)
-# = (667.994 - 666.436) × 10 - 0.01 = +$15.57
+api = tradeapi.REST(API_KEY, SECRET_KEY, BASE_URL, api_version="v2")
 
 # ============================================================
-# FETCH SPY PRICES (display only — NOT used for P&L calc)
+# PULL FILLS
+# ============================================================
+activities = api.get_activities(activity_types="FILL")
+
+buys  = [a for a in activities if a.symbol == SYMBOL and a.side == "buy"]
+sells = [a for a in activities if a.symbol == SYMBOL and a.side == "sell"]
+
+if not buys:
+    raise ValueError(f"No buy fills found for {SYMBOL}")
+
+total_buy_cost = sum(float(b.price) * float(b.qty) for b in buys)
+total_buy_qty  = sum(float(b.qty) for b in buys)
+actual_entry   = total_buy_cost / total_buy_qty
+entry_date     = min(pd.Timestamp(b.transaction_time) for b in buys).strftime("%Y-%m-%d")
+
+if sells:
+    total_sell_proceeds = sum(float(s.price) * float(s.qty) for s in sells)
+    actual_exit  = total_sell_proceeds / total_sell_qty if (total_sell_qty := sum(float(s.qty) for s in sells)) else 0
+    exit_date    = max(pd.Timestamp(s.transaction_time) for s in sells).strftime("%Y-%m-%d")
+    has_exited   = True
+    realized_pnl = round((actual_exit - actual_entry) * total_buy_qty, 2)
+    # TAF fee is $0.01 on paper — negligible, not fetched
+else:
+    actual_exit  = None
+    exit_date    = None
+    has_exited   = False
+    realized_pnl = 0.0
+
+# ============================================================
+# ACCOUNT
+# ============================================================
+account       = api.get_account()
+portfolio_val = float(account.equity)
+cash          = float(account.cash)
+
+try:
+    position     = api.get_position(SYMBOL)
+    has_position = True
+except Exception:
+    has_position = False
+
+# ============================================================
+# SPY PRICES
 # ============================================================
 spy = yf.download(
-    "SPY",
-    start=ENTRY_DATE,
+    SYMBOL,
+    start=entry_date,
     end=(date.today() + pd.Timedelta(days=1)).strftime("%Y-%m-%d"),
     auto_adjust=True,
     progress=False
 )
 
-exit_dt = pd.Timestamp(EXIT_DATE) if EXIT_DATE else None
+exit_dt = pd.Timestamp(exit_date) if exit_date else None
 
 # ============================================================
 # BUILD JOURNAL
 # ============================================================
 rows = []
-for i, (idx, row) in enumerate(spy.iterrows()):
-    trade_date = idx
-    spy_close  = round(float(row["Close"].item()), 2)
+for idx, row in spy.iterrows():
+    spy_close = round(float(row["Close"].item()), 2)
 
-    if exit_dt is None or trade_date <= exit_dt:
-        # Position OPEN — P&L vs actual fill price
-        unrealized = round((spy_close - ACTUAL_ENTRY) * SHARES, 2)
-        pnl_pct    = round(((spy_close - ACTUAL_ENTRY) / ACTUAL_ENTRY) * 100, 3)
+    if exit_dt is None or idx <= exit_dt:
+        unrealized = round((spy_close - actual_entry) * total_buy_qty, 2)
+        pnl_pct    = round(((spy_close - actual_entry) / actual_entry) * 100, 3)
         port_val   = round(STARTING_CASH + unrealized, 2)
-        status     = f"Long {SHARES} SPY"
-        capital    = round(ACTUAL_ENTRY * SHARES, 2)
+        status     = f"Long {int(total_buy_qty)} {SYMBOL}"
+        capital    = round(actual_entry * total_buy_qty, 2)
     else:
-        # Position FLAT — everything frozen at realized P&L
         unrealized = 0.00
         pnl_pct    = 0.000
-        port_val   = round(STARTING_CASH + REALIZED_PNL, 2)
+        port_val   = round(STARTING_CASH + realized_pnl, 2)
         status     = "FLAT"
         capital    = 0.00
 
     rows.append({
-        "Date":             trade_date.strftime("%Y-%m-%d"),
+        "Date":             idx.strftime("%Y-%m-%d"),
         "SPY_Close":        spy_close,
         "Status":           status,
         "Capital_Deployed": capital,
@@ -77,7 +114,7 @@ journal.index.name = "Day"
 # PRINT
 # ============================================================
 print("=" * 70)
-print("ALPACA PAPER JOURNAL — SPY (Actual Fill Prices)")
+print(f"ALPACA PAPER JOURNAL — {SYMBOL}")
 print("=" * 70)
 print(journal[[
     "Date", "SPY_Close", "Status",
@@ -88,18 +125,18 @@ latest  = journal.iloc[-1]
 is_flat = latest["Status"] == "FLAT"
 
 print("\n--- LATEST SNAPSHOT ---")
-print(f"Actual Entry Price:      ${ACTUAL_ENTRY:.3f}/share (Alpaca fill)")
-print(f"Actual Exit Price:       ${ACTUAL_EXIT:.3f}/share (Alpaca fill)")
-print(f"Current SPY Close:       ${latest['SPY_Close']:.2f} (yfinance ref)")
-print(f"Position:                {latest['Status']}")
-if is_flat:
-    print(f"Realized P&L:            ${REALIZED_PNL:+.2f} (incl. TAF fee)")
-    print(f"Unrealized P&L:          $0.00")
-else:
-    print(f"Unrealized P&L:          ${latest['Unrealized_PnL']:+.2f}")
-    print(f"P&L %:                   {latest['PnL_Pct']:+.3f}%")
-print(f"Portfolio Value:         ${latest['Portfolio_Value']:,.2f}")
-print(f"(Alpaca cash balance:    $100,015.57 — source of truth)")
+print(f"Actual Entry:     ${actual_entry:.3f}/share  (Alpaca fills)")
+if has_exited:
+    print(f"Actual Exit:      ${actual_exit:.3f}/share  (Alpaca fills)")
+    print(f"Realized P&L:     ${realized_pnl:+.2f}")
+print(f"Current Close:    ${latest['SPY_Close']:.2f}  (yfinance)")
+print(f"Position:         {latest['Status']}")
+if not is_flat:
+    print(f"Unrealized P&L:   ${latest['Unrealized_PnL']:+.2f}")
+    print(f"P&L %:            {latest['PnL_Pct']:+.3f}%")
+print(f"Journal Value:    ${latest['Portfolio_Value']:,.2f}")
+print(f"Alpaca Equity:    ${portfolio_val:,.2f}  ← source of truth")
+print(f"Alpaca Cash:      ${cash:,.2f}")
 
 journal.to_csv("alpaca_journal.csv")
 print("\nSaved: alpaca_journal.csv")
