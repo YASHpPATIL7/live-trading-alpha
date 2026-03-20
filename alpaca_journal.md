@@ -341,7 +341,3 @@ Mar 12 (Day 4): Oil hits $100/barrel, US futures falling on oil fears → SPY -1
   This is why technical signals exist — they encode fear
   before the fundamental news arrives on your screen.
 
-- Tomorrow (Day 10 — Mar 20):
-  AlpacaDaily.py run after 1:30 AM IST.
-  Projects 3-4 (Decision Tree + Random Forest) if not complete.
-  Push GitHub commits. Journal Day 10.

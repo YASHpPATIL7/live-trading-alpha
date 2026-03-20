@@ -411,7 +411,12 @@ final_features = [
     "PC1", "PC2"           # compressed trend + activity components
 ]
 
-df_model = df[final_features + ["Target"]].dropna()
+df_model = df[["Date", "Ticker"] + final_features + ["Target"]].dropna()
+
+print(f"\n--- FINAL FEATURE MATRIX ---")
+print(f"Shape: {df_model.shape}")
+print(df_model[["Date", "Ticker", "RSI_14", "Market_regime", "Target"]].head(10))
+# Now you can see: which date, which stock, key signals, and what you're predicting
 
 print(f"\n--- FINAL FEATURE MATRIX ---")
 print(f"Shape: {df_model.shape}")
