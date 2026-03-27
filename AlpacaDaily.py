@@ -44,7 +44,7 @@ if session == "CLOSED":
 # ============================================================
 # SIGNAL — yfinance for MA only
 # ============================================================
-spy          = yf.download("SPY", period="60d", auto_adjust=True, progress=False)
+spy          = yf.download("SPY", period="6mo", auto_adjust=True, progress=False)
 ma_20        = float(spy["Close"].rolling(20).mean().iloc[-1].item())
 ma_50        = float(spy["Close"].rolling(50).mean().iloc[-1].item())
 latest_close = float(spy["Close"].iloc[-1].item())
