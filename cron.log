@@ -5,3 +5,10 @@ Position:  FLAT
 Equity:    $100,015.57
 Cash:      $100,015.57
 ACTION: FLAT — waiting for Golden Cross
+Session: REGULAR
+MA20: $660.16  |  MA50: $675.73
+Signal: BEARISH (MA20 < MA50)
+Position:  FLAT
+Equity:    $100,015.57
+Cash:      $100,015.57
+ACTION: FLAT — waiting for Golden Cross

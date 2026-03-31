@@ -1,6 +1,7 @@
 # ALPACA PAPER JOURNAL — SPY
-_Last updated: March 26, 2026 | Day 14 of 90_
+_Last updated: March 31, 2026 | Day 17 of 90_
 _Source of truth: Alpaca fills | Close prices: yfinance EOD_
+_Narrative context: auto-generated via Groq (llama-3.1-8b-instant) + yfinance news_
 
 > ⚠️ **RECONCILIATION NOTE**  
 > All P&L uses Alpaca fill prices. Entry: **$666.436/share**
@@ -37,7 +38,10 @@ _Source of truth: Alpaca fills | Close prices: yfinance EOD_
 | Day 11 | 2026-03-23 | $655.38 | FLAT | — | — | $100,015.58 |
 | Day 12 | 2026-03-24 | $653.18 | FLAT | — | — | $100,015.58 |
 | Day 13 | 2026-03-25 | $656.82 | FLAT | — | — | $100,015.58 |
-| Day 14 | 2026-03-26 | $654.35 | FLAT | — | — | $100,015.58 |
+| Day 14 | 2026-03-26 | $645.09 | FLAT | — | — | $100,015.58 |
+| Day 15 | 2026-03-27 | $634.09 | FLAT | — | — | $100,015.58 |
+| Day 16 | 2026-03-30 | $631.97 | FLAT | — | — | $100,015.58 |
+| Day 17 | 2026-03-31 | $641.88 | FLAT | — | — | $100,015.58 |
 
 ## Benchmark vs Strategy
 _Buy-and-hold from Day 1 close $676.42 — 147.8371 shares_
@@ -57,7 +61,10 @@ _Buy-and-hold from Day 1 close $676.42 — 147.8371 shares_
 | Day 11 | 2026-03-23 | $100,015.58 | $96,889.48 | +0.0156% | -3.111% | **+3.127%** |
 | Day 12 | 2026-03-24 | $100,015.58 | $96,564.24 | +0.0156% | -3.436% | **+3.452%** |
 | Day 13 | 2026-03-25 | $100,015.58 | $97,102.36 | +0.0156% | -2.898% | **+2.914%** |
-| Day 14 | 2026-03-26 | $100,015.58 | $96,737.21 | +0.0156% | -3.263% | **+3.279%** |
+| Day 14 | 2026-03-26 | $100,015.58 | $95,368.23 | +0.0156% | -4.632% | **+4.648%** |
+| Day 15 | 2026-03-27 | $100,015.58 | $93,742.03 | +0.0156% | -6.258% | **+6.274%** |
+| Day 16 | 2026-03-30 | $100,015.58 | $93,428.61 | +0.0156% | -6.571% | **+6.587%** |
+| Day 17 | 2026-03-31 | $100,015.58 | $94,893.68 | +0.0156% | -5.106% | **+5.122%** |
 
 ## Signal Saved vs Holding
 _Unrealized P&L if position was never closed — honest comparison._
@@ -77,16 +84,16 @@ _Unrealized P&L if position was never closed — honest comparison._
 | Day 11 | 2026-03-23 | $655.38 | -$110.56 | +$126.14 | Flat saved **+$126.14** vs holding |
 | Day 12 | 2026-03-24 | $653.18 | -$132.56 | +$148.14 | Flat saved **+$148.14** vs holding |
 | Day 13 | 2026-03-25 | $656.82 | -$96.16 | +$111.74 | Flat saved **+$111.74** vs holding |
-| Day 14 | 2026-03-26 | $654.35 | -$120.86 | +$136.44 | Flat saved **+$136.44** vs holding |
+| Day 14 | 2026-03-26 | $645.09 | -$213.46 | +$229.04 | Flat saved **+$229.04** vs holding |
+| Day 15 | 2026-03-27 | $634.09 | -$323.46 | +$339.04 | Flat saved **+$339.04** vs holding |
+| Day 16 | 2026-03-30 | $631.97 | -$344.66 | +$360.24 | Flat saved **+$360.24** vs holding |
+| Day 17 | 2026-03-31 | $641.88 | -$245.56 | +$261.14 | Flat saved **+$261.14** vs holding |
 
 ---
 
 ## Daily Entries
 
-> 📝 Numbers are auto-generated. Regime call, market context,
-> strategy note, learnings — fill in manually each day.
-
-### Day 1 — 2026-03-09
+### Day 1 — 2026-03-09 _(narrative: groq)_
 
 | Field | Value |
 |---|---|
@@ -99,19 +106,19 @@ _Unrealized P&L if position was never closed — honest comparison._
 | Benchmark value | $99,999.97 |
 | Alpha (cumulative) | +0.100% |
 
-**Regime call:** _fill in_
+**Regime call:** RISK-OFF — Fed Shock
 
-**Market context:** _fill in_
+**Market context:** The market is experiencing a risk-off sentiment due to Fed Chair Powell's warning of another supply shock. Despite this, the SPY price is still above the MA20 and MA50, but the Death Cross signal indicates a bearish trend. The VIX is high at 27.39.
 
-**Strategy note:** _fill in_
+**Strategy note:** The system correctly identified a bearish trend and entered a long position in SPY, but the MA20/MA50 crossover strategy did not trigger a trade today due to the Death Cross signal.
 
 **What I did today:** _fill in_
 
-**Key learning:** _fill in_
+**Key learning:** The system's ability to identify a bearish trend is correct, but the Death Cross signal overrides the MA20/MA50 crossover strategy, resulting in a missed trade opportunity.
 
 ---
 
-### Day 2 — 2026-03-10
+### Day 2 — 2026-03-10 _(narrative: groq)_
 
 | Field | Value |
 |---|---|
@@ -124,19 +131,19 @@ _Unrealized P&L if position was never closed — honest comparison._
 | Benchmark value | $99,840.31 |
 | Alpha (cumulative) | +0.249% |
 
-**Regime call:** _fill in_
+**Regime call:** RISK-OFF — Fed Shock
 
-**Market context:** _fill in_
+**Market context:** The market is experiencing a risk-off regime due to the Fed Chair's warning of another supply shock. The VIX is high at 27.39, indicating elevated volatility. The WTI oil price is also elevated at $104.76/barrel.
 
-**Strategy note:** _fill in_
+**Strategy note:** The MA20/MA50 crossover system did not trigger a sell signal today, as the MA20 is still below the MA50, indicating a bearish signal is not present. However, the system's inaction was correct as the market is experiencing a risk-off regime.
 
 **What I did today:** _fill in_
 
-**Key learning:** _fill in_
+**Key learning:** The system's inaction during a risk-off regime is correct, as the primary focus is on preserving capital during such periods.
 
 ---
 
-### Day 3 — 2026-03-11
+### Day 3 — 2026-03-11 _(narrative: groq)_
 
 | Field | Value |
 |---|---|
@@ -149,19 +156,19 @@ _Unrealized P&L if position was never closed — honest comparison._
 | Benchmark value | $99,714.65 |
 | Alpha (cumulative) | +0.366% |
 
-**Regime call:** _fill in_
+**Regime call:** RISK-OFF — Fed Shock
 
-**Market context:** _fill in_
+**Market context:** Market sentiment lifted on de-escalation hopes, but VIX remains elevated at 27.39. WTI Oil price increased, and 10Y Treasury yield rose to 4.328%. SPY price closed at $674.49.
 
-**Strategy note:** _fill in_
+**Strategy note:** MA20 ($660.25) is below MA50 ($675.76), indicating a bearish signal. The system did not enter a trade today, as the signal is not conducive to a long position.
 
 **What I did today:** _fill in_
 
-**Key learning:** _fill in_
+**Key learning:** The strategy's ability to avoid a losing trade is more valuable than a single winning trade.
 
 ---
 
-### Day 4 — 2026-03-12
+### Day 4 — 2026-03-12 _(narrative: groq)_
 
 | Field | Value |
 |---|---|
@@ -174,19 +181,19 @@ _Unrealized P&L if position was never closed — honest comparison._
 | Benchmark value | $98,200.79 |
 | Alpha (cumulative) | +1.777% |
 
-**Regime call:** _fill in_
+**Regime call:** RISK-OFF — Fed Shock
 
-**Market context:** _fill in_
+**Market context:** The market is experiencing a risk-off regime due to the Fed's warning about another supply shock. The VIX is elevated at 27.39. Oil prices are also high at $104.76/barrel.
 
-**Strategy note:** _fill in_
+**Strategy note:** The MA20/MA50 crossover system generated a bearish signal today, but the system did not short as the long position was already open. This was correct because the system is not designed to short.
 
 **What I did today:** _fill in_
 
-**Key learning:** _fill in_
+**Key learning:** The system's long position was profitable today despite the bearish signal, highlighting the importance of position sizing and risk management in a trend-following strategy.
 
 ---
 
-### Day 5 — 2026-03-13
+### Day 5 — 2026-03-13 _(narrative: groq)_
 
 | Field | Value |
 |---|---|
@@ -200,19 +207,19 @@ _Unrealized P&L if position was never closed — honest comparison._
 | Benchmark value | $97,644.93 |
 | Alpha (cumulative) | +2.371% |
 
-**Regime call:** _fill in_
+**Regime call:** RISK-OFF — Fed Shock
 
-**Market context:** _fill in_
+**Market context:** The market is currently experiencing a risk-off regime due to the impending supply shock warned by the Fed Chair. The VIX index is elevated at 27.39, indicating increased market volatility. Oil prices are also high, at $104.76 per barrel.
 
-**Strategy note:** _fill in_
+**Strategy note:** The MA20/MA50 crossover strategy correctly identified a bearish signal, but the system did not enter a trade as the position status was already FLAT. This was correct because the signal was not a buy signal.
 
 **What I did today:** _fill in_
 
-**Key learning:** _fill in_
+**Key learning:** A bearish MA crossover signal does not necessarily mean a trade should be entered if the position is already flat.
 
 ---
 
-### Day 6 — 2026-03-16
+### Day 6 — 2026-03-16 _(narrative: groq)_
 
 | Field | Value |
 |---|---|
@@ -226,19 +233,19 @@ _Unrealized P&L if position was never closed — honest comparison._
 | Benchmark value | $98,638.39 |
 | Alpha (cumulative) | +1.378% |
 
-**Regime call:** _fill in_
+**Regime call:** RISK-OFF / Fed Shock
 
-**Market context:** _fill in_
+**Market context:** Markets are higher pre-bell as de-escalation hopes lift risk sentiment. However, Fed Chair Powell's warning of another supply shock is a bearish signal. VIX remains elevated at 27.39.
 
-**Strategy note:** _fill in_
+**Strategy note:** MA20 is below MA50, indicating a bearish crossover. The system did not enter a trade today as it was flat, but the signal would have been to sell given the bearish crossover.
 
 **What I did today:** _fill in_
 
-**Key learning:** _fill in_
+**Key learning:** A bearish MA crossover signal is a valid reason to sell, even if the market is rising in the short term.
 
 ---
 
-### Day 7 — 2026-03-17
+### Day 7 — 2026-03-17 _(narrative: groq)_
 
 | Field | Value |
 |---|---|
@@ -252,19 +259,19 @@ _Unrealized P&L if position was never closed — honest comparison._
 | Benchmark value | $98,897.11 |
 | Alpha (cumulative) | +1.119% |
 
-**Regime call:** _fill in_
+**Regime call:** RISK-OFF
 
-**Market context:** _fill in_
+**Market context:** Markets were relatively calm, with the VIX at 27.39, and the 10Y Treasury yield at 4.328%. Headlines were mixed, with some articles hinting at a potential correction.
 
-**Strategy note:** _fill in_
+**Strategy note:** The MA20/MA50 crossover system is in a BEARISH — Death Cross regime. The system did not enter a position today, as the market conditions did not trigger a signal.
 
 **What I did today:** _fill in_
 
-**Key learning:** _fill in_
+**Key learning:** The system's inaction today was correct, as the market did not trigger a signal, and the realized P&L was locked at +$15.58
 
 ---
 
-### Day 8 — 2026-03-18
+### Day 8 — 2026-03-18 _(narrative: groq)_
 
 | Field | Value |
 |---|---|
@@ -278,19 +285,19 @@ _Unrealized P&L if position was never closed — honest comparison._
 | Benchmark value | $97,517.79 |
 | Alpha (cumulative) | +2.498% |
 
-**Regime call:** _fill in_
+**Regime call:** RISK-OFF — Fed Shock
 
-**Market context:** _fill in_
+**Market context:** The market is experiencing a risk-off regime following Fed Chair Powell's warning of another supply shock. The VIX index is elevated at 27.39, indicating increased volatility. The SPY price closed at $659.63.
 
-**Strategy note:** _fill in_
+**Strategy note:** The MA20/MA50 crossover strategy is in a BEARISH — Death Cross regime, but no trade was executed due to the system being flat. The strategy's inaction was correct as the market is experiencing a risk-off regime.
 
 **What I did today:** _fill in_
 
-**Key learning:** _fill in_
+**Key learning:** The strategy's ability to lock in profits is crucial in a risk-off regime, as seen today with a $+15.58 realized P&L.
 
 ---
 
-### Day 9 — 2026-03-19
+### Day 9 — 2026-03-19 _(narrative: groq)_
 
 | Field | Value |
 |---|---|
@@ -304,19 +311,19 @@ _Unrealized P&L if position was never closed — honest comparison._
 | Benchmark value | $97,276.81 |
 | Alpha (cumulative) | +2.739% |
 
-**Regime call:** _fill in_
+**Regime call:** RISK-OFF / Fed Shock
 
-**Market context:** _fill in_
+**Market context:** The market is experiencing a risk-off sentiment due to Fed Chair Powell's warning of another supply shock. The VIX is elevated at 27.39. The SPY price closed at $658.00.
 
-**Strategy note:** _fill in_
+**Strategy note:** The system is flat, as the MA20/MA50 crossover strategy did not trigger a trade today. This is correct, as the signal is bearish (Death Cross) and the system is designed to avoid trading during such conditions.
 
 **What I did today:** _fill in_
 
-**Key learning:** _fill in_
+**Key learning:** The system's risk management approach is effective in avoiding losses during periods of high market volatility.
 
 ---
 
-### Day 10 — 2026-03-20
+### Day 10 — 2026-03-20 _(narrative: groq)_
 
 | Field | Value |
 |---|---|
@@ -330,19 +337,19 @@ _Unrealized P&L if position was never closed — honest comparison._
 | Benchmark value | $95,882.71 |
 | Alpha (cumulative) | +4.133% |
 
-**Regime call:** _fill in_
+**Regime call:** CAUTIOUS — dead-cat bounce
 
-**Market context:** _fill in_
+**Market context:** The market showed resilience despite warning signs from the Fed Chair and rising VIX. Oil prices continued to climb. The 10Y Treasury yield remained elevated.
 
-**Strategy note:** _fill in_
+**Strategy note:** The MA20/MA50 crossover system remained flat as MA20 was below MA50, indicating no buy or sell signal. This was correct as the market did not follow the bearish signal.
 
 **What I did today:** _fill in_
 
-**Key learning:** _fill in_
+**Key learning:** The system's ability to stay flat in a volatile market environment is crucial for preserving capital.
 
 ---
 
-### Day 11 — 2026-03-23
+### Day 11 — 2026-03-23 _(narrative: groq)_
 
 | Field | Value |
 |---|---|
@@ -356,19 +363,19 @@ _Unrealized P&L if position was never closed — honest comparison._
 | Benchmark value | $96,889.48 |
 | Alpha (cumulative) | +3.127% |
 
-**Regime call:** _fill in_
+**Regime call:** RISK-OFF — Fed Shock
 
-**Market context:** _fill in_
+**Market context:** The market is experiencing a risk-off regime due to the Fed Chair's warning of another supply shock. The VIX is high at 27.39, indicating increased volatility. Oil prices are also elevated.
 
-**Strategy note:** _fill in_
+**Strategy note:** The MA system is in a bearish regime due to the death cross, but did not enter a trade today as the position was already flat. The system's inaction was correct as the market did not provide a clear buy or sell signal.
 
 **What I did today:** _fill in_
 
-**Key learning:** _fill in_
+**Key learning:** The system's ability to avoid trading during periods of high volatility is crucial in maintaining its overall performance.
 
 ---
 
-### Day 12 — 2026-03-24
+### Day 12 — 2026-03-24 _(narrative: groq)_
 
 | Field | Value |
 |---|---|
@@ -382,19 +389,19 @@ _Unrealized P&L if position was never closed — honest comparison._
 | Benchmark value | $96,564.24 |
 | Alpha (cumulative) | +3.452% |
 
-**Regime call:** _fill in_
+**Regime call:** RISK-OFF — Fed Shock
 
-**Market context:** _fill in_
+**Market context:** The market context today is characterized by a bearish signal from the MA20/MA50 crossover strategy and a rising VIX. The Fed Chair's warning of another supply shock is likely contributing to the risk-off sentiment. Meanwhile, the WTI Oil price is stable, and the 10Y Treasury yield is rising.
 
-**Strategy note:** _fill in_
+**Strategy note:** The MA20/MA50 crossover strategy correctly identified a bearish signal, but the system remained flat due to the signal being a death cross, which typically indicates a sell signal. The strategy's inaction was correct as the market declined.
 
 **What I did today:** _fill in_
 
-**Key learning:** _fill in_
+**Key learning:** A death cross signal should be treated with caution and may require a more nuanced approach to determine the optimal course of action.
 
 ---
 
-### Day 13 — 2026-03-25
+### Day 13 — 2026-03-25 _(narrative: groq)_
 
 | Field | Value |
 |---|---|
@@ -408,41 +415,119 @@ _Unrealized P&L if position was never closed — honest comparison._
 | Benchmark value | $97,102.36 |
 | Alpha (cumulative) | +2.914% |
 
-**Regime call:** _fill in_
+**Regime call:** CAUTIOUS — dead-cat bounce
 
-**Market context:** _fill in_
+**Market context:** The market showed resilience despite the Fed Chair's warning of another supply shock. VIX remained elevated, but WTI Oil price dropped. The 10Y Treasury yield also decreased.
 
-**Strategy note:** _fill in_
+**Strategy note:** The MA20/MA50 crossover strategy is currently in a BEARISH — Death Cross regime. The system did not enter a trade today, as the MA20 was below the MA50 and the signal was bearish.
 
 **What I did today:** _fill in_
 
-**Key learning:** _fill in_
+**Key learning:** A dead-cat bounce can occur even in a bearish market regime, highlighting the importance of staying nimble and not over-interpreting short-term market movements.
 
 ---
 
-### Day 14 — 2026-03-26
+### Day 14 — 2026-03-26 _(narrative: groq)_
 
 | Field | Value |
 |---|---|
 | Position | FLAT |
 | Entry (Alpaca fill) | $666.436/share |
-| Close price | $654.35 |
+| Close price | $645.09 |
 | Realized P&L (locked) | +$15.58 |
-| Reference if held | -$120.86 |
-| Signal saved | +$136.44 |
+| Reference if held | -$213.46 |
+| Signal saved | +$229.04 |
 | Portfolio value | $100,015.58 |
-| Benchmark value | $96,737.21 |
-| Alpha (cumulative) | +3.279% |
+| Benchmark value | $95,368.23 |
+| Alpha (cumulative) | +4.648% |
 
-**Regime call:** _fill in_
+**Regime call:** RISK-OFF / Fed Shock
 
-**Market context:** _fill in_
+**Market context:** The market is experiencing a risk-off sentiment due to Fed Chair Powell's warning about another supply shock. The VIX is at 27.39, indicating increased market volatility. Oil prices are also on the rise.
 
-**Strategy note:** _fill in_
+**Strategy note:** The MA20/MA50 crossover strategy did not trigger any trades today, as the signal was bearish (Death Cross) and the system remained flat.
 
 **What I did today:** _fill in_
 
-**Key learning:** _fill in_
+**Key learning:** A bearish MA crossover signal may not always be a buy signal, and staying flat can be a correct decision in uncertain market conditions.
+
+---
+
+### Day 15 — 2026-03-27 _(narrative: groq)_
+
+| Field | Value |
+|---|---|
+| Position | FLAT |
+| Entry (Alpaca fill) | $666.436/share |
+| Close price | $634.09 |
+| Realized P&L (locked) | +$15.58 |
+| Reference if held | -$323.46 |
+| Signal saved | +$339.04 |
+| Portfolio value | $100,015.58 |
+| Benchmark value | $93,742.03 |
+| Alpha (cumulative) | +6.274% |
+
+**Regime call:** CAUTIOUS — dead-cat bounce
+
+**Market context:** Markets remained relatively stable despite the Fed Chair's warning of an impending supply shock. The VIX index increased slightly, while the 10Y Treasury yield remained steady. Oil prices also rose.
+
+**Strategy note:** The MA20/MA50 system remained flat as the Death Cross signal did not trigger a trade. This was correct as the market did not experience a significant downturn.
+
+**What I did today:** _fill in_
+
+**Key learning:** The system's inaction during a period of heightened uncertainty highlights the importance of a well-defined trading plan and risk management.
+
+---
+
+### Day 16 — 2026-03-30 _(narrative: groq)_
+
+| Field | Value |
+|---|---|
+| Position | FLAT |
+| Entry (Alpaca fill) | $666.436/share |
+| Close price | $631.97 |
+| Realized P&L (locked) | +$15.58 |
+| Reference if held | -$344.66 |
+| Signal saved | +$360.24 |
+| Portfolio value | $100,015.58 |
+| Benchmark value | $93,428.61 |
+| Alpha (cumulative) | +6.587% |
+
+**Regime call:** CAUTIOUS — dead-cat bounce
+
+**Market context:** The market showed resilience despite a bearish signal from the MA crossover strategy, with SPY closing at $631.97. VIX remained elevated at 27.39. Headlines were mixed, with a warning from Fed Chair Powell and hopes for de-escalation.
+
+**Strategy note:** The system remained flat as the MA20/MA50 crossover strategy indicated a bearish signal, which was correct given the market's cautious behavior.
+
+**What I did today:** _fill in_
+
+**Key learning:** The strategy's ability to lock in profits and avoid new positions during a dead-cat bounce is crucial for preserving capital.
+
+---
+
+### Day 17 — 2026-03-31 _(narrative: groq)_
+
+| Field | Value |
+|---|---|
+| Position | FLAT |
+| Entry (Alpaca fill) | $666.436/share |
+| Close price | $641.88 |
+| Realized P&L (locked) | +$15.58 |
+| Reference if held | -$245.56 |
+| Signal saved | +$261.14 |
+| Portfolio value | $100,015.58 |
+| Benchmark value | $94,893.68 |
+| Alpha (cumulative) | +5.122% |
+
+**Regime call:** CAUTIOUS — dead-cat bounce
+
+**Market context:** The market experienced a dead-cat bounce, with SPY closing at $641.88, despite a bearish signal from the MA20/MA50 crossover. VIX remained elevated at 27.39. Fed Chair Powell's warning of another supply shock contributed to the cautious market sentiment.
+
+**Strategy note:** The system did not enter a trade today due to a bearish signal from the MA20/MA50 crossover. The system's inaction was correct as the market experienced a dead-cat bounce.
+
+**What I did today:** _fill in_
+
+**Key learning:** A bearish signal from the MA20/MA50 crossover does not guarantee a sell signal, as the market can experience a dead-cat bounce.
 
 ---
 
@@ -453,4 +538,4 @@ _Unrealized P&L if position was never closed — honest comparison._
 | _add entries here_ | | | | |
 
 ---
-_Day 14 of 90 · Alpaca equity: $100,015.57 · Cumulative alpha vs SPY: +3.279%_
+_Day 17 of 90 · Alpaca equity: $100,015.57 · Cumulative alpha vs SPY: +5.122%_
