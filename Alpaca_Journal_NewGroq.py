@@ -28,7 +28,7 @@ api = tradeapi.REST(API_KEY, SECRET_KEY, BASE_URL, api_version="v2")
 # ============================================================
 # [UNCHANGED] PULL FILLS, ACCOUNT, SPY PRICES, BUILD JOURNAL
 # ============================================================
-activities = api.get_activities(activity_types="FILL")
+activities = api.get_account_activities(activity_types="FILL")
 
 buys  = [a for a in activities if a.symbol == SYMBOL and a.side == "buy"]
 sells = [a for a in activities if a.symbol == SYMBOL and a.side == "sell"]
