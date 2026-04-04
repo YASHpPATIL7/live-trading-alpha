@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 import os
 import json
 import requests
+import time
 from groq import Groq
 
 
@@ -32,7 +33,7 @@ api = tradeapi.REST(API_KEY, SECRET_KEY, BASE_URL, api_version="v2")
 
 
 # ============================================================
-# PULL FILLS VIA DIRECT REST (returns list of dicts)
+# PULL FILLS VIA DIRECT REST
 # ============================================================
 _headers = {"APCA-API-KEY-ID": API_KEY, "APCA-API-SECRET-KEY": SECRET_KEY}
 _resp = requests.get(
@@ -40,10 +41,9 @@ _resp = requests.get(
     headers=_headers
 )
 _resp.raise_for_status()
-activities = _resp.json()   # list of dicts — use ["key"] not .key
+activities = _resp.json()
 
 
-# Filter buys / sells using dict access
 buys  = [a for a in activities if a["symbol"] == SYMBOL and a["side"] == "buy"]
 sells = [a for a in activities if a["symbol"] == SYMBOL and a["side"] == "sell"]
 
@@ -84,27 +84,51 @@ except Exception:
     has_position = False
 
 
-import time
-
-spy = pd.DataFrame()
-for attempt in range(5):
-    try:
-        spy = yf.download(
-            SYMBOL,
-            start=entry_date,
-            end=(date.today() + pd.Timedelta(days=1)).strftime("%Y-%m-%d"),
-            auto_adjust=True,
-            progress=False
-        )
-        if not spy.empty:
+# ============================================================
+# DOWNLOAD SPY VIA ALPACA MARKET DATA (replaces yfinance)
+# ============================================================
+def get_spy_bars_alpaca(symbol, start_date, end_date, api_key, secret_key):
+    url = f"https://data.alpaca.markets/v2/stocks/{symbol}/bars"
+    headers = {
+        "APCA-API-KEY-ID": api_key,
+        "APCA-API-SECRET-KEY": secret_key
+    }
+    params = {
+        "start": start_date,
+        "end": end_date,
+        "timeframe": "1Day",
+        "adjustment": "all",
+        "limit": 1000
+    }
+    bars = []
+    while True:
+        resp = requests.get(url, headers=headers, params=params)
+        resp.raise_for_status()
+        data = resp.json()
+        bars.extend(data.get("bars", []))
+        next_token = data.get("next_page_token")
+        if not next_token:
             break
-        print(f"  Attempt {attempt+1}: empty response, retrying in 15s...")
-    except Exception as e:
-        print(f"  Attempt {attempt+1}: {e}, retrying in 15s...")
-    time.sleep(15)
+        params["page_token"] = next_token
 
-if spy.empty:
-    raise RuntimeError(f"yfinance failed after 5 attempts — could not download {SYMBOL} data.")
+    if not bars:
+        raise RuntimeError(f"Alpaca returned no bars for {symbol}")
+
+    df = pd.DataFrame(bars)
+    df["t"] = pd.to_datetime(df["t"]).dt.tz_localize(None)
+    df = df.set_index("t")
+    df = df.rename(columns={"c": "Close", "o": "Open", "h": "High", "l": "Low", "v": "Volume"})
+    df.index.name = "Date"
+    return df
+
+
+spy = get_spy_bars_alpaca(
+    SYMBOL,
+    entry_date,
+    (date.today() + pd.Timedelta(days=1)).strftime("%Y-%m-%d"),
+    API_KEY,
+    SECRET_KEY
+)
 
 
 exit_dt = pd.Timestamp(exit_date) if exit_date else None
@@ -112,7 +136,7 @@ exit_dt = pd.Timestamp(exit_date) if exit_date else None
 
 rows = []
 for idx, row in spy.iterrows():
-    spy_close = round(float(row["Close"].item()), 2)
+    spy_close = round(float(row["Close"]), 2)
     if exit_dt is None or idx <= exit_dt:
         unrealized = round((spy_close - actual_entry) * total_buy_qty, 2)
         pnl_pct    = round(((spy_close - actual_entry) / actual_entry) * 100, 3)
@@ -169,13 +193,13 @@ print(f"Actual Entry:     ${actual_entry:.3f}/share  (Alpaca fills)")
 if has_exited:
     print(f"Actual Exit:      ${actual_exit:.3f}/share  (Alpaca fills)")
     print(f"Realized P&L:     ${realized_pnl:+.2f}")
-print(f"Current Close:    ${latest['SPY_Close']:.2f}  (yfinance)")
+print(f"Current Close:    ${latest['SPY_Close']:.2f}  (Alpaca market data)")
 print(f"Position:         {latest['Status']}")
 if not is_flat:
     print(f"Unrealized P&L:   ${latest['Unrealized_PnL']:+.2f}")
     print(f"P&L %:            {latest['PnL_Pct']:+.3f}%")
 print(f"Journal Value:    ${latest['Portfolio_Value']:,.2f}")
-print(f"Alpaca Equity:    ${portfolio_val:,.2f}  ← source of truth")
+print(f"Alpaca Equity:    ${portfolio_val:,.2f}  <- source of truth")
 print(f"Alpaca Cash:      ${cash:,.2f}")
 
 journal.to_csv("alpaca_journal.csv")
@@ -187,29 +211,22 @@ print("\nSaved: alpaca_journal.csv")
 # ============================================================
 def fetch_market_context(spy_df: pd.DataFrame) -> dict:
     ctx = {}
-    spy_hist = yf.Ticker(SYMBOL).history(period="60d")["Close"]
-    ctx["ma20"] = round(float(spy_hist.rolling(20).mean().iloc[-1]), 2)
-    ctx["ma50"] = round(float(spy_hist.rolling(50).mean().iloc[-1]), 2)
+
+    # MA20/MA50 from already-downloaded Alpaca data — never rate limited
+    spy_close = spy_df["Close"]
+    ctx["ma20"] = round(float(spy_close.rolling(20).mean().iloc[-1]), 2)
+    ctx["ma50"] = round(float(spy_close.rolling(50).mean().iloc[-1]), 2)
     ctx["signal"] = "BEARISH — Death Cross" if ctx["ma20"] < ctx["ma50"] else "BULLISH — Golden Cross"
 
-    try:
-        vix = yf.Ticker("^VIX").history(period="5d")["Close"]
-        ctx["vix"] = round(float(vix.iloc[-1]), 2)
-    except Exception:
-        ctx["vix"] = "N/A"
+    # VIX, Oil, Yield — yfinance soft-fail (N/A if rate limited, won't crash)
+    for ticker, key in [("^VIX", "vix"), ("CL=F", "oil"), ("^TNX", "yield_10y")]:
+        try:
+            val = yf.Ticker(ticker).history(period="5d")["Close"]
+            ctx[key] = round(float(val.iloc[-1]), 2)
+        except Exception:
+            ctx[key] = "N/A"
 
-    try:
-        oil = yf.Ticker("CL=F").history(period="5d")["Close"]
-        ctx["oil"] = round(float(oil.iloc[-1]), 2)
-    except Exception:
-        ctx["oil"] = "N/A"
-
-    try:
-        tnx = yf.Ticker("^TNX").history(period="5d")["Close"]
-        ctx["yield_10y"] = round(float(tnx.iloc[-1]), 3)
-    except Exception:
-        ctx["yield_10y"] = "N/A"
-
+    # Headlines — soft-fail
     try:
         news_items = yf.Ticker(SYMBOL).news or []
         headlines = []
@@ -231,7 +248,7 @@ def fetch_market_context(spy_df: pd.DataFrame) -> dict:
 # ============================================================
 def generate_narrative(day_label, row, ctx, actual_entry, realized_pnl, has_exited):
     if not GROQ_API_KEY:
-        print("⚠️  GROQ_API_KEY not set — skipping narrative generation.")
+        print("  GROQ_API_KEY not set — skipping narrative generation.")
         return _placeholder_narrative()
 
     client = Groq(api_key=GROQ_API_KEY)
@@ -241,13 +258,11 @@ def generate_narrative(day_label, row, ctx, actual_entry, realized_pnl, has_exit
         if has_exited and row["Status"] == "FLAT"
         else f"Unrealized P&L: ${row['Unrealized_PnL']:+.2f} ({row['PnL_Pct']:+.3f}%)"
     )
-
     signal_saved_line = (
         f"Signal saved vs passive hold: ${row['Signal_Saved']:+.2f}"
         if has_exited else ""
     )
-
-    headlines_block = "\n".join(f"  • {h}" for h in ctx["headlines"])
+    headlines_block = "\n".join(f"  - {h}" for h in ctx["headlines"])
 
     prompt = f"""You are writing daily narrative entries for a quantitative trading journal.
 The trader runs a paper portfolio ($100k) on SPY using a simple MA20/MA50 crossover strategy.
@@ -277,10 +292,10 @@ WTI Oil: ${ctx['oil']}/barrel
 === INSTRUCTIONS ===
 Return ONLY a JSON object with exactly these 4 keys:
 {{
-  "regime_call": "one short label, e.g. RISK-OFF / Fed Shock or CAUTIOUS — dead-cat bounce",
-  "market_context": "2–3 sentences summarising what actually happened in markets today based on headlines and macro data",
-  "strategy_note": "1–2 sentences: MA status, what the system did (or didn't do), and why that was correct",
-  "key_learning": "one punchy sentence — the most important lesson from today's data"
+  "regime_call": "one short label e.g. RISK-OFF / Fed Shock",
+  "market_context": "2-3 sentences on what happened in markets today",
+  "strategy_note": "1-2 sentences on MA status and what the system did",
+  "key_learning": "one punchy sentence — the most important lesson from today"
 }}
 No explanation, no markdown, no extra keys. Pure JSON only."""
 
@@ -299,7 +314,7 @@ No explanation, no markdown, no extra keys. Pure JSON only."""
         result["source"] = "groq"
         return result
     except Exception as e:
-        print(f"⚠️  Groq call failed: {e}")
+        print(f"  Groq call failed: {e}")
         return _placeholder_narrative()
 
 
@@ -403,12 +418,12 @@ def build_md(journal, actual_entry, actual_exit, has_exited, realized_pnl,
     L += [
         f"# ALPACA PAPER JOURNAL — {SYMBOL}",
         f"_Last updated: {today_str} | Day {total_days} of 90_",
-        f"_Source of truth: Alpaca fills | Close prices: yfinance EOD_",
+        f"_Source of truth: Alpaca fills | Close prices: Alpaca Market Data API_",
         f"_Narrative context: auto-generated via Groq (llama-3.1-8b-instant) + yfinance news_",
         "",
         "> ⚠️ **RECONCILIATION NOTE**  ",
         f"> All P&L uses Alpaca fill prices. Entry: **${actual_entry:.3f}/share**",
-        f"> ({entry_date}, after-hours fill). yfinance is used for close prices only.",
+        f"> ({entry_date}, after-hours fill).",
         "",
     ]
 
@@ -428,7 +443,7 @@ def build_md(journal, actual_entry, actual_exit, has_exited, realized_pnl,
         f"| Capital deployed | ${actual_entry * total_buy_qty:,.2f}"
         f" ({actual_entry * total_buy_qty / STARTING_CASH * 100:.2f}% of portfolio) |",
         f"| Starting capital | ${STARTING_CASH:,} |",
-        f"| Alpaca equity | ${portfolio_val:,.2f} ← source of truth |",
+        f"| Alpaca equity | ${portfolio_val:,.2f} <- source of truth |",
         f"| Alpaca cash | ${cash:,.2f} |",
         "",
     ]
@@ -525,9 +540,6 @@ def build_md(journal, actual_entry, actual_exit, has_exited, realized_pnl,
         "| # | Date | Observation | Hypothesis | Status |",
         "|---|---|---|---|---|",
         "| _add entries here_ | | | | |", "",
-    ]
-
-    L += [
         "---",
         f"_Day {total_days} of 90 · Alpaca equity: ${portfolio_val:,.2f}"
         f" · Cumulative alpha vs SPY: {latest['Alpha_Pct']:+.3f}%_",
