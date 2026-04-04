@@ -28,7 +28,10 @@ api = tradeapi.REST(API_KEY, SECRET_KEY, BASE_URL, api_version="v2")
 # ============================================================
 # [UNCHANGED] PULL FILLS, ACCOUNT, SPY PRICES, BUILD JOURNAL
 # ============================================================
-activities = api.get_account_activities(activity_types="FILL")
+import requests as _req
+_headers = {"APCA-API-KEY-ID": API_KEY, "APCA-API-SECRET-KEY": SECRET_KEY}
+_resp = _req.get(f"{BASE_URL}/v2/account/activities", params={"activity_types": "FILL"}, headers=_headers)
+activities = _resp.json()
 
 buys  = [a for a in activities if a.symbol == SYMBOL and a.side == "buy"]
 sells = [a for a in activities if a.symbol == SYMBOL and a.side == "sell"]
