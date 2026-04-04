@@ -84,13 +84,27 @@ except Exception:
     has_position = False
 
 
-spy = yf.download(
-    SYMBOL,
-    start=entry_date,
-    end=(date.today() + pd.Timedelta(days=1)).strftime("%Y-%m-%d"),
-    auto_adjust=True,
-    progress=False
-)
+import time
+
+spy = pd.DataFrame()
+for attempt in range(5):
+    try:
+        spy = yf.download(
+            SYMBOL,
+            start=entry_date,
+            end=(date.today() + pd.Timedelta(days=1)).strftime("%Y-%m-%d"),
+            auto_adjust=True,
+            progress=False
+        )
+        if not spy.empty:
+            break
+        print(f"  Attempt {attempt+1}: empty response, retrying in 15s...")
+    except Exception as e:
+        print(f"  Attempt {attempt+1}: {e}, retrying in 15s...")
+    time.sleep(15)
+
+if spy.empty:
+    raise RuntimeError(f"yfinance failed after 5 attempts — could not download {SYMBOL} data.")
 
 
 exit_dt = pd.Timestamp(exit_date) if exit_date else None
