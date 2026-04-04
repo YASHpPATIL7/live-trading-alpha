@@ -1,5 +1,4 @@
-alpaca-trade-api==3.3.2
-alpaca-py==0.26.0
+alpaca-trade-api==3.2.0
 yfinance==0.2.54
 groq==0.13.0
 pandas==2.2.3
