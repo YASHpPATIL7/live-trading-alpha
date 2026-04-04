@@ -98,7 +98,8 @@ def get_spy_bars_alpaca(symbol, start_date, end_date, api_key, secret_key):
         "end": end_date,
         "timeframe": "1Day",
         "adjustment": "all",
-        "limit": 1000
+        "limit": 1000,
+        "feed": "iex"
     }
     bars = []
     while True:
