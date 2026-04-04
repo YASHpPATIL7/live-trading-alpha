@@ -5,9 +5,12 @@ from datetime import date
 from dotenv import load_dotenv
 import os
 import json
+import requests
 from groq import Groq
 
+
 load_dotenv(override=True)
+
 
 # ============================================================
 # CONFIG
@@ -18,37 +21,48 @@ GROQ_API_KEY  = os.getenv("GROQ_API_KEY")
 BASE_URL      = "https://paper-api.alpaca.markets"
 SYMBOL        = "SPY"
 STARTING_CASH = 100_000
-NARRATIVES_FILE = "alpaca_journal_narratives.json"  # ← NEW: persistent narrative store
+NARRATIVES_FILE = "alpaca_journal_narratives.json"
+
 
 if not API_KEY or not SECRET_KEY:
     raise EnvironmentError("Alpaca keys not found. Check your .env file.")
 
+
 api = tradeapi.REST(API_KEY, SECRET_KEY, BASE_URL, api_version="v2")
 
-# ============================================================
-# [UNCHANGED] PULL FILLS, ACCOUNT, SPY PRICES, BUILD JOURNAL
-# ============================================================
-import requests as _req
-_headers = {"APCA-API-KEY-ID": API_KEY, "APCA-API-SECRET-KEY": SECRET_KEY}
-_resp = _req.get(f"{BASE_URL}/v2/account/activities", params={"activity_types": "FILL"}, headers=_headers)
-activities = _resp.json()
 
-buys  = [a for a in activities if a.symbol == SYMBOL and a.side == "buy"]
-sells = [a for a in activities if a.symbol == SYMBOL and a.side == "sell"]
+# ============================================================
+# PULL FILLS VIA DIRECT REST (returns list of dicts)
+# ============================================================
+_headers = {"APCA-API-KEY-ID": API_KEY, "APCA-API-SECRET-KEY": SECRET_KEY}
+_resp = requests.get(
+    f"{BASE_URL}/v2/account/activities/FILL",
+    headers=_headers
+)
+_resp.raise_for_status()
+activities = _resp.json()   # list of dicts — use ["key"] not .key
+
+
+# Filter buys / sells using dict access
+buys  = [a for a in activities if a["symbol"] == SYMBOL and a["side"] == "buy"]
+sells = [a for a in activities if a["symbol"] == SYMBOL and a["side"] == "sell"]
+
 
 if not buys:
     raise ValueError(f"No buy fills found for {SYMBOL}")
 
-total_buy_cost = sum(float(b.price) * float(b.qty) for b in buys)
-total_buy_qty  = sum(float(b.qty) for b in buys)
+
+total_buy_cost = sum(float(b["price"]) * float(b["qty"]) for b in buys)
+total_buy_qty  = sum(float(b["qty"]) for b in buys)
 actual_entry   = total_buy_cost / total_buy_qty
-entry_date     = min(pd.Timestamp(b.transaction_time) for b in buys).strftime("%Y-%m-%d")
+entry_date     = min(pd.Timestamp(b["transaction_time"]) for b in buys).strftime("%Y-%m-%d")
+
 
 if sells:
-    total_sell_proceeds = sum(float(s.price) * float(s.qty) for s in sells)
-    total_sell_qty      = sum(float(s.qty) for s in sells)
+    total_sell_proceeds = sum(float(s["price"]) * float(s["qty"]) for s in sells)
+    total_sell_qty      = sum(float(s["qty"]) for s in sells)
     actual_exit         = total_sell_proceeds / total_sell_qty
-    exit_date           = max(pd.Timestamp(s.transaction_time) for s in sells).strftime("%Y-%m-%d")
+    exit_date           = max(pd.Timestamp(s["transaction_time"]) for s in sells).strftime("%Y-%m-%d")
     has_exited          = True
     realized_pnl        = round((actual_exit - actual_entry) * total_buy_qty, 2)
 else:
@@ -57,15 +71,18 @@ else:
     has_exited   = False
     realized_pnl = 0.0
 
+
 account       = api.get_account()
 portfolio_val = float(account.equity)
 cash          = float(account.cash)
+
 
 try:
     api.get_position(SYMBOL)
     has_position = True
 except Exception:
     has_position = False
+
 
 spy = yf.download(
     SYMBOL,
@@ -75,7 +92,9 @@ spy = yf.download(
     progress=False
 )
 
+
 exit_dt = pd.Timestamp(exit_date) if exit_date else None
+
 
 rows = []
 for idx, row in spy.iterrows():
@@ -103,9 +122,11 @@ for idx, row in spy.iterrows():
         "Portfolio_Value":  port_val
     })
 
+
 journal = pd.DataFrame(rows)
 journal.index = [f"Day {i+1}" for i in range(len(journal))]
 journal.index.name = "Day"
+
 
 benchmark_entry_price = journal["SPY_Close"].iloc[0]
 benchmark_shares      = round(STARTING_CASH / benchmark_entry_price, 4)
@@ -117,8 +138,9 @@ journal["Alpha_Pct"]            = round(journal["Strategy_Return_Pct"] - journal
 journal["Reference_IfHeld"]     = round((journal["SPY_Close"] - actual_entry) * total_buy_qty, 2)
 journal["Signal_Saved"]         = round(realized_pnl - journal["Reference_IfHeld"], 2)
 
+
 # ============================================================
-# [UNCHANGED] CONSOLE PRINT + CSV
+# CONSOLE PRINT + CSV
 # ============================================================
 print("=" * 70)
 print(f"ALPACA PAPER JOURNAL — {SYMBOL}")
@@ -147,40 +169,33 @@ print("\nSaved: alpaca_journal.csv")
 
 
 # ============================================================
-# ★ NEW BLOCK 1 — FETCH MARKET CONTEXT DATA
+# FETCH MARKET CONTEXT
 # ============================================================
 def fetch_market_context(spy_df: pd.DataFrame) -> dict:
-    """Pull macro data from yfinance to ground the LLM prompt in real numbers."""
     ctx = {}
-
-    # MA20 / MA50 from SPY history
     spy_hist = yf.Ticker(SYMBOL).history(period="60d")["Close"]
     ctx["ma20"] = round(float(spy_hist.rolling(20).mean().iloc[-1]), 2)
     ctx["ma50"] = round(float(spy_hist.rolling(50).mean().iloc[-1]), 2)
     ctx["signal"] = "BEARISH — Death Cross" if ctx["ma20"] < ctx["ma50"] else "BULLISH — Golden Cross"
 
-    # VIX
     try:
         vix = yf.Ticker("^VIX").history(period="5d")["Close"]
         ctx["vix"] = round(float(vix.iloc[-1]), 2)
     except Exception:
         ctx["vix"] = "N/A"
 
-    # Oil (WTI front-month)
     try:
         oil = yf.Ticker("CL=F").history(period="5d")["Close"]
         ctx["oil"] = round(float(oil.iloc[-1]), 2)
     except Exception:
         ctx["oil"] = "N/A"
 
-    # 10Y Treasury yield
     try:
         tnx = yf.Ticker("^TNX").history(period="5d")["Close"]
         ctx["yield_10y"] = round(float(tnx.iloc[-1]), 3)
     except Exception:
         ctx["yield_10y"] = "N/A"
 
-    # SPY news headlines (top 5)
     try:
         news_items = yf.Ticker(SYMBOL).news or []
         headlines = []
@@ -198,21 +213,9 @@ def fetch_market_context(spy_df: pd.DataFrame) -> dict:
 
 
 # ============================================================
-# ★ NEW BLOCK 2 — GROQ LLM NARRATIVE GENERATOR
+# GROQ NARRATIVE GENERATOR
 # ============================================================
-def generate_narrative(
-    day_label: str,
-    row: pd.Series,
-    ctx: dict,
-    actual_entry: float,
-    realized_pnl: float,
-    has_exited: bool
-) -> dict:
-    """
-    Call Groq (llama-3.1-8b-instant) to generate the 4 narrative fields.
-    Returns a dict with regime_call, market_context, strategy_note, key_learning.
-    Falls back to placeholder strings if the call fails.
-    """
+def generate_narrative(day_label, row, ctx, actual_entry, realized_pnl, has_exited):
     if not GROQ_API_KEY:
         print("⚠️  GROQ_API_KEY not set — skipping narrative generation.")
         return _placeholder_narrative()
@@ -227,8 +230,7 @@ def generate_narrative(
 
     signal_saved_line = (
         f"Signal saved vs passive hold: ${row['Signal_Saved']:+.2f}"
-        if has_exited
-        else ""
+        if has_exited else ""
     )
 
     headlines_block = "\n".join(f"  • {h}" for h in ctx["headlines"])
@@ -270,14 +272,13 @@ No explanation, no markdown, no extra keys. Pure JSON only."""
 
     try:
         response = client.chat.completions.create(
-            model="llama-3.1-8b-instant",  # 14,400 RPD free tier
+            model="llama-3.1-8b-instant",
             messages=[{"role": "user", "content": prompt}],
             response_format={"type": "json_object"},
             temperature=0.4,
             max_tokens=512
         )
         result = json.loads(response.choices[0].message.content)
-        # Validate keys exist
         for key in ("regime_call", "market_context", "strategy_note", "key_learning"):
             if key not in result:
                 result[key] = "_fill in_"
@@ -288,7 +289,7 @@ No explanation, no markdown, no extra keys. Pure JSON only."""
         return _placeholder_narrative()
 
 
-def _placeholder_narrative() -> dict:
+def _placeholder_narrative():
     return {
         "regime_call":    "_fill in_",
         "market_context": "_fill in_",
@@ -299,98 +300,75 @@ def _placeholder_narrative() -> dict:
 
 
 # ============================================================
-# ★ NEW BLOCK 3 — NARRATIVE STORE (persistent JSON)
+# NARRATIVE STORE
 # ============================================================
-def load_narratives() -> dict:
-    """Load existing narratives from JSON file. Returns {} if file doesn't exist."""
+def load_narratives():
     if os.path.exists(NARRATIVES_FILE):
         with open(NARRATIVES_FILE, "r") as f:
             return json.load(f)
     return {}
 
 
-def save_narratives(narratives: dict):
+def save_narratives(narratives):
     with open(NARRATIVES_FILE, "w") as f:
         json.dump(narratives, f, indent=2)
     print(f"Saved: {NARRATIVES_FILE}")
 
 
-def get_or_generate_narrative(
-    day_label: str,
-    row: pd.Series,
-    narratives: dict,
-    ctx: dict,
-    actual_entry: float,
-    realized_pnl: float,
-    has_exited: bool,
-    force_regenerate: bool = False
-) -> dict:
-    """
-    Return existing narrative if already written (manual or groq).
-    Only call Groq for NEW days or when force_regenerate=True.
-    Manual entries (source='manual') are NEVER overwritten.
-    """
+def get_or_generate_narrative(day_label, row, narratives, ctx,
+                               actual_entry, realized_pnl, has_exited,
+                               force_regenerate=False):
     date_key = row["Date"]
 
     if date_key in narratives:
         existing = narratives[date_key]
-        # Never overwrite manual entries
         if existing.get("source") == "manual":
             print(f"  {day_label} ({date_key}): using manual narrative — preserved")
             return existing
-        # Use cached groq entry unless forced
         if existing.get("source") == "groq" and not force_regenerate:
             print(f"  {day_label} ({date_key}): using cached groq narrative")
             return existing
 
-    # Generate new narrative
     print(f"  {day_label} ({date_key}): generating via Groq...")
-    narrative = generate_narrative(
-        day_label, row, ctx, actual_entry, realized_pnl, has_exited
-    )
+    narrative = generate_narrative(day_label, row, ctx, actual_entry, realized_pnl, has_exited)
     narratives[date_key] = narrative
     return narrative
 
 
 # ============================================================
-# ★ NEW BLOCK 4 — POPULATE NARRATIVES FOR ALL DAYS
+# POPULATE NARRATIVES
 # ============================================================
 print("\n--- GENERATING NARRATIVES ---")
 narratives = load_narratives()
-
-# Fetch market context ONCE (used for latest day only to get real-time data)
-# For historical days already in the store, we use cached narratives
-latest_date = journal.iloc[-1]["Date"]
 ctx = fetch_market_context(spy)
 
 for day_label, row in journal.iterrows():
-    narratives = load_narratives()  # reload each time to pick up saves
+    narratives = load_narratives()
     narrative = get_or_generate_narrative(
         day_label=day_label,
         row=row,
         narratives=narratives,
-        ctx=ctx,  # same ctx used for all; real macro data grounded in today's values
+        ctx=ctx,
         actual_entry=actual_entry,
         realized_pnl=realized_pnl,
         has_exited=has_exited
     )
-    # Only save if this was newly generated (not just retrieved)
     date_key = row["Date"]
     stored = load_narratives()
     if date_key not in stored or stored[date_key].get("source") not in ("manual", "groq"):
         stored[date_key] = narrative
         save_narratives(stored)
 
-# Final load after all generations
 narratives = load_narratives()
 print(f"Narratives ready for {len(narratives)} days.\n")
 
 
 # ============================================================
-# [UNCHANGED] MARKDOWN HELPERS
+# MARKDOWN HELPERS
 # ============================================================
 def _fmt(val):
     return f"+${val:.2f}" if val >= 0 else f"-${abs(val):.2f}"
+
 
 def _signal_note(val):
     if val > 0:
@@ -398,20 +376,16 @@ def _signal_note(val):
     return f"Holding would have been **${abs(val):.2f}** better — honest entry"
 
 
-# ============================================================
-# ★ MODIFIED build_md — reads narratives from store
-# ============================================================
 def build_md(journal, actual_entry, actual_exit, has_exited, realized_pnl,
              entry_date, exit_date, portfolio_val, cash, total_buy_qty,
              benchmark_shares, benchmark_entry_price, SYMBOL, STARTING_CASH,
-             narratives: dict):  # ← new parameter
+             narratives):
 
     today_str  = date.today().strftime("%B %d, %Y")
     total_days = len(journal)
     latest     = journal.iloc[-1]
     L = []
 
-    # ── HEADER ──────────────────────────────────────────────
     L += [
         f"# ALPACA PAPER JOURNAL — {SYMBOL}",
         f"_Last updated: {today_str} | Day {total_days} of 90_",
@@ -424,7 +398,6 @@ def build_md(journal, actual_entry, actual_exit, has_exited, realized_pnl,
         "",
     ]
 
-    # ── TRADE SUMMARY ───────────────────────────────────────
     L += [
         "## Trade Summary", "",
         "| Field | Value |", "|---|---|",
@@ -446,7 +419,6 @@ def build_md(journal, actual_entry, actual_exit, has_exited, realized_pnl,
         "",
     ]
 
-    # ── MASTER TABLE ────────────────────────────────────────
     L += [
         "## Master Table", "",
         "| Day | Date | SPY Close | Status | Unrealized P&L | P&L % | Portfolio Value |",
@@ -459,7 +431,6 @@ def build_md(journal, actual_entry, actual_exit, has_exited, realized_pnl,
                  f"{row['Status']} | {unr} | {pct} | ${row['Portfolio_Value']:,.2f} |")
     L.append("")
 
-    # ── BENCHMARK TABLE ─────────────────────────────────────
     L += [
         "## Benchmark vs Strategy",
         f"_Buy-and-hold from Day 1 close ${benchmark_entry_price:.2f}"
@@ -473,7 +444,6 @@ def build_md(journal, actual_entry, actual_exit, has_exited, realized_pnl,
                  f"{row['Benchmark_Return_Pct']:+.3f}% | **{row['Alpha_Pct']:+.3f}%** |")
     L.append("")
 
-    # ── SIGNAL SAVED TABLE ──────────────────────────────────
     L += [
         "## Signal Saved vs Holding",
         "_Unrealized P&L if position was never closed — honest comparison._", "",
@@ -486,20 +456,18 @@ def build_md(journal, actual_entry, actual_exit, has_exited, realized_pnl,
                  f"{_fmt(row['Reference_IfHeld'])} | {_fmt(row['Signal_Saved'])} | {note} |")
     L.append("")
 
-    # ── DAILY ENTRIES — now narrative-aware ─────────────────
     L += ["---", "", "## Daily Entries", ""]
 
     for i, (lbl, row) in enumerate(journal.iterrows()):
-        is_long   = row["Status"] != "FLAT"
-        date_key  = row["Date"]
+        is_long  = row["Status"] != "FLAT"
+        date_key = row["Date"]
 
-        # Pull narrative (generated or manual)
         narr = narratives.get(date_key, _placeholder_narrative())
         regime_call    = narr.get("regime_call",    "_fill in_")
         market_context = narr.get("market_context", "_fill in_")
         strategy_note  = narr.get("strategy_note",  "_fill in_")
         key_learning   = narr.get("key_learning",   "_fill in_")
-        what_i_did     = narr.get("what_i_did_today", "_fill in_")  # always manual
+        what_i_did     = narr.get("what_i_did_today", "_fill in_")
         narr_source    = narr.get("source", "placeholder")
 
         L += [
@@ -538,7 +506,6 @@ def build_md(journal, actual_entry, actual_exit, has_exited, realized_pnl,
             "---", "",
         ]
 
-    # ── ANOMALY LOG ─────────────────────────────────────────
     L += [
         "## Anomaly Log", "",
         "| # | Date | Observation | Hypothesis | Status |",
@@ -546,7 +513,6 @@ def build_md(journal, actual_entry, actual_exit, has_exited, realized_pnl,
         "| _add entries here_ | | | | |", "",
     ]
 
-    # ── FOOTER ──────────────────────────────────────────────
     L += [
         "---",
         f"_Day {total_days} of 90 · Alpaca equity: ${portfolio_val:,.2f}"
@@ -563,7 +529,7 @@ md_content = build_md(
     journal, actual_entry, actual_exit, has_exited, realized_pnl,
     entry_date, exit_date, portfolio_val, cash, total_buy_qty,
     benchmark_shares, benchmark_entry_price, SYMBOL, STARTING_CASH,
-    narratives=narratives  # ← new
+    narratives=narratives
 )
 
 md_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "alpaca_journal.md")
