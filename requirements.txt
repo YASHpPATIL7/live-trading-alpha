@@ -53,3 +53,5 @@ urllib3==1.26.20
 websocket-client==1.9.0
 yarl==1.22.0
 yfinance==1.2.0
+alpaca-trade-api
+alpaca-py
