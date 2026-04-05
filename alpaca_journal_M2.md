@@ -1,5 +1,5 @@
 # ALPACA PAPER JOURNAL — SPY
-_Last updated: March 31, 2026 | Day 17 of 90_
+_Last updated: April 03, 2026 | Day 19 of 90_
 _Source of truth: Alpaca fills | Close prices: yfinance EOD_
 _Narrative context: auto-generated via Groq (llama-3.1-8b-instant) + yfinance news_
 
@@ -41,7 +41,9 @@ _Narrative context: auto-generated via Groq (llama-3.1-8b-instant) + yfinance ne
 | Day 14 | 2026-03-26 | $645.09 | FLAT | — | — | $100,015.58 |
 | Day 15 | 2026-03-27 | $634.09 | FLAT | — | — | $100,015.58 |
 | Day 16 | 2026-03-30 | $631.97 | FLAT | — | — | $100,015.58 |
-| Day 17 | 2026-03-31 | $641.88 | FLAT | — | — | $100,015.58 |
+| Day 17 | 2026-03-31 | $650.34 | FLAT | — | — | $100,015.58 |
+| Day 18 | 2026-04-01 | $655.24 | FLAT | — | — | $100,015.58 |
+| Day 19 | 2026-04-02 | $655.83 | FLAT | — | — | $100,015.58 |
 
 ## Benchmark vs Strategy
 _Buy-and-hold from Day 1 close $676.42 — 147.8371 shares_
@@ -64,7 +66,9 @@ _Buy-and-hold from Day 1 close $676.42 — 147.8371 shares_
 | Day 14 | 2026-03-26 | $100,015.58 | $95,368.23 | +0.0156% | -4.632% | **+4.648%** |
 | Day 15 | 2026-03-27 | $100,015.58 | $93,742.03 | +0.0156% | -6.258% | **+6.274%** |
 | Day 16 | 2026-03-30 | $100,015.58 | $93,428.61 | +0.0156% | -6.571% | **+6.587%** |
-| Day 17 | 2026-03-31 | $100,015.58 | $94,893.68 | +0.0156% | -5.106% | **+5.122%** |
+| Day 17 | 2026-03-31 | $100,015.58 | $96,144.38 | +0.0156% | -3.856% | **+3.872%** |
+| Day 18 | 2026-04-01 | $100,015.58 | $96,868.78 | +0.0156% | -3.131% | **+3.147%** |
+| Day 19 | 2026-04-02 | $100,015.58 | $96,956.01 | +0.0156% | -3.044% | **+3.060%** |
 
 ## Signal Saved vs Holding
 _Unrealized P&L if position was never closed — honest comparison._
@@ -87,7 +91,9 @@ _Unrealized P&L if position was never closed — honest comparison._
 | Day 14 | 2026-03-26 | $645.09 | -$213.46 | +$229.04 | Flat saved **+$229.04** vs holding |
 | Day 15 | 2026-03-27 | $634.09 | -$323.46 | +$339.04 | Flat saved **+$339.04** vs holding |
 | Day 16 | 2026-03-30 | $631.97 | -$344.66 | +$360.24 | Flat saved **+$360.24** vs holding |
-| Day 17 | 2026-03-31 | $641.88 | -$245.56 | +$261.14 | Flat saved **+$261.14** vs holding |
+| Day 17 | 2026-03-31 | $650.34 | -$160.96 | +$176.54 | Flat saved **+$176.54** vs holding |
+| Day 18 | 2026-04-01 | $655.24 | -$111.96 | +$127.54 | Flat saved **+$127.54** vs holding |
+| Day 19 | 2026-04-02 | $655.83 | -$106.06 | +$121.64 | Flat saved **+$121.64** vs holding |
 
 ---
 
@@ -511,13 +517,13 @@ _Unrealized P&L if position was never closed — honest comparison._
 |---|---|
 | Position | FLAT |
 | Entry (Alpaca fill) | $666.436/share |
-| Close price | $641.88 |
+| Close price | $650.34 |
 | Realized P&L (locked) | +$15.58 |
-| Reference if held | -$245.56 |
-| Signal saved | +$261.14 |
+| Reference if held | -$160.96 |
+| Signal saved | +$176.54 |
 | Portfolio value | $100,015.58 |
-| Benchmark value | $94,893.68 |
-| Alpha (cumulative) | +5.122% |
+| Benchmark value | $96,144.38 |
+| Alpha (cumulative) | +3.872% |
 
 **Regime call:** CAUTIOUS — dead-cat bounce
 
@@ -531,6 +537,58 @@ _Unrealized P&L if position was never closed — honest comparison._
 
 ---
 
+### Day 18 — 2026-04-01 _(narrative: groq)_
+
+| Field | Value |
+|---|---|
+| Position | FLAT |
+| Entry (Alpaca fill) | $666.436/share |
+| Close price | $655.24 |
+| Realized P&L (locked) | +$15.58 |
+| Reference if held | -$111.96 |
+| Signal saved | +$127.54 |
+| Portfolio value | $100,015.58 |
+| Benchmark value | $96,868.78 |
+| Alpha (cumulative) | +3.147% |
+
+**Regime call:** RISK-OFF
+
+**Market context:** The market experienced a risk-off day, driven by the bearish MA cross and elevated VIX, amidst geopolitical tensions and a decline in oil prices.
+
+**Strategy note:** The MA20/MA50 crossover system correctly identified a bearish signal, but did not enter a trade as the position was already flat.
+
+**What I did today:** _fill in_
+
+**Key learning:** The system's ability to identify bearish signals is intact, but it must be used in conjunction with position management to maximize returns.
+
+---
+
+### Day 19 — 2026-04-02 _(narrative: groq)_
+
+| Field | Value |
+|---|---|
+| Position | FLAT |
+| Entry (Alpaca fill) | $666.436/share |
+| Close price | $655.83 |
+| Realized P&L (locked) | +$15.58 |
+| Reference if held | -$106.06 |
+| Signal saved | +$121.64 |
+| Portfolio value | $100,015.58 |
+| Benchmark value | $96,956.01 |
+| Alpha (cumulative) | +3.060% |
+
+**Regime call:** RISK-OFF
+
+**Market context:** The stock market sold off on Trump's speech and surging oil prices, with the Dow experiencing a decline. The VIX index rose to 27.15, indicating increased market volatility. Oil prices surged to $112.24 per barrel.
+
+**Strategy note:** The MA20/MA50 crossover strategy is currently in a BEARISH signal due to the Death Cross, but no trades were executed as the position was flat.
+
+**What I did today:** _fill in_
+
+**Key learning:** The strategy correctly identified a bearish signal, but the lack of a trade execution highlights the importance of position sizing and risk management.
+
+---
+
 ## Anomaly Log
 
 | # | Date | Observation | Hypothesis | Status |
@@ -538,4 +596,4 @@ _Unrealized P&L if position was never closed — honest comparison._
 | _add entries here_ | | | | |
 
 ---
-_Day 17 of 90 · Alpaca equity: $100,015.57 · Cumulative alpha vs SPY: +5.122%_
+_Day 19 of 90 · Alpaca equity: $100,015.57 · Cumulative alpha vs SPY: +3.060%_

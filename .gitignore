@@ -18,3 +18,11 @@ venv/
 # OS
 .DS_Store
 Thumbs.db
+
+# Large data files (regeneratable)
+cs-training.csv
+nse_model_ready.csv
+nse_cluster_assignments.csv
+*.log
+logs/
+cron.log

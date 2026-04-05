@@ -117,5 +117,19 @@
     "strategy_note": "The system did not enter a trade today due to a bearish signal from the MA20/MA50 crossover. The system's inaction was correct as the market experienced a dead-cat bounce.",
     "key_learning": "A bearish signal from the MA20/MA50 crossover does not guarantee a sell signal, as the market can experience a dead-cat bounce.",
     "source": "groq"
+  },
+  "2026-04-01": {
+    "regime_call": "RISK-OFF",
+    "market_context": "The market experienced a risk-off day, driven by the bearish MA cross and elevated VIX, amidst geopolitical tensions and a decline in oil prices.",
+    "strategy_note": "The MA20/MA50 crossover system correctly identified a bearish signal, but did not enter a trade as the position was already flat.",
+    "key_learning": "The system's ability to identify bearish signals is intact, but it must be used in conjunction with position management to maximize returns.",
+    "source": "groq"
+  },
+  "2026-04-02": {
+    "regime_call": "RISK-OFF",
+    "market_context": "The stock market sold off on Trump's speech and surging oil prices, with the Dow experiencing a decline. The VIX index rose to 27.15, indicating increased market volatility. Oil prices surged to $112.24 per barrel.",
+    "strategy_note": "The MA20/MA50 crossover strategy is currently in a BEARISH signal due to the Death Cross, but no trades were executed as the position was flat.",
+    "key_learning": "The strategy correctly identified a bearish signal, but the lack of a trade execution highlights the importance of position sizing and risk management.",
+    "source": "groq"
   }
 }
