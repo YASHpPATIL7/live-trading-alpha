@@ -2,8 +2,8 @@ name: Alpaca Trading Pipeline
 
 on:
   schedule:
-    - cron: '15 8 * * 1-5'    # PREMARKET  — 4:15 AM EDT (1:45 PM IST)
-    - cron: '30 20 * * 1-5'   # POSTCLOSE  — 4:30 PM EDT (2:00 AM IST)
+    - cron: '31 13 * * 1-5'   # 9:31 AM EDT — REGULAR open (best fills)
+    - cron: '30 20 * * 1-5'   # 4:30 PM EDT — post-close journal
   workflow_dispatch:
 permissions:
   contents: write
