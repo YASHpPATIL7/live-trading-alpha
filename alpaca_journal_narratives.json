@@ -138,5 +138,12 @@
     "strategy_note": "MA20 crossed below MA50, triggering a bullish signal. The system remains flat, with no trades executed today.",
     "key_learning": "The strategy's alpha continues to outperform the benchmark, with a cumulative alpha of +2.610%",
     "source": "groq"
+  },
+  "2026-04-07": {
+    "regime_call": "RISK-ON",
+    "market_context": "Equity futures and ETFs declined ahead of Trump's Hormuz deadline, but the S&P 500 bounced after dipping below 6,300.",
+    "strategy_note": "MA20 crossed above MA50, triggering a bullish signal, but the system remains flat as no trades were executed today.",
+    "key_learning": "A bullish regime does not guarantee immediate trading opportunities, as the system must wait for MA crossovers to trigger trades.",
+    "source": "groq"
   }
 }
