@@ -46,7 +46,7 @@ _Narrative context: auto-generated via Groq (llama-3.1-8b-instant) + yfinance ne
 | Day 19 | 2026-04-02 | $655.76 | FLAT | — | — | $100,015.58 |
 | Day 20 | 2026-04-06 | $658.88 | FLAT | — | — | $100,015.58 |
 | Day 21 | 2026-04-07 | $659.23 | FLAT | — | — | $100,015.58 |
-| Day 22 | 2026-04-08 | $672.92 | FLAT | — | — | $100,015.58 |
+| Day 22 | 2026-04-08 | $676.00 | FLAT | — | — | $100,015.58 |
 
 ## Benchmark vs Strategy
 _Buy-and-hold from Day 1 close $676.43 — 147.8350 shares_
@@ -74,7 +74,7 @@ _Buy-and-hold from Day 1 close $676.43 — 147.8350 shares_
 | Day 19 | 2026-04-02 | $100,015.58 | $96,944.28 | +0.0156% | -3.056% | **+3.072%** |
 | Day 20 | 2026-04-06 | $100,015.58 | $97,405.52 | +0.0156% | -2.594% | **+2.610%** |
 | Day 21 | 2026-04-07 | $100,015.58 | $97,457.27 | +0.0156% | -2.543% | **+2.559%** |
-| Day 22 | 2026-04-08 | $100,015.58 | $99,481.13 | +0.0156% | -0.519% | **+0.535%** |
+| Day 22 | 2026-04-08 | $100,015.58 | $99,936.46 | +0.0156% | -0.064% | **+0.080%** |
 
 ## Signal Saved vs Holding
 _Unrealized P&L if position was never closed — honest comparison._
@@ -102,7 +102,7 @@ _Unrealized P&L if position was never closed — honest comparison._
 | Day 19 | 2026-04-02 | $655.76 | -$106.76 | +$122.34 | Flat saved **+$122.34** vs holding |
 | Day 20 | 2026-04-06 | $658.88 | -$75.56 | +$91.14 | Flat saved **+$91.14** vs holding |
 | Day 21 | 2026-04-07 | $659.23 | -$72.06 | +$87.64 | Flat saved **+$87.64** vs holding |
-| Day 22 | 2026-04-08 | $672.92 | +$64.84 | -$49.26 | Holding would have been **$49.26** better — honest entry |
+| Day 22 | 2026-04-08 | $676.00 | +$95.64 | -$80.06 | Holding would have been **$80.06** better — honest entry |
 
 ---
 
@@ -657,13 +657,13 @@ _Unrealized P&L if position was never closed — honest comparison._
 |---|---|
 | Position | FLAT |
 | Entry (Alpaca fill) | $666.436/share |
-| Close price | $672.92 |
+| Close price | $676.00 |
 | Realized P&L (locked) | +$15.58 |
-| Reference if held | +$64.84 |
-| Signal saved | -$49.26 |
+| Reference if held | +$95.64 |
+| Signal saved | -$80.06 |
 | Portfolio value | $100,015.58 |
-| Benchmark value | $99,481.13 |
-| Alpha (cumulative) | +0.535% |
+| Benchmark value | $99,936.46 |
+| Alpha (cumulative) | +0.080% |
 
 **Regime call:** RISK-ON
 
@@ -684,4 +684,4 @@ _Unrealized P&L if position was never closed — honest comparison._
 | _add entries here_ | | | | |
 
 ---
-_Day 22 of 90 · Alpaca equity: $100,015.57 · Cumulative alpha vs SPY: +0.535%_
+_Day 22 of 90 · Alpaca equity: $100,015.57 · Cumulative alpha vs SPY: +0.080%_
