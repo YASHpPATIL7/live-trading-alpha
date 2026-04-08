@@ -1,5 +1,5 @@
 # ALPACA PAPER JOURNAL — SPY
-_Last updated: April 07, 2026 | Day 21 of 90_
+_Last updated: April 08, 2026 | Day 22 of 90_
 _Source of truth: Alpaca fills | Close prices: Alpaca Market Data API_
 _Narrative context: auto-generated via Groq (llama-3.1-8b-instant) + yfinance news_
 
@@ -46,6 +46,7 @@ _Narrative context: auto-generated via Groq (llama-3.1-8b-instant) + yfinance ne
 | Day 19 | 2026-04-02 | $655.76 | FLAT | — | — | $100,015.58 |
 | Day 20 | 2026-04-06 | $658.88 | FLAT | — | — | $100,015.58 |
 | Day 21 | 2026-04-07 | $659.23 | FLAT | — | — | $100,015.58 |
+| Day 22 | 2026-04-08 | $672.92 | FLAT | — | — | $100,015.58 |
 
 ## Benchmark vs Strategy
 _Buy-and-hold from Day 1 close $676.43 — 147.8350 shares_
@@ -73,6 +74,7 @@ _Buy-and-hold from Day 1 close $676.43 — 147.8350 shares_
 | Day 19 | 2026-04-02 | $100,015.58 | $96,944.28 | +0.0156% | -3.056% | **+3.072%** |
 | Day 20 | 2026-04-06 | $100,015.58 | $97,405.52 | +0.0156% | -2.594% | **+2.610%** |
 | Day 21 | 2026-04-07 | $100,015.58 | $97,457.27 | +0.0156% | -2.543% | **+2.559%** |
+| Day 22 | 2026-04-08 | $100,015.58 | $99,481.13 | +0.0156% | -0.519% | **+0.535%** |
 
 ## Signal Saved vs Holding
 _Unrealized P&L if position was never closed — honest comparison._
@@ -100,6 +102,7 @@ _Unrealized P&L if position was never closed — honest comparison._
 | Day 19 | 2026-04-02 | $655.76 | -$106.76 | +$122.34 | Flat saved **+$122.34** vs holding |
 | Day 20 | 2026-04-06 | $658.88 | -$75.56 | +$91.14 | Flat saved **+$91.14** vs holding |
 | Day 21 | 2026-04-07 | $659.23 | -$72.06 | +$87.64 | Flat saved **+$87.64** vs holding |
+| Day 22 | 2026-04-08 | $672.92 | +$64.84 | -$49.26 | Holding would have been **$49.26** better — honest entry |
 
 ---
 
@@ -648,6 +651,32 @@ _Unrealized P&L if position was never closed — honest comparison._
 
 ---
 
+### Day 22 — 2026-04-08 _(narrative: groq)_
+
+| Field | Value |
+|---|---|
+| Position | FLAT |
+| Entry (Alpaca fill) | $666.436/share |
+| Close price | $672.92 |
+| Realized P&L (locked) | +$15.58 |
+| Reference if held | +$64.84 |
+| Signal saved | -$49.26 |
+| Portfolio value | $100,015.58 |
+| Benchmark value | $99,481.13 |
+| Alpha (cumulative) | +0.535% |
+
+**Regime call:** RISK-ON
+
+**Market context:** Equity futures and ETFs rose amid a US-Iran ceasefire, while oil volatility remained high. The S&P 500 traded higher pre-bell. Market sentiment was positive.
+
+**Strategy note:** MA20 crossed above MA50, triggering a bullish signal. The system did not enter a trade today, but the signal is in place.
+
+**What I did today:** _fill in_
+
+**Key learning:** A bullish signal was generated despite the system not entering a trade, highlighting the importance of position sizing and risk management.
+
+---
+
 ## Anomaly Log
 
 | # | Date | Observation | Hypothesis | Status |
@@ -655,4 +684,4 @@ _Unrealized P&L if position was never closed — honest comparison._
 | _add entries here_ | | | | |
 
 ---
-_Day 21 of 90 · Alpaca equity: $100,015.57 · Cumulative alpha vs SPY: +2.559%_
+_Day 22 of 90 · Alpaca equity: $100,015.57 · Cumulative alpha vs SPY: +0.535%_
