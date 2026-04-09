@@ -8,7 +8,7 @@ _Signal source: signal_state.json | Narrative: Groq llama-3.1-8b-instant_
 > (2026-03-09, after-hours fill).
 
 > 📡 **CURRENT SIGNAL** (2026-04-09): **BEARISH**  
-> MA20: $656.7 | MA50: $673.17 | Session: REGULAR
+> MA20: $656.96 | MA50: $673.27 | Session: AFTER_HOURS
 
 ## Trade Summary
 
@@ -50,7 +50,7 @@ _Signal source: signal_state.json | Narrative: Groq llama-3.1-8b-instant_
 | Day 20 | 2026-04-06 | $658.88 | FLAT | — | — | $100,015.58 |
 | Day 21 | 2026-04-07 | $659.23 | FLAT | — | — | $100,015.58 |
 | Day 22 | 2026-04-08 | $676.00 | FLAT | — | — | $100,015.58 |
-| Day 23 | 2026-04-09 | $674.89 | FLAT | — | — | $100,015.58 |
+| Day 23 | 2026-04-09 | $679.87 | FLAT | — | — | $100,015.58 |
 
 ## Benchmark vs Strategy
 
@@ -78,7 +78,7 @@ _Signal source: signal_state.json | Narrative: Groq llama-3.1-8b-instant_
 | Day 20 | 2026-04-06 | $100,015.58 | $97,405.52 | +0.0156% | -2.594% | **+2.610%** |
 | Day 21 | 2026-04-07 | $100,015.58 | $97,457.27 | +0.0156% | -2.543% | **+2.559%** |
 | Day 22 | 2026-04-08 | $100,015.58 | $99,936.46 | +0.0156% | -0.064% | **+0.080%** |
-| Day 23 | 2026-04-09 | $100,015.58 | $99,772.36 | +0.0156% | -0.228% | **+0.244%** |
+| Day 23 | 2026-04-09 | $100,015.58 | $100,508.58 | +0.0156% | +0.509% | **-0.493%** |
 
 ## Signal Saved vs Holding
 
@@ -106,7 +106,7 @@ _Signal source: signal_state.json | Narrative: Groq llama-3.1-8b-instant_
 | Day 20 | 2026-04-06 | $658.88 | -$75.56 | +$91.14 | Flat saved **+$91.14** vs holding |
 | Day 21 | 2026-04-07 | $659.23 | -$72.06 | +$87.64 | Flat saved **+$87.64** vs holding |
 | Day 22 | 2026-04-08 | $676.00 | +$95.64 | -$80.06 | Holding would have been **$80.06** better — honest entry |
-| Day 23 | 2026-04-09 | $674.89 | +$84.54 | -$68.96 | Holding would have been **$68.96** better — honest entry |
+| Day 23 | 2026-04-09 | $679.87 | +$134.34 | -$118.76 | Holding would have been **$118.76** better — honest entry |
 
 ---
 
@@ -687,13 +687,13 @@ _Signal source: signal_state.json | Narrative: Groq llama-3.1-8b-instant_
 |---|---|
 | Position | FLAT |
 | Entry (Alpaca fill) | $666.436/share |
-| Close price | $674.89 |
+| Close price | $679.87 |
 | Realized P&L (locked) | +$15.58 |
-| Reference if held | +$84.54 |
-| Signal saved | -$68.96 |
+| Reference if held | +$134.34 |
+| Signal saved | -$118.76 |
 | Portfolio value | $100,015.58 |
-| Benchmark value | $99,772.36 |
-| Alpha (cumulative) | +0.244% |
+| Benchmark value | $100,508.58 |
+| Alpha (cumulative) | -0.493% |
 
 **Regime call:** RISK-ON
 
@@ -714,4 +714,4 @@ _Signal source: signal_state.json | Narrative: Groq llama-3.1-8b-instant_
 | _add entries here_ | | | | |
 
 ---
-_Day 23 of 90 · Alpaca equity: $100,015.57 · Cumulative alpha vs SPY: +0.244%_
+_Day 23 of 90 · Alpaca equity: $100,015.57 · Cumulative alpha vs SPY: -0.493%_
