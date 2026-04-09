@@ -174,5 +174,13 @@
     "key_learning": "The strategy's bearish signal was correct, but the realized P&L was relatively low, highlighting the importance of position sizing and risk management.",
     "what_i_did_today": "System exited the position. Realized P&L locked at $+15.58. Now FLAT, waiting for next Golden Cross to re-enter.",
     "source": "groq"
+  },
+  "2026-04-09": {
+    "regime_call": "RISK-ON",
+    "market_context": "Equity futures and ETFs declined pre-bell as fragile Middle East ceasefire lifted oil prices. VIX rose to 20.8. S&P 500 had a rare gap-up on Wednesday.",
+    "strategy_note": "MA20/MA50 crossover strategy exited position based on bearish signal. System now flat, waiting for next golden cross.",
+    "key_learning": "MA crossover strategy underperformed passive hold, reinforcing need for robust risk management",
+    "what_i_did_today": "System exited the position. Realized P&L locked at $+15.58. Now FLAT, waiting for next Golden Cross to re-enter.",
+    "source": "groq"
   }
 }
