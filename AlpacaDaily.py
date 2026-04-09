@@ -1,8 +1,8 @@
 import alpaca_trade_api as tradeapi
 import yfinance as yf
-from datetime import datetime, timedelta
+from datetime import datetime
 from dotenv import load_dotenv
-import pytz, os
+import pytz, os, json
 
 load_dotenv(override=True)
 
@@ -18,12 +18,11 @@ api = tradeapi.REST(API_KEY, SECRET_KEY, BASE_URL, api_version="v2")
 # ============================================================
 # CONSTANTS
 # ============================================================
-SYMBOL         = "SPY"
-RISK_PCT       = 0.02      # risk 2% of equity per trade
-STOP_LOSS_PCT  = 0.02      # stop-loss 2% below entry
-TAKE_PROFIT_PCT= 0.06      # take-profit 6% above entry (3:1 R:R)
-SIGNAL_CONFIRM = 3         # MA20 must be > MA50 for 3 consecutive days
-
+SYMBOL          = "SPY"
+RISK_PCT        = 0.02
+STOP_LOSS_PCT   = 0.02
+TAKE_PROFIT_PCT = 0.06
+SIGNAL_CONFIRM  = 3
 
 # ============================================================
 # SESSION DETECTOR
@@ -46,40 +45,34 @@ if session == "CLOSED":
     print("Market closed. Exiting.")
     exit()
 
-
 # ============================================================
-# BEST PRICE — use Alpaca latest quote, not yfinance
+# BEST PRICE
 # ============================================================
 def get_best_price(side):
-    """
-    BUY  → use ask price (what market makers sell at)
-    SELL → use bid price (what market makers buy at)
-    Falls back to last trade price if quote unavailable.
-    """
     try:
-        quote = api.get_latest_quote(SYMBOL)
-        ask   = float(quote.ap)   # ask price
-        bid   = float(quote.bp)   # bid price
+        quote  = api.get_latest_quote(SYMBOL)
+        ask    = float(quote.ap)
+        bid    = float(quote.bp)
         spread = round(ask - bid, 4)
         print(f"Quote:  Bid ${bid:.2f} | Ask ${ask:.2f} | Spread ${spread:.4f}")
         return ask if side == "buy" else bid
     except Exception:
-        # fallback: last trade
         trade = api.get_latest_trade(SYMBOL)
         price = float(trade.p)
         print(f"Fallback last trade: ${price:.2f}")
         return price
 
-
 # ============================================================
-# SIGNAL — confirmed MA crossover (3 days, no whipsaw)
+# SIGNAL — confirmed MA crossover
+# 9:31 AM run  → last row is yesterday's confirmed close (today not closed yet) ✅
+# 4:30 PM run  → last row is today's confirmed close ✅
+# Both are valid — NO iloc[:-1] needed here
 # ============================================================
-spy    = yf.download(SYMBOL, period="6mo", auto_adjust=True, progress=False)
-close  = spy["Close"].squeeze()
-ma_20  = close.rolling(20).mean()
-ma_50  = close.rolling(50).mean()
+spy   = yf.download(SYMBOL, period="6mo", auto_adjust=True, progress=False)
+close = spy["Close"].squeeze()
+ma_20 = close.rolling(20).mean()
+ma_50 = close.rolling(50).mean()
 
-# Check last SIGNAL_CONFIRM days all agree
 recent_bull = all(ma_20.iloc[-i] > ma_50.iloc[-i] for i in range(1, SIGNAL_CONFIRM + 1))
 recent_bear = all(ma_20.iloc[-i] < ma_50.iloc[-i] for i in range(1, SIGNAL_CONFIRM + 1))
 
@@ -87,6 +80,20 @@ signal = "BULLISH" if recent_bull else ("BEARISH" if recent_bear else "NEUTRAL")
 print(f"MA20: ${float(ma_20.iloc[-1]):.2f} | MA50: ${float(ma_50.iloc[-1]):.2f}")
 print(f"Signal: {signal} (confirmed {SIGNAL_CONFIRM} days)")
 
+# ============================================================
+# WRITE SIGNAL STATE — single source of truth for journal
+# ============================================================
+signal_state = {
+    "date":    datetime.now().strftime("%Y-%m-%d"),
+    "session": session,
+    "signal":  signal,
+    "ma20":    round(float(ma_20.iloc[-1]), 2),
+    "ma50":    round(float(ma_50.iloc[-1]), 2),
+    "confirmed_days": SIGNAL_CONFIRM
+}
+with open("signal_state.json", "w") as f:
+    json.dump(signal_state, f, indent=2)
+print(f"Signal state written: {signal_state}")
 
 # ============================================================
 # POSITION CHECK
@@ -104,48 +111,41 @@ except Exception:
     has_position = False
     shares       = 0
     avg_entry    = 0.0
+    pct_chg      = 0.0
     print("Position:  FLAT")
-
 
 # ============================================================
 # ACCOUNT + POSITION SIZING
 # ============================================================
-account    = api.get_account()
-equity     = float(account.equity)
-cash       = float(account.cash)
+account = api.get_account()
+equity  = float(account.equity)
+cash    = float(account.cash)
 print(f"Equity: ${equity:,.2f} | Cash: ${cash:,.2f}")
 
 def calc_shares(price):
-    """
-    Risk 2% of equity. Stop is 2% below entry.
-    shares = (equity × risk%) / (entry × stop%)
-    e.g. $100k equity → risk $2k → stop $10 below $500 entry → 200 shares
-    """
     risk_dollars = equity * RISK_PCT
     stop_dollars = price  * STOP_LOSS_PCT
     qty          = int(risk_dollars / stop_dollars)
-    max_qty      = int((cash * 0.95) / price)   # never use more than 95% cash
+    max_qty      = int((cash * 0.95) / price)
     qty          = min(qty, max_qty)
     print(f"Position size: {qty} shares (risking ${risk_dollars:.0f})")
     return max(qty, 1)
-
 
 # ============================================================
 # ORDER FUNCTIONS
 # ============================================================
 def submit_buy():
-    price  = get_best_price("buy")
-    qty    = calc_shares(price)
-    sl     = round(price * (1 - STOP_LOSS_PCT),  2)
-    tp     = round(price * (1 + TAKE_PROFIT_PCT), 2)
+    price = get_best_price("buy")
+    qty   = calc_shares(price)
+    sl    = round(price * (1 - STOP_LOSS_PCT),  2)
+    tp    = round(price * (1 + TAKE_PROFIT_PCT), 2)
 
     if session == "REGULAR":
-        # Bracket order: entry + stop-loss + take-profit in one call
         api.submit_order(
-            symbol     = SYMBOL,
-            qty        = qty,
-            side       = "buy",
-            type       = "market",
+            symbol        = SYMBOL,
+            qty           = qty,
+            side          = "buy",
+            type          = "market",
             time_in_force = "day",
             order_class   = "bracket",
             stop_loss     = {"stop_price": sl},
@@ -156,7 +156,6 @@ def submit_buy():
         print(f"  Take-profit: ${tp:.2f} (+{TAKE_PROFIT_PCT*100:.0f}%)")
 
     elif session == "AFTER_HOURS":
-        # Limit at ask — best realistic fill in after-hours
         api.submit_order(
             symbol        = SYMBOL,
             qty           = qty,
@@ -168,8 +167,6 @@ def submit_buy():
         )
         print(f"BUY LIMIT @ ${price:.2f} ({qty} shares) — after-hours")
         print("  Note: bracket orders not supported in extended hours.")
-        print("  Manual stop/TP will need to be set at open tomorrow.")
-
 
 def submit_sell():
     if session == "REGULAR":
@@ -177,7 +174,7 @@ def submit_sell():
         print(f"SELL: Closing full position (market order)")
 
     elif session == "AFTER_HOURS":
-        price = get_best_price("sell")   # use bid for sell
+        price = get_best_price("sell")
         api.submit_order(
             symbol        = SYMBOL,
             qty           = shares,
@@ -189,18 +186,16 @@ def submit_sell():
         )
         print(f"SELL LIMIT @ ${price:.2f} ({shares} shares) — after-hours")
 
-
 # ============================================================
-# STOP-LOSS CHECK — exit if position dropped 2%
+# STOP-LOSS CHECK
 # ============================================================
 if has_position and avg_entry > 0:
-    current_price = get_best_price("sell")
+    current_price  = get_best_price("sell")
     pct_from_entry = (current_price - avg_entry) / avg_entry * 100
     if pct_from_entry <= -STOP_LOSS_PCT * 100:
         print(f"STOP-LOSS TRIGGERED: {pct_from_entry:.2f}% from entry — closing position")
         submit_sell()
         exit()
-
 
 # ============================================================
 # MAIN LOGIC
