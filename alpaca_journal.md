@@ -1,11 +1,14 @@
 # ALPACA PAPER JOURNAL — SPY
-_Last updated: April 08, 2026 | Day 22 of 90_
+_Last updated: April 09, 2026 | Day 22 of 90_
 _Source of truth: Alpaca fills | Close prices: Alpaca Market Data API_
-_Narrative context: auto-generated via Groq (llama-3.1-8b-instant) + yfinance news_
+_Signal source: signal_state.json | Narrative: Groq llama-3.1-8b-instant_
 
 > ⚠️ **RECONCILIATION NOTE**  
 > All P&L uses Alpaca fill prices. Entry: **$666.436/share**
 > (2026-03-09, after-hours fill).
+
+> 📡 **CURRENT SIGNAL** (2026-04-09): **BEARISH**  
+> MA20: $656.68 | MA50: $673.54 | Session: CLOSED
 
 ## Trade Summary
 
@@ -16,9 +19,9 @@ _Narrative context: auto-generated via Groq (llama-3.1-8b-instant) + yfinance ne
 | Exit (Alpaca fill) | $667.994/share — 2026-03-12 |
 | Realized P&L | +$15.58 |
 | Shares | 10 |
-| Capital deployed | $6,664.36 (6.66% of portfolio) |
+| Capital deployed | $6,664.36 |
 | Starting capital | $100,000 |
-| Alpaca equity | $100,015.57 <- source of truth |
+| Alpaca equity | $100,015.57 |
 | Alpaca cash | $100,015.57 |
 
 ## Master Table
@@ -49,7 +52,6 @@ _Narrative context: auto-generated via Groq (llama-3.1-8b-instant) + yfinance ne
 | Day 22 | 2026-04-08 | $676.00 | FLAT | — | — | $100,015.58 |
 
 ## Benchmark vs Strategy
-_Buy-and-hold from Day 1 close $676.43 — 147.8350 shares_
 
 | Day | Date | Strategy | Benchmark | Strat Return | BH Return | Alpha |
 |---|---|---|---|---|---|---|
@@ -77,7 +79,6 @@ _Buy-and-hold from Day 1 close $676.43 — 147.8350 shares_
 | Day 22 | 2026-04-08 | $100,015.58 | $99,936.46 | +0.0156% | -0.064% | **+0.080%** |
 
 ## Signal Saved vs Holding
-_Unrealized P&L if position was never closed — honest comparison._
 
 | Day | Date | SPY Close | If Held | Signal Saved | Note |
 |---|---|---|---|---|---|
@@ -127,7 +128,7 @@ _Unrealized P&L if position was never closed — honest comparison._
 
 **Strategy note:** The system correctly identified a bearish trend and entered a long position in SPY, but the MA20/MA50 crossover strategy did not trigger a trade today due to the Death Cross signal.
 
-**What I did today:** _fill in_
+**What I did today:** System exited the position. Realized P&L locked at $+15.58. Now FLAT, waiting for next Golden Cross to re-enter.
 
 **Key learning:** The system's ability to identify a bearish trend is correct, but the Death Cross signal overrides the MA20/MA50 crossover strategy, resulting in a missed trade opportunity.
 
@@ -152,7 +153,7 @@ _Unrealized P&L if position was never closed — honest comparison._
 
 **Strategy note:** The MA20/MA50 crossover system did not trigger a sell signal today, as the MA20 is still below the MA50, indicating a bearish signal is not present. However, the system's inaction was correct as the market is experiencing a risk-off regime.
 
-**What I did today:** _fill in_
+**What I did today:** System exited the position. Realized P&L locked at $+15.58. Now FLAT, waiting for next Golden Cross to re-enter.
 
 **Key learning:** The system's inaction during a risk-off regime is correct, as the primary focus is on preserving capital during such periods.
 
@@ -177,7 +178,7 @@ _Unrealized P&L if position was never closed — honest comparison._
 
 **Strategy note:** MA20 ($660.25) is below MA50 ($675.76), indicating a bearish signal. The system did not enter a trade today, as the signal is not conducive to a long position.
 
-**What I did today:** _fill in_
+**What I did today:** System exited the position. Realized P&L locked at $+15.58. Now FLAT, waiting for next Golden Cross to re-enter.
 
 **Key learning:** The strategy's ability to avoid a losing trade is more valuable than a single winning trade.
 
@@ -203,7 +204,7 @@ _Unrealized P&L if position was never closed — honest comparison._
 
 **Strategy note:** The MA20/MA50 crossover system generated a bearish signal today, but the system did not short as the long position was already open. This was correct because the system is not designed to short.
 
-**What I did today:** _fill in_
+**What I did today:** System exited the position. Realized P&L locked at $+15.58. Now FLAT, waiting for next Golden Cross to re-enter.
 
 **Key learning:** The system's long position was profitable today despite the bearish signal, highlighting the importance of position sizing and risk management in a trend-following strategy.
 
@@ -229,7 +230,7 @@ _Unrealized P&L if position was never closed — honest comparison._
 
 **Strategy note:** The MA20/MA50 crossover strategy correctly identified a bearish signal, but the system did not enter a trade as the position status was already FLAT. This was correct because the signal was not a buy signal.
 
-**What I did today:** _fill in_
+**What I did today:** System exited the position. Realized P&L locked at $+15.58. Now FLAT, waiting for next Golden Cross to re-enter.
 
 **Key learning:** A bearish MA crossover signal does not necessarily mean a trade should be entered if the position is already flat.
 
@@ -255,7 +256,7 @@ _Unrealized P&L if position was never closed — honest comparison._
 
 **Strategy note:** MA20 is below MA50, indicating a bearish crossover. The system did not enter a trade today as it was flat, but the signal would have been to sell given the bearish crossover.
 
-**What I did today:** _fill in_
+**What I did today:** System exited the position. Realized P&L locked at $+15.58. Now FLAT, waiting for next Golden Cross to re-enter.
 
 **Key learning:** A bearish MA crossover signal is a valid reason to sell, even if the market is rising in the short term.
 
@@ -281,7 +282,7 @@ _Unrealized P&L if position was never closed — honest comparison._
 
 **Strategy note:** The MA20/MA50 crossover system is in a BEARISH — Death Cross regime. The system did not enter a position today, as the market conditions did not trigger a signal.
 
-**What I did today:** _fill in_
+**What I did today:** System exited the position. Realized P&L locked at $+15.58. Now FLAT, waiting for next Golden Cross to re-enter.
 
 **Key learning:** The system's inaction today was correct, as the market did not trigger a signal, and the realized P&L was locked at +$15.58
 
@@ -307,7 +308,7 @@ _Unrealized P&L if position was never closed — honest comparison._
 
 **Strategy note:** The MA20/MA50 crossover strategy is in a BEARISH — Death Cross regime, but no trade was executed due to the system being flat. The strategy's inaction was correct as the market is experiencing a risk-off regime.
 
-**What I did today:** _fill in_
+**What I did today:** System exited the position. Realized P&L locked at $+15.58. Now FLAT, waiting for next Golden Cross to re-enter.
 
 **Key learning:** The strategy's ability to lock in profits is crucial in a risk-off regime, as seen today with a $+15.58 realized P&L.
 
@@ -333,7 +334,7 @@ _Unrealized P&L if position was never closed — honest comparison._
 
 **Strategy note:** The system is flat, as the MA20/MA50 crossover strategy did not trigger a trade today. This is correct, as the signal is bearish (Death Cross) and the system is designed to avoid trading during such conditions.
 
-**What I did today:** _fill in_
+**What I did today:** System exited the position. Realized P&L locked at $+15.58. Now FLAT, waiting for next Golden Cross to re-enter.
 
 **Key learning:** The system's risk management approach is effective in avoiding losses during periods of high market volatility.
 
@@ -359,7 +360,7 @@ _Unrealized P&L if position was never closed — honest comparison._
 
 **Strategy note:** The MA20/MA50 crossover system remained flat as MA20 was below MA50, indicating no buy or sell signal. This was correct as the market did not follow the bearish signal.
 
-**What I did today:** _fill in_
+**What I did today:** System exited the position. Realized P&L locked at $+15.58. Now FLAT, waiting for next Golden Cross to re-enter.
 
 **Key learning:** The system's ability to stay flat in a volatile market environment is crucial for preserving capital.
 
@@ -385,7 +386,7 @@ _Unrealized P&L if position was never closed — honest comparison._
 
 **Strategy note:** The MA system is in a bearish regime due to the death cross, but did not enter a trade today as the position was already flat. The system's inaction was correct as the market did not provide a clear buy or sell signal.
 
-**What I did today:** _fill in_
+**What I did today:** System exited the position. Realized P&L locked at $+15.58. Now FLAT, waiting for next Golden Cross to re-enter.
 
 **Key learning:** The system's ability to avoid trading during periods of high volatility is crucial in maintaining its overall performance.
 
@@ -411,7 +412,7 @@ _Unrealized P&L if position was never closed — honest comparison._
 
 **Strategy note:** The MA20/MA50 crossover strategy correctly identified a bearish signal, but the system remained flat due to the signal being a death cross, which typically indicates a sell signal. The strategy's inaction was correct as the market declined.
 
-**What I did today:** _fill in_
+**What I did today:** System exited the position. Realized P&L locked at $+15.58. Now FLAT, waiting for next Golden Cross to re-enter.
 
 **Key learning:** A death cross signal should be treated with caution and may require a more nuanced approach to determine the optimal course of action.
 
@@ -437,7 +438,7 @@ _Unrealized P&L if position was never closed — honest comparison._
 
 **Strategy note:** The MA20/MA50 crossover strategy is currently in a BEARISH — Death Cross regime. The system did not enter a trade today, as the MA20 was below the MA50 and the signal was bearish.
 
-**What I did today:** _fill in_
+**What I did today:** System exited the position. Realized P&L locked at $+15.58. Now FLAT, waiting for next Golden Cross to re-enter.
 
 **Key learning:** A dead-cat bounce can occur even in a bearish market regime, highlighting the importance of staying nimble and not over-interpreting short-term market movements.
 
@@ -463,7 +464,7 @@ _Unrealized P&L if position was never closed — honest comparison._
 
 **Strategy note:** The MA20/MA50 crossover strategy did not trigger any trades today, as the signal was bearish (Death Cross) and the system remained flat.
 
-**What I did today:** _fill in_
+**What I did today:** System exited the position. Realized P&L locked at $+15.58. Now FLAT, waiting for next Golden Cross to re-enter.
 
 **Key learning:** A bearish MA crossover signal may not always be a buy signal, and staying flat can be a correct decision in uncertain market conditions.
 
@@ -489,7 +490,7 @@ _Unrealized P&L if position was never closed — honest comparison._
 
 **Strategy note:** The MA20/MA50 system remained flat as the Death Cross signal did not trigger a trade. This was correct as the market did not experience a significant downturn.
 
-**What I did today:** _fill in_
+**What I did today:** System exited the position. Realized P&L locked at $+15.58. Now FLAT, waiting for next Golden Cross to re-enter.
 
 **Key learning:** The system's inaction during a period of heightened uncertainty highlights the importance of a well-defined trading plan and risk management.
 
@@ -515,7 +516,7 @@ _Unrealized P&L if position was never closed — honest comparison._
 
 **Strategy note:** The system remained flat as the MA20/MA50 crossover strategy indicated a bearish signal, which was correct given the market's cautious behavior.
 
-**What I did today:** _fill in_
+**What I did today:** System exited the position. Realized P&L locked at $+15.58. Now FLAT, waiting for next Golden Cross to re-enter.
 
 **Key learning:** The strategy's ability to lock in profits and avoid new positions during a dead-cat bounce is crucial for preserving capital.
 
@@ -541,7 +542,7 @@ _Unrealized P&L if position was never closed — honest comparison._
 
 **Strategy note:** The system did not enter a trade today due to a bearish signal from the MA20/MA50 crossover. The system's inaction was correct as the market experienced a dead-cat bounce.
 
-**What I did today:** _fill in_
+**What I did today:** System exited the position. Realized P&L locked at $+15.58. Now FLAT, waiting for next Golden Cross to re-enter.
 
 **Key learning:** A bearish signal from the MA20/MA50 crossover does not guarantee a sell signal, as the market can experience a dead-cat bounce.
 
@@ -567,7 +568,7 @@ _Unrealized P&L if position was never closed — honest comparison._
 
 **Strategy note:** The MA20/MA50 crossover system correctly identified a bearish signal, but did not enter a trade as the position was already flat.
 
-**What I did today:** _fill in_
+**What I did today:** System exited the position. Realized P&L locked at $+15.58. Now FLAT, waiting for next Golden Cross to re-enter.
 
 **Key learning:** The system's ability to identify bearish signals is intact, but it must be used in conjunction with position management to maximize returns.
 
@@ -593,7 +594,7 @@ _Unrealized P&L if position was never closed — honest comparison._
 
 **Strategy note:** The MA20/MA50 crossover strategy is currently in a BEARISH signal due to the Death Cross, but no trades were executed as the position was flat.
 
-**What I did today:** _fill in_
+**What I did today:** System exited the position. Realized P&L locked at $+15.58. Now FLAT, waiting for next Golden Cross to re-enter.
 
 **Key learning:** The strategy correctly identified a bearish signal, but the lack of a trade execution highlights the importance of position sizing and risk management.
 
@@ -619,7 +620,7 @@ _Unrealized P&L if position was never closed — honest comparison._
 
 **Strategy note:** MA20 crossed below MA50, triggering a bullish signal. The system remains flat, with no trades executed today.
 
-**What I did today:** _fill in_
+**What I did today:** System exited the position. Realized P&L locked at $+15.58. Now FLAT, waiting for next Golden Cross to re-enter.
 
 **Key learning:** The strategy's alpha continues to outperform the benchmark, with a cumulative alpha of +2.610%
 
@@ -639,15 +640,15 @@ _Unrealized P&L if position was never closed — honest comparison._
 | Benchmark value | $97,457.27 |
 | Alpha (cumulative) | +2.559% |
 
-**Regime call:** RISK-ON
+**Regime call:** RISK-OFF
 
-**Market context:** Equity futures and ETFs declined ahead of Trump's Hormuz deadline, but the S&P 500 bounced after dipping below 6,300.
+**Market context:** The VIX broke under 20, and oil prices were falling, amidst a two-week US-Iran ceasefire.
 
-**Strategy note:** MA20 crossed above MA50, triggering a bullish signal, but the system remains flat as no trades were executed today.
+**Strategy note:** MA20 crossed below MA50, triggering a bearish signal. The system exited the position.
 
-**What I did today:** _fill in_
+**What I did today:** System exited the position. Realized P&L locked at $+15.58. Now FLAT, waiting for next Golden Cross to re-enter.
 
-**Key learning:** A bullish regime does not guarantee immediate trading opportunities, as the system must wait for MA crossovers to trigger trades.
+**Key learning:** VIX levels can significantly influence market sentiment and impact our strategy's performance.
 
 ---
 
@@ -665,15 +666,15 @@ _Unrealized P&L if position was never closed — honest comparison._
 | Benchmark value | $99,936.46 |
 | Alpha (cumulative) | +0.080% |
 
-**Regime call:** RISK-ON
+**Regime call:** RISK-OFF
 
-**Market context:** Equity futures and ETFs rose amid a US-Iran ceasefire, while oil volatility remained high. The S&P 500 traded higher pre-bell. Market sentiment was positive.
+**Market context:** The VIX broke under 20, indicating a decrease in market volatility. Oil prices continued to fall. Markets were higher pre-bell Wednesday amid a two-week US-Iran ceasefire.
 
-**Strategy note:** MA20 crossed above MA50, triggering a bullish signal. The system did not enter a trade today, but the signal is in place.
+**Strategy note:** The MA20/MA50 crossover strategy remained bearish, with a death cross. The system exited the position and is now flat, waiting for a golden cross to re-enter.
 
-**What I did today:** _fill in_
+**What I did today:** System exited the position. Realized P&L locked at $+15.58. Now FLAT, waiting for next Golden Cross to re-enter.
 
-**Key learning:** A bullish signal was generated despite the system not entering a trade, highlighting the importance of position sizing and risk management.
+**Key learning:** The strategy's bearish signal was correct, but the realized P&L was relatively low, highlighting the importance of position sizing and risk management.
 
 ---
 

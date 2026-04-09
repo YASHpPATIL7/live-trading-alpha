@@ -41,8 +41,41 @@ def get_session():
 session = get_session()
 print(f"Session: {session}")
 
+# ============================================================
+# SIGNAL + SIGNAL STATE — runs BEFORE session exit
+# WHY: The 4:30 PM journal job needs signal_state.json to exist.
+# Old code exited here on CLOSED → signal_state.json never written
+# → journal fell back to recomputing MAs independently → signal drift.
+# Now: always compute MAs and write signal_state.json first,
+# THEN exit if market is closed. Journal always has the correct signal.
+# ============================================================
+spy   = yf.download(SYMBOL, period="6mo", auto_adjust=True, progress=False)
+close = spy["Close"].squeeze()
+ma_20 = close.rolling(20).mean()
+ma_50 = close.rolling(50).mean()
+
+recent_bull = all(ma_20.iloc[-i] > ma_50.iloc[-i] for i in range(1, SIGNAL_CONFIRM + 1))
+recent_bear = all(ma_20.iloc[-i] < ma_50.iloc[-i] for i in range(1, SIGNAL_CONFIRM + 1))
+signal = "BULLISH" if recent_bull else ("BEARISH" if recent_bear else "NEUTRAL")
+
+print(f"MA20: ${float(ma_20.iloc[-1]):.2f} | MA50: ${float(ma_50.iloc[-1]):.2f}")
+print(f"Signal: {signal} (confirmed {SIGNAL_CONFIRM} days)")
+
+signal_state = {
+    "date":           datetime.now().strftime("%Y-%m-%d"),
+    "session":        session,
+    "signal":         signal,
+    "ma20":           round(float(ma_20.iloc[-1]), 2),
+    "ma50":           round(float(ma_50.iloc[-1]), 2),
+    "confirmed_days": SIGNAL_CONFIRM
+}
+with open("signal_state.json", "w") as f:
+    json.dump(signal_state, f, indent=2)
+print(f"Signal state saved → signal_state.json")
+
+# Exit AFTER saving signal state
 if session == "CLOSED":
-    print("Market closed. Exiting.")
+    print("Market closed. Signal state saved. Exiting.")
     exit()
 
 # ============================================================
@@ -61,39 +94,6 @@ def get_best_price(side):
         price = float(trade.p)
         print(f"Fallback last trade: ${price:.2f}")
         return price
-
-# ============================================================
-# SIGNAL — confirmed MA crossover
-# 9:31 AM run  → last row is yesterday's confirmed close (today not closed yet) ✅
-# 4:30 PM run  → last row is today's confirmed close ✅
-# Both are valid — NO iloc[:-1] needed here
-# ============================================================
-spy   = yf.download(SYMBOL, period="6mo", auto_adjust=True, progress=False)
-close = spy["Close"].squeeze()
-ma_20 = close.rolling(20).mean()
-ma_50 = close.rolling(50).mean()
-
-recent_bull = all(ma_20.iloc[-i] > ma_50.iloc[-i] for i in range(1, SIGNAL_CONFIRM + 1))
-recent_bear = all(ma_20.iloc[-i] < ma_50.iloc[-i] for i in range(1, SIGNAL_CONFIRM + 1))
-
-signal = "BULLISH" if recent_bull else ("BEARISH" if recent_bear else "NEUTRAL")
-print(f"MA20: ${float(ma_20.iloc[-1]):.2f} | MA50: ${float(ma_50.iloc[-1]):.2f}")
-print(f"Signal: {signal} (confirmed {SIGNAL_CONFIRM} days)")
-
-# ============================================================
-# WRITE SIGNAL STATE — single source of truth for journal
-# ============================================================
-signal_state = {
-    "date":    datetime.now().strftime("%Y-%m-%d"),
-    "session": session,
-    "signal":  signal,
-    "ma20":    round(float(ma_20.iloc[-1]), 2),
-    "ma50":    round(float(ma_50.iloc[-1]), 2),
-    "confirmed_days": SIGNAL_CONFIRM
-}
-with open("signal_state.json", "w") as f:
-    json.dump(signal_state, f, indent=2)
-print(f"Signal state written: {signal_state}")
 
 # ============================================================
 # POSITION CHECK
