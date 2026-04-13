@@ -1,5 +1,5 @@
 # ALPACA PAPER JOURNAL — SPY
-_Last updated: April 10, 2026 | Day 24 of 90_
+_Last updated: April 13, 2026 | Day 25 of 90_
 _Source of truth: Alpaca fills | Close prices: Alpaca Market Data API_
 _Signal source: signal_state.json | Narrative: Groq llama-3.1-8b-instant_
 
@@ -7,8 +7,8 @@ _Signal source: signal_state.json | Narrative: Groq llama-3.1-8b-instant_
 > All P&L uses Alpaca fill prices. Entry: **$666.436/share**
 > (2026-03-09, after-hours fill).
 
-> 📡 **CURRENT SIGNAL** (2026-04-10): **BEARISH**  
-> MA20: $657.72 | MA50: $672.99 | Session: AFTER_HOURS
+> 📡 **CURRENT SIGNAL** (2026-04-13): **BEARISH**  
+> MA20: $658.7 | MA50: $672.75 | Session: REGULAR
 
 ## Trade Summary
 
@@ -52,6 +52,7 @@ _Signal source: signal_state.json | Narrative: Groq llama-3.1-8b-instant_
 | Day 22 | 2026-04-08 | $676.00 | FLAT | — | — | $100,015.58 |
 | Day 23 | 2026-04-09 | $679.87 | FLAT | — | — | $100,015.58 |
 | Day 24 | 2026-04-10 | $679.35 | FLAT | — | — | $100,015.58 |
+| Day 25 | 2026-04-13 | $680.22 | FLAT | — | — | $100,015.58 |
 
 ## Benchmark vs Strategy
 
@@ -81,6 +82,7 @@ _Signal source: signal_state.json | Narrative: Groq llama-3.1-8b-instant_
 | Day 22 | 2026-04-08 | $100,015.58 | $99,936.46 | +0.0156% | -0.064% | **+0.080%** |
 | Day 23 | 2026-04-09 | $100,015.58 | $100,508.58 | +0.0156% | +0.509% | **-0.493%** |
 | Day 24 | 2026-04-10 | $100,015.58 | $100,431.71 | +0.0156% | +0.432% | **-0.416%** |
+| Day 25 | 2026-04-13 | $100,015.58 | $100,560.32 | +0.0156% | +0.560% | **-0.544%** |
 
 ## Signal Saved vs Holding
 
@@ -110,6 +112,7 @@ _Signal source: signal_state.json | Narrative: Groq llama-3.1-8b-instant_
 | Day 22 | 2026-04-08 | $676.00 | +$95.64 | -$80.06 | Holding would have been **$80.06** better — honest entry |
 | Day 23 | 2026-04-09 | $679.87 | +$134.34 | -$118.76 | Holding would have been **$118.76** better — honest entry |
 | Day 24 | 2026-04-10 | $679.35 | +$129.14 | -$113.56 | Holding would have been **$113.56** better — honest entry |
+| Day 25 | 2026-04-13 | $680.22 | +$137.84 | -$122.26 | Holding would have been **$122.26** better — honest entry |
 
 ---
 
@@ -736,6 +739,32 @@ _Signal source: signal_state.json | Narrative: Groq llama-3.1-8b-instant_
 
 ---
 
+### Day 25 — 2026-04-13 _(narrative: groq)_
+
+| Field | Value |
+|---|---|
+| Position | FLAT |
+| Entry (Alpaca fill) | $666.436/share |
+| Close price | $680.22 |
+| Realized P&L (locked) | +$15.58 |
+| Reference if held | +$137.84 |
+| Signal saved | -$122.26 |
+| Portfolio value | $100,015.58 |
+| Benchmark value | $100,560.32 |
+| Alpha (cumulative) | -0.544% |
+
+**Regime call:** RISK-OFF
+
+**Market context:** The S&P 500 sold off due to geopolitical tensions, with oil prices surging over $100. The VIX sharply reversed, pointing towards 30 after failed peace negotiations. This led to a risk-off sentiment in the market.
+
+**Strategy note:** MA50 crossed above MA20, triggering a bearish signal. The system exited the position, locking a realized P&L of $+15.58.
+
+**What I did today:** System exited the position. Realized P&L locked at $+15.58. Now FLAT, waiting for next Golden Cross to re-enter.
+
+**Key learning:** A bearish signal does not guarantee losses, as the system's realized P&L was positive despite the market downturn.
+
+---
+
 ## Anomaly Log
 
 | # | Date | Observation | Hypothesis | Status |
@@ -743,4 +772,4 @@ _Signal source: signal_state.json | Narrative: Groq llama-3.1-8b-instant_
 | _add entries here_ | | | | |
 
 ---
-_Day 24 of 90 · Alpaca equity: $100,015.57 · Cumulative alpha vs SPY: -0.416%_
+_Day 25 of 90 · Alpaca equity: $100,015.57 · Cumulative alpha vs SPY: -0.544%_

@@ -1,8 +1,8 @@
 {
-  "date": "2026-04-10",
-  "session": "AFTER_HOURS",
+  "date": "2026-04-13",
+  "session": "REGULAR",
   "signal": "BEARISH",
-  "ma20": 657.72,
-  "ma50": 672.99,
+  "ma20": 658.7,
+  "ma50": 672.75,
   "confirmed_days": 3
 }

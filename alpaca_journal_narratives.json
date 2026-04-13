@@ -190,5 +190,13 @@
     "key_learning": "The system's bearish signal was correct, but the realized P&L was lower than the passive hold, highlighting the importance of risk management in trading strategies.",
     "what_i_did_today": "System exited the position. Realized P&L locked at $+15.58. Now FLAT, waiting for next Golden Cross to re-enter.",
     "source": "groq"
+  },
+  "2026-04-13": {
+    "regime_call": "RISK-OFF",
+    "market_context": "The S&P 500 sold off due to geopolitical tensions, with oil prices surging over $100. The VIX sharply reversed, pointing towards 30 after failed peace negotiations. This led to a risk-off sentiment in the market.",
+    "strategy_note": "MA50 crossed above MA20, triggering a bearish signal. The system exited the position, locking a realized P&L of $+15.58.",
+    "key_learning": "A bearish signal does not guarantee losses, as the system's realized P&L was positive despite the market downturn.",
+    "what_i_did_today": "System exited the position. Realized P&L locked at $+15.58. Now FLAT, waiting for next Golden Cross to re-enter.",
+    "source": "groq"
   }
 }
