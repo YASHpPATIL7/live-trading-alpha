@@ -198,5 +198,13 @@
     "key_learning": "A bearish signal does not guarantee losses, as the system's realized P&L was positive despite the market downturn.",
     "what_i_did_today": "System exited the position. Realized P&L locked at $+15.58. Now FLAT, waiting for next Golden Cross to re-enter.",
     "source": "groq"
+  },
+  "2026-04-14": {
+    "regime_call": "RISK-OFF",
+    "market_context": "The market rose today with Dow leading, despite concerns over inflation data and a potential US-Iran truce. VIX remains elevated at 18.05. Oil prices also increased.",
+    "strategy_note": "MA20 ($660.21) is below MA50 ($672.89), indicating a bearish signal. The system exited the position, locking in a $+15.58 P&L.",
+    "key_learning": "A death cross in the MA crossover strategy led to a premature exit, resulting in a missed opportunity to ride the market's upward momentum.",
+    "what_i_did_today": "System exited the position. Realized P&L locked at $+15.58. Now FLAT, waiting for next Golden Cross to re-enter.",
+    "source": "groq"
   }
 }
