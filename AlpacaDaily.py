@@ -50,6 +50,7 @@ print(f"Session: {session}")
 # THEN exit if market is closed. Journal always has the correct signal.
 # ============================================================
 spy   = yf.download(SYMBOL, period="6mo", auto_adjust=True, progress=False)
+spy   = spy.iloc[:-1]   # ← drop incomplete intraday candle
 close = spy["Close"].squeeze()
 ma_20 = close.rolling(20).mean()
 ma_50 = close.rolling(50).mean()
