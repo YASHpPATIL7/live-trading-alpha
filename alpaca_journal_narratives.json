@@ -206,5 +206,13 @@
     "key_learning": "A death cross in the MA crossover strategy led to a premature exit, resulting in a missed opportunity to ride the market's upward momentum.",
     "what_i_did_today": "System exited the position. Realized P&L locked at $+15.58. Now FLAT, waiting for next Golden Cross to re-enter.",
     "source": "groq"
+  },
+  "2026-04-15": {
+    "regime_call": "RISK-ON",
+    "market_context": "Investors turned to corporate earnings, driving equity futures higher. Wall Street's fear gauge, VIX, is fading. The S&P 500 Stocks' earnings are expected to skyrocket 200% in three months.",
+    "strategy_note": "MA20/MA50 crossover strategy is in a BEARISH regime due to a Death Cross. The system exited the position, locking a realized P&L of $+15.58.",
+    "key_learning": "The strategy's realized P&L outperformed a passive hold by $15.58, but still trailed the benchmark by $286.66.",
+    "what_i_did_today": "System exited the position. Realized P&L locked at $+15.58. Now FLAT, waiting for next Golden Cross to re-enter.",
+    "source": "groq"
   }
 }
