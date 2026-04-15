@@ -22,7 +22,7 @@ SYMBOL          = "SPY"
 RISK_PCT        = 0.02
 STOP_LOSS_PCT   = 0.02
 TAKE_PROFIT_PCT = 0.06
-SIGNAL_CONFIRM  = 3
+SIGNAL_CONFIRM  = 2
 
 # ============================================================
 # SESSION DETECTOR
