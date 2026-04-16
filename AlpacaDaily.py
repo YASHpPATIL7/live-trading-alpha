@@ -19,10 +19,10 @@ api = tradeapi.REST(API_KEY, SECRET_KEY, BASE_URL, api_version="v2")
 # CONSTANTS
 # ============================================================
 SYMBOL          = "SPY"
-RISK_PCT        = 0.02
-STOP_LOSS_PCT   = 0.02
-TAKE_PROFIT_PCT = 0.06
-SIGNAL_CONFIRM  = 2
+RISK_PCT        = 0.02          # 2% risk per trade
+STOP_LOSS_PCT   = 0.015         # 1.5% stop — tighter for faster MAs
+TAKE_PROFIT_PCT = 0.04          # 4% take-profit
+MAX_ALLOC_PCT   = 0.40          # Deploy up to 40% of equity per trade
 
 # ============================================================
 # SESSION DETECTOR
@@ -42,33 +42,92 @@ session = get_session()
 print(f"Session: {session}")
 
 # ============================================================
-# SIGNAL + SIGNAL STATE — runs BEFORE session exit
-# WHY: The 4:30 PM journal job needs signal_state.json to exist.
-# Old code exited here on CLOSED → signal_state.json never written
-# → journal fell back to recomputing MAs independently → signal drift.
-# Now: always compute MAs and write signal_state.json first,
-# THEN exit if market is closed. Journal always has the correct signal.
+# DUAL-TIMEFRAME SIGNAL ENGINE
+# ============================================================
+# Fast MAs (SMA 10/30) → trade signals (more responsive)
+# Slow MAs (SMA 20/50) → regime filter (trend context)
+#
+# BUY  when: fast_bull (MA10 > MA30)  AND  regime != STRONG_BEAR
+# SELL when: fast_bear (MA10 < MA30)  OR   regime == STRONG_BEAR
 # ============================================================
 spy   = yf.download(SYMBOL, period="6mo", auto_adjust=True, progress=False)
-spy   = spy.iloc[:-1]   # ← drop incomplete intraday candle
 close = spy["Close"].squeeze()
+
+# Fast MAs — entry/exit signals
+ma_10 = close.rolling(10).mean()
+ma_30 = close.rolling(30).mean()
+
+# Slow MAs — regime context
 ma_20 = close.rolling(20).mean()
 ma_50 = close.rolling(50).mean()
 
-recent_bull = all(ma_20.iloc[-i] > ma_50.iloc[-i] for i in range(1, SIGNAL_CONFIRM + 1))
-recent_bear = all(ma_20.iloc[-i] < ma_50.iloc[-i] for i in range(1, SIGNAL_CONFIRM + 1))
-signal = "BULLISH" if recent_bull else ("BEARISH" if recent_bear else "NEUTRAL")
+# Current values (latest closed bar)
+ma10_now = float(ma_10.iloc[-1])
+ma30_now = float(ma_30.iloc[-1])
+ma20_now = float(ma_20.iloc[-1])
+ma50_now = float(ma_50.iloc[-1])
+close_now = float(close.iloc[-1])
 
-print(f"MA20: ${float(ma_20.iloc[-1]):.2f} | MA50: ${float(ma_50.iloc[-1]):.2f}")
-print(f"Signal: {signal} (confirmed {SIGNAL_CONFIRM} days)")
+# Fast signal — 1-day confirmation (no multi-day lag)
+fast_bull = ma10_now > ma30_now
+fast_bear = ma10_now < ma30_now
+
+# Regime — slow MAs
+regime_gap_pct = (ma20_now - ma50_now) / ma50_now * 100
+if ma20_now > ma50_now:
+    regime = "BULL"
+elif regime_gap_pct < -1.5:
+    regime = "STRONG_BEAR"    # MA20 more than 1.5% below MA50 — avoid longs
+else:
+    regime = "BEAR"           # mild bear — can still take fast signals
+
+# ── PRICE-ACTION OVERRIDES ──────────────────────────────────
+# The slow regime filter (MA20/MA50) can lag badly in V-shaped recoveries.
+# If price has clearly recovered above the slow MAs, override the regime.
+price_above_both_slow = close_now > ma20_now and close_now > ma50_now
+price_pct_above_ma50  = (close_now - ma50_now) / ma50_now * 100
+price_override        = price_above_both_slow and price_pct_above_ma50 > 2.0
+
+# Price also above both fast MAs = breakout confirmation
+price_above_fast      = close_now > ma10_now and close_now > ma30_now
+
+# Combined signal — with price-action override
+if fast_bull and regime != "STRONG_BEAR":
+    signal = "BULLISH"
+elif price_override and price_above_fast:
+    signal = "BULLISH"   # Price-action override — market clearly recovered
+    print(f"⚡ PRICE OVERRIDE: Close ${close_now:.2f} is {price_pct_above_ma50:+.1f}% above MA50 "
+          f"— overriding {regime} regime (MA20 still < MA50)")
+elif fast_bear and not price_override:
+    signal = "BEARISH"
+else:
+    signal = "NEUTRAL"
+
+# Price relative to MAs — momentum check
+above_ma10 = close_now > ma10_now
+price_momentum = "STRONG" if close_now > ma10_now > ma30_now else (
+    "RECOVERING" if close_now > ma30_now else "WEAK"
+)
+
+print(f"Fast  MA10: ${ma10_now:.2f} | MA30: ${ma30_now:.2f} | {'BULL' if fast_bull else 'BEAR'}")
+print(f"Slow  MA20: ${ma20_now:.2f} | MA50: ${ma50_now:.2f} | Regime: {regime} ({regime_gap_pct:+.2f}%)")
+print(f"Close: ${close_now:.2f} | Momentum: {price_momentum}")
+print(f"Signal: {signal}")
 
 signal_state = {
     "date":           datetime.now().strftime("%Y-%m-%d"),
     "session":        session,
     "signal":         signal,
-    "ma20":           round(float(ma_20.iloc[-1]), 2),
-    "ma50":           round(float(ma_50.iloc[-1]), 2),
-    "confirmed_days": SIGNAL_CONFIRM
+    "ma10":           round(ma10_now, 2),
+    "ma30":           round(ma30_now, 2),
+    "ma20":           round(ma20_now, 2),
+    "ma50":           round(ma50_now, 2),
+    "regime":         regime,
+    "regime_gap_pct": round(regime_gap_pct, 2),
+    "momentum":       price_momentum,
+    "close":          round(close_now, 2),
+    "price_override": price_override,
+    "price_pct_above_ma50": round(price_pct_above_ma50, 2)
 }
 with open("signal_state.json", "w") as f:
     json.dump(signal_state, f, indent=2)
@@ -116,7 +175,7 @@ except Exception:
     print("Position:  FLAT")
 
 # ============================================================
-# ACCOUNT + POSITION SIZING
+# ACCOUNT + POSITION SIZING (FIXED — uses MAX_ALLOC_PCT)
 # ============================================================
 account = api.get_account()
 equity  = float(account.equity)
@@ -124,13 +183,24 @@ cash    = float(account.cash)
 print(f"Equity: ${equity:,.2f} | Cash: ${cash:,.2f}")
 
 def calc_shares(price):
+    # Method 1: Risk-based sizing
     risk_dollars = equity * RISK_PCT
     stop_dollars = price  * STOP_LOSS_PCT
-    qty          = int(risk_dollars / stop_dollars)
-    max_qty      = int((cash * 0.95) / price)
-    qty          = min(qty, max_qty)
-    print(f"Position size: {qty} shares (risking ${risk_dollars:.0f})")
-    return max(qty, 1)
+    qty_risk     = int(risk_dollars / stop_dollars)
+
+    # Method 2: Max allocation cap
+    qty_alloc    = int((equity * MAX_ALLOC_PCT) / price)
+
+    # Method 3: Available cash
+    qty_cash     = int((cash * 0.95) / price)
+
+    # Take the minimum of risk-based and allocation, capped by cash
+    qty = min(qty_risk, qty_alloc, qty_cash)
+    qty = max(qty, 1)   # at least 1 share
+
+    print(f"Position size: {qty} shares | risk-based: {qty_risk} | alloc-cap: {qty_alloc} | cash-cap: {qty_cash}")
+    print(f"Capital deployed: ${qty * price:,.2f} ({qty * price / equity * 100:.1f}% of equity)")
+    return qty
 
 # ============================================================
 # ORDER FUNCTIONS
@@ -153,7 +223,7 @@ def submit_buy():
             take_profit   = {"limit_price": tp}
         )
         print(f"BUY BRACKET ORDER: {qty} shares")
-        print(f"  Stop-loss:   ${sl:.2f} (-{STOP_LOSS_PCT*100:.0f}%)")
+        print(f"  Stop-loss:   ${sl:.2f} (-{STOP_LOSS_PCT*100:.1f}%)")
         print(f"  Take-profit: ${tp:.2f} (+{TAKE_PROFIT_PCT*100:.0f}%)")
 
     elif session == "AFTER_HOURS":
@@ -205,13 +275,16 @@ if signal == "BULLISH":
     if not has_position:
         submit_buy()
     else:
-        print("HOLD — already long, signal confirmed")
+        print("HOLD — already long, fast signal confirmed")
 
 elif signal == "BEARISH":
     if has_position:
         submit_sell()
     else:
-        print("FLAT — waiting for Golden Cross")
+        print(f"FLAT — fast signal bearish | Regime: {regime} | Waiting for MA10>MA30 crossover")
 
-else:
-    print("NEUTRAL — MA crossover not confirmed yet, no action")
+else:  # NEUTRAL
+    if has_position:
+        print(f"HOLD — signal neutral, regime {regime}, keeping position")
+    else:
+        print(f"NEUTRAL — regime {regime} blocking entry | MA10 trying to cross MA30 | Patience")

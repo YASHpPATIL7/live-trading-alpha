@@ -26,36 +26,58 @@ api = tradeapi.REST(API_KEY, SECRET_KEY, BASE_URL, api_version="v2")
 
 # ============================================================
 # READ SIGNAL STATE — written by AlpacaDaily.py (single source of truth)
-# Never recompute MAs here — use what the trade engine decided
+# Supports both old format (ma20/ma50 only) and new dual-timeframe format
 # ============================================================
 def load_signal_state():
     if os.path.exists("signal_state.json"):
         with open("signal_state.json", "r") as f:
             state = json.load(f)
         print(f"Signal state loaded: {state}")
+        # Ensure backward compatibility with old format
+        if "ma10" not in state:
+            state["ma10"] = state.get("ma20", 0)
+            state["ma30"] = state.get("ma50", 0)
+        if "regime" not in state:
+            state["regime"] = "UNKNOWN"
+        if "momentum" not in state:
+            state["momentum"] = "UNKNOWN"
         return state
     # Fallback if AlpacaDaily hasn't run yet today
     print("WARNING: signal_state.json not found — computing MAs as fallback")
     spy    = yf.download(SYMBOL, period="6mo", auto_adjust=True, progress=False)
     close  = spy["Close"].squeeze()
+    ma_10  = close.rolling(10).mean()
+    ma_30  = close.rolling(30).mean()
     ma_20  = close.rolling(20).mean()
     ma_50  = close.rolling(50).mean()
-    recent_bull = all(ma_20.iloc[-i] > ma_50.iloc[-i] for i in range(1, 4))
-    recent_bear = all(ma_20.iloc[-i] < ma_50.iloc[-i] for i in range(1, 4))
-    signal = "BULLISH" if recent_bull else ("BEARISH" if recent_bear else "NEUTRAL")
+    fast_bull = float(ma_10.iloc[-1]) > float(ma_30.iloc[-1])
+    regime_gap = (float(ma_20.iloc[-1]) - float(ma_50.iloc[-1])) / float(ma_50.iloc[-1]) * 100
+    if fast_bull and regime_gap > -1.5:
+        signal = "BULLISH"
+    elif not fast_bull:
+        signal = "BEARISH"
+    else:
+        signal = "NEUTRAL"
     return {
         "date":    date.today().strftime("%Y-%m-%d"),
         "session": "UNKNOWN",
         "signal":  signal,
+        "ma10":    round(float(ma_10.iloc[-1]), 2),
+        "ma30":    round(float(ma_30.iloc[-1]), 2),
         "ma20":    round(float(ma_20.iloc[-1]), 2),
         "ma50":    round(float(ma_50.iloc[-1]), 2),
-        "confirmed_days": 3
+        "regime":  "BULL" if regime_gap > 0 else ("STRONG_BEAR" if regime_gap < -1.5 else "BEAR"),
+        "momentum": "UNKNOWN"
     }
 
 signal_state = load_signal_state()
 signal       = signal_state["signal"]
-ma20_val     = signal_state["ma20"]
-ma50_val     = signal_state["ma50"]
+ma10_val     = signal_state.get("ma10", signal_state.get("ma20", 0))
+ma30_val     = signal_state.get("ma30", signal_state.get("ma50", 0))
+ma20_val     = signal_state.get("ma20", 0)
+ma50_val     = signal_state.get("ma50", 0)
+regime_val   = signal_state.get("regime", "UNKNOWN")
+momentum_val = signal_state.get("momentum", "UNKNOWN")
 
 # ============================================================
 # PULL FILLS VIA DIRECT REST
@@ -65,39 +87,111 @@ _resp    = requests.get(f"{BASE_URL}/v2/account/activities/FILL", headers=_heade
 _resp.raise_for_status()
 activities = _resp.json()
 
-buys  = [a for a in activities if a["symbol"] == SYMBOL and a["side"] == "buy"]
-sells = [a for a in activities if a["symbol"] == SYMBOL and a["side"] == "sell"]
+all_fills = [a for a in activities if a["symbol"] == SYMBOL]
+all_fills.sort(key=lambda a: pd.Timestamp(a["transaction_time"]))
 
-if not buys:
-    raise ValueError(f"No buy fills found for {SYMBOL}")
+# ============================================================
+# PARSE FILLS INTO ROUND-TRIP TRADES
+# ============================================================
+# Each trade = buy fills → sell fills (chronological pairs)
+trades = []
+pending_buys = []
 
-total_buy_cost = sum(float(b["price"]) * float(b["qty"]) for b in buys)
-total_buy_qty  = sum(float(b["qty"]) for b in buys)
-actual_entry   = total_buy_cost / total_buy_qty
-entry_date     = min(pd.Timestamp(b["transaction_time"]) for b in buys).strftime("%Y-%m-%d")
+for fill in all_fills:
+    side  = fill["side"]
+    qty   = float(fill["qty"])
+    price = float(fill["price"])
+    ts    = pd.Timestamp(fill["transaction_time"])
 
-if sells:
-    total_sell_proceeds = sum(float(s["price"]) * float(s["qty"]) for s in sells)
-    total_sell_qty      = sum(float(s["qty"]) for s in sells)
-    actual_exit         = total_sell_proceeds / total_sell_qty
-    exit_date           = max(pd.Timestamp(s["transaction_time"]) for s in sells).strftime("%Y-%m-%d")
-    has_exited          = True
-    realized_pnl        = round((actual_exit - actual_entry) * total_buy_qty, 2)
+    if side == "buy":
+        pending_buys.append({"qty": qty, "price": price, "time": ts})
+    elif side == "sell" and pending_buys:
+        # Close out the pending buys
+        buy_cost = sum(b["price"] * b["qty"] for b in pending_buys)
+        buy_qty  = sum(b["qty"] for b in pending_buys)
+        entry_price = buy_cost / buy_qty
+        entry_time  = min(b["time"] for b in pending_buys)
+
+        trade = {
+            "id":          len(trades) + 1,
+            "entry_price": entry_price,
+            "entry_date":  entry_time.strftime("%Y-%m-%d"),
+            "entry_ts":    entry_time,
+            "shares":      int(buy_qty),
+            "exit_price":  price,
+            "exit_date":   ts.strftime("%Y-%m-%d"),
+            "exit_ts":     ts,
+            "pnl":         round((price - entry_price) * buy_qty, 2),
+            "status":      "CLOSED"
+        }
+        trades.append(trade)
+        pending_buys = []
+
+# If there are pending buys with no matching sell → currently in a position
+if pending_buys:
+    buy_cost = sum(b["price"] * b["qty"] for b in pending_buys)
+    buy_qty  = sum(b["qty"] for b in pending_buys)
+    entry_price = buy_cost / buy_qty
+    entry_time  = min(b["time"] for b in pending_buys)
+    trades.append({
+        "id":          len(trades) + 1,
+        "entry_price": entry_price,
+        "entry_date":  entry_time.strftime("%Y-%m-%d"),
+        "entry_ts":    entry_time,
+        "shares":      int(buy_qty),
+        "exit_price":  None,
+        "exit_date":   None,
+        "exit_ts":     None,
+        "pnl":         0.0,
+        "status":      "OPEN"
+    })
+
+if not trades:
+    raise ValueError(f"No trades found for {SYMBOL}")
+
+# Summary variables for backward compatibility
+total_trades    = len(trades)
+closed_trades   = [t for t in trades if t["status"] == "CLOSED"]
+open_trade      = next((t for t in trades if t["status"] == "OPEN"), None)
+total_realized  = round(sum(t["pnl"] for t in closed_trades), 2)
+has_position    = open_trade is not None
+
+# Legacy compatibility — use first trade for entry date (journal start)
+first_entry_date = trades[0]["entry_date"]
+actual_entry     = trades[0]["entry_price"]  # first trade entry for reference
+
+# For last closed trade
+if closed_trades:
+    last_closed   = closed_trades[-1]
+    actual_exit   = last_closed["exit_price"]
+    exit_date     = last_closed["exit_date"]
+    has_exited    = True
+    realized_pnl  = total_realized
 else:
-    actual_exit  = None
-    exit_date    = None
-    has_exited   = False
-    realized_pnl = 0.0
+    actual_exit   = None
+    exit_date     = None
+    has_exited    = False
+    realized_pnl  = 0.0
+
+# Current position info
+if open_trade:
+    total_buy_qty = open_trade["shares"]
+else:
+    total_buy_qty = trades[0]["shares"]  # for reference
+
+print(f"\n--- TRADE HISTORY ({total_trades} trades) ---")
+for t in trades:
+    if t["status"] == "CLOSED":
+        print(f"  Trade {t['id']}: CLOSED | Entry ${t['entry_price']:.3f} ({t['entry_date']}) "
+              f"→ Exit ${t['exit_price']:.3f} ({t['exit_date']}) | P&L: ${t['pnl']:+.2f}")
+    else:
+        print(f"  Trade {t['id']}: OPEN   | Entry ${t['entry_price']:.3f} ({t['entry_date']}) "
+              f"| {t['shares']} shares")
+print(f"  Total realized P&L: ${total_realized:+.2f}")
 
 account       = api.get_account()
 portfolio_val = float(account.equity)
 cash          = float(account.cash)
-
-try:
-    api.get_position(SYMBOL)
-    has_position = True
-except Exception:
-    has_position = False
 
 # ============================================================
 # DOWNLOAD SPY BARS VIA ALPACA
@@ -134,34 +228,59 @@ def get_spy_bars_alpaca(symbol, start_date, end_date, api_key, secret_key):
 
 spy = get_spy_bars_alpaca(
     SYMBOL,
-    entry_date,
+    first_entry_date,
     (date.today() + pd.Timedelta(days=1)).strftime("%Y-%m-%d"),
     API_KEY, SECRET_KEY
 )
 
 # ============================================================
-# BUILD JOURNAL
+# BUILD JOURNAL — MULTI-TRADE AWARE
 # ============================================================
-exit_dt = pd.Timestamp(exit_date) if exit_date else None
 rows = []
+cumulative_realized = 0.0
 
 for idx, row in spy.iterrows():
     spy_close = round(float(row["Close"]), 2)
-    if exit_dt is None or idx <= exit_dt:
-        unrealized = round((spy_close - actual_entry) * total_buy_qty, 2)
-        pnl_pct    = round(((spy_close - actual_entry) / actual_entry) * 100, 3)
-        port_val   = round(STARTING_CASH + unrealized, 2)
-        status     = f"Long {int(total_buy_qty)} {SYMBOL}"
-        capital    = round(actual_entry * total_buy_qty, 2)
+    day_date  = idx.strftime("%Y-%m-%d")
+
+    # Find which trade is active on this day
+    active_trade = None
+    for t in trades:
+        entry_dt = pd.Timestamp(t["entry_date"])
+        if t["status"] == "OPEN":
+            if idx >= entry_dt:
+                active_trade = t
+                break
+        else:  # CLOSED
+            exit_dt = pd.Timestamp(t["exit_date"])
+            if entry_dt <= idx <= exit_dt:
+                active_trade = t
+                break
+
+    # Calculate cumulative realized P&L from trades closed BEFORE this day
+    cum_realized = 0.0
+    for t in closed_trades:
+        exit_dt = pd.Timestamp(t["exit_date"])
+        if idx > exit_dt:
+            cum_realized += t["pnl"]
+
+    if active_trade:
+        entry_p   = active_trade["entry_price"]
+        shares    = active_trade["shares"]
+        unrealized = round((spy_close - entry_p) * shares, 2)
+        pnl_pct    = round(((spy_close - entry_p) / entry_p) * 100, 3)
+        port_val   = round(STARTING_CASH + cum_realized + unrealized, 2)
+        status     = f"Long {shares} {SYMBOL} (T{active_trade['id']})"
+        capital    = round(entry_p * shares, 2)
     else:
         unrealized = 0.00
         pnl_pct    = 0.000
-        port_val   = round(STARTING_CASH + realized_pnl, 2)
+        port_val   = round(STARTING_CASH + cum_realized, 2)
         status     = "FLAT"
         capital    = 0.00
 
     rows.append({
-        "Date": idx.strftime("%Y-%m-%d"), "SPY_Close": spy_close,
+        "Date": day_date, "SPY_Close": spy_close,
         "Status": status, "Capital_Deployed": capital,
         "Unrealized_PnL": unrealized, "PnL_Pct": pnl_pct,
         "Portfolio_Value": port_val
@@ -177,52 +296,72 @@ journal["Benchmark_Value"]      = round(benchmark_shares * journal["SPY_Close"],
 journal["Benchmark_Return_Pct"] = round((journal["Benchmark_Value"] - STARTING_CASH) / STARTING_CASH * 100, 3)
 journal["Strategy_Return_Pct"]  = round((journal["Portfolio_Value"] - STARTING_CASH) / STARTING_CASH * 100, 4)
 journal["Alpha_Pct"]            = round(journal["Strategy_Return_Pct"] - journal["Benchmark_Return_Pct"], 3)
-journal["Reference_IfHeld"]     = round((journal["SPY_Close"] - actual_entry) * total_buy_qty, 2)
-journal["Signal_Saved"]         = round(realized_pnl - journal["Reference_IfHeld"], 2)
+journal["Reference_IfHeld"]     = round((journal["SPY_Close"] - trades[0]["entry_price"]) * trades[0]["shares"], 2)
+journal["Signal_Saved"]         = round(total_realized - journal["Reference_IfHeld"], 2)
 
 print(journal[["Date","SPY_Close","Status","Unrealized_PnL","Portfolio_Value"]].to_string())
 journal.to_csv("alpaca_journal.csv")
 print("Saved: alpaca_journal.csv")
 
 # ============================================================
-# AUTO "WHAT I DID TODAY" — no more fill in placeholder
+# AUTO "WHAT I DID TODAY" — dual-timeframe aware
 # ============================================================
 def generate_what_i_did(signal, has_position, has_exited, realized_pnl, pct_chg=None):
+    regime_note = f"Regime: {regime_val} (MA20 ${ma20_val} vs MA50 ${ma50_val})."
+
     if has_exited and not has_position:
         return (
             f"System exited the position. Realized P&L locked at ${realized_pnl:+.2f}. "
-            f"Now FLAT, waiting for next Golden Cross to re-enter."
+            f"{regime_note} "
+            f"Fast signal (MA10/MA30): {'bullish' if signal == 'BULLISH' else 'bearish'}. "
+            f"Monitoring for re-entry on next fast golden cross."
         )
     elif has_position:
         return (
-            f"System held long SPY. Signal remained {signal}. "
+            f"System held long SPY. Fast signal remained {signal}. "
+            f"{regime_note} Momentum: {momentum_val}. "
             f"Unrealized P&L: {pct_chg:+.2f}% from entry. No exit triggered."
         )
     elif signal == "BULLISH":
         return (
-            f"Signal was BULLISH but system is still FLAT — "
-            f"possible after-hours limit order did not fill, or entry was missed. "
-            f"Monitoring for confirmed open-market entry tomorrow."
+            f"Fast signal turned BULLISH (MA10 ${ma10_val} > MA30 ${ma30_val}). "
+            f"{regime_note} "
+            f"System entering long position at next market open."
         )
     elif signal == "BEARISH":
         return (
-            f"System stayed FLAT. Death Cross confirmed (MA20 ${ma20_val} < MA50 ${ma50_val}). "
-            f"Capital preserved at ${STARTING_CASH + realized_pnl:,.2f}. Waiting for Golden Cross."
+            f"System stayed FLAT. Fast signal bearish (MA10 ${ma10_val} < MA30 ${ma30_val}). "
+            f"{regime_note} "
+            f"Capital preserved at ${STARTING_CASH + realized_pnl:,.2f}. "
+            f"Waiting for MA10 > MA30 crossover."
         )
-    else:
+    else:  # NEUTRAL
         return (
-            f"System stayed FLAT. Signal NEUTRAL — MA20/MA50 crossover not confirmed "
-            f"for {signal_state['confirmed_days']} consecutive days. No trade taken."
+            f"System stayed FLAT. Signal NEUTRAL — fast MAs narrowing. "
+            f"MA10: ${ma10_val} | MA30: ${ma30_val} | Gap closing. "
+            f"{regime_note} "
+            f"Regime is blocking entry. Watching for regime improvement."
         )
 
 # ============================================================
 # FETCH MARKET CONTEXT
 # ============================================================
 def fetch_market_context() -> dict:
+    signal_label = (
+        "BULLISH — Fast Golden Cross (MA10 > MA30)"
+        if signal == "BULLISH"
+        else "BEARISH — Fast Death Cross (MA10 < MA30)"
+        if signal == "BEARISH"
+        else "NEUTRAL — Regime blocking"
+    )
     ctx = {
+        "ma10":   ma10_val,
+        "ma30":   ma30_val,
         "ma20":   ma20_val,
         "ma50":   ma50_val,
-        "signal": f"{'BULLISH — Golden Cross' if signal == 'BULLISH' else 'BEARISH — Death Cross' if signal == 'BEARISH' else 'NEUTRAL'}",
+        "regime": regime_val,
+        "momentum": momentum_val,
+        "signal": signal_label,
         "signal_source": f"signal_state.json ({signal_state['date']})"
     }
     for ticker, key in [("^VIX", "vix"), ("CL=F", "oil"), ("^TNX", "yield_10y")]:
@@ -272,7 +411,9 @@ def generate_narrative(day_label, row, ctx, actual_entry, realized_pnl,
     headlines_block = "\n".join(f"  - {h}" for h in ctx["headlines"])
 
     prompt = f"""You are writing daily narrative entries for a quantitative trading journal.
-The trader runs a paper portfolio ($100k) on SPY using a simple MA20/MA50 crossover strategy.
+The trader runs a paper portfolio ($100k) on SPY using a dual-timeframe SMA crossover strategy:
+- Fast signal: SMA 10/30 crossover for entries and exits
+- Slow filter: SMA 20/50 as regime context (avoid longs in strong bear regimes)
 Write ONLY based on the data provided. Do not invent facts. Be concise and analytical.
 
 === TODAY'S DATA ===
@@ -287,9 +428,13 @@ Portfolio value: ${row['Portfolio_Value']:,.2f}
 Benchmark (SPY B&H): ${row['Benchmark_Value']:,.2f}
 Cumulative alpha: {row['Alpha_Pct']:+.3f}%
 
-=== MACRO DATA ===
-MA20: ${ctx['ma20']} | MA50: ${ctx['ma50']} | Signal: {ctx['signal']}
+=== SIGNAL ENGINE ===
+Fast MAs: MA10 ${ctx['ma10']} | MA30 ${ctx['ma30']} | Signal: {ctx['signal']}
+Slow MAs: MA20 ${ctx['ma20']} | MA50 ${ctx['ma50']} | Regime: {ctx['regime']}
+Momentum: {ctx['momentum']}
 Signal source: {ctx['signal_source']}
+
+=== MACRO DATA ===
 VIX: {ctx['vix']}
 WTI Oil: ${ctx['oil']}/barrel
 10Y Treasury yield: {ctx['yield_10y']}%
@@ -303,9 +448,9 @@ WTI Oil: ${ctx['oil']}/barrel
 === INSTRUCTIONS ===
 Return ONLY a JSON object with exactly these 4 keys:
 {{
-  "regime_call": "one short label e.g. RISK-OFF / Fed Shock",
+  "regime_call": "one short label e.g. RISK-OFF / Recovery Rally / Consolidation",
   "market_context": "2-3 sentences on what happened in markets today",
-  "strategy_note": "1-2 sentences on MA status and what the system did",
+  "strategy_note": "1-2 sentences on the dual-timeframe signal and what the system did",
   "key_learning": "one punchy sentence — the most important lesson from today"
 }}
 No explanation, no markdown, no extra keys. Pure JSON only."""
@@ -405,45 +550,88 @@ def _signal_note(val):
 def build_md(journal, actual_entry, actual_exit, has_exited, realized_pnl,
              entry_date, exit_date, portfolio_val, cash, total_buy_qty,
              benchmark_shares, benchmark_entry_price, SYMBOL, STARTING_CASH,
-             narratives, signal_state):
+             narratives, signal_state, trades=None):
 
     today_str  = date.today().strftime("%B %d, %Y")
     total_days = len(journal)
     latest     = journal.iloc[-1]
     L = []
 
+    # Header — now shows dual-timeframe info
+    regime_label = signal_state.get("regime", "UNKNOWN")
+    momentum_label = signal_state.get("momentum", "UNKNOWN")
+    override_note = ""
+    if signal_state.get("price_override"):
+        override_note = f" | ⚡ Price Override Active (+{signal_state.get('price_pct_above_ma50', 0):.1f}% above MA50)"
+
     L += [
         f"# ALPACA PAPER JOURNAL — {SYMBOL}",
         f"_Last updated: {today_str} | Day {total_days} of 90_",
+        f"_Strategy: Dual-Timeframe SMA Crossover (Fast: 10/30, Regime: 20/50) + Price Override_",
         f"_Source of truth: Alpaca fills | Close prices: Alpaca Market Data API_",
         f"_Signal source: signal_state.json | Narrative: Groq llama-3.1-8b-instant_",
         "",
         "> ⚠️ **RECONCILIATION NOTE**  ",
-        f"> All P&L uses Alpaca fill prices. Entry: **${actual_entry:.3f}/share**",
+        f"> All P&L uses Alpaca fill prices. First entry: **${actual_entry:.3f}/share**",
         f"> ({entry_date}, after-hours fill).",
         "",
-        f"> 📡 **CURRENT SIGNAL** ({signal_state['date']}): **{signal_state['signal']}**  ",
-        f"> MA20: ${signal_state['ma20']} | MA50: ${signal_state['ma50']} | Session: {signal_state['session']}",
+        f"> 📡 **CURRENT SIGNAL** ({signal_state['date']}): **{signal_state['signal']}**{override_note}  ",
+        f"> Fast: MA10 ${signal_state.get('ma10', 'N/A')} | MA30 ${signal_state.get('ma30', 'N/A')}  ",
+        f"> Slow: MA20 ${signal_state.get('ma20', 'N/A')} | MA50 ${signal_state.get('ma50', 'N/A')}  ",
+        f"> Regime: **{regime_label}** | Momentum: **{momentum_label}** | Session: {signal_state['session']}",
         "",
     ]
 
+    # Strategy description
     L += [
-        "## Trade Summary", "",
+        "## Strategy Description", "",
+        "This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:", "",
+        "| Component | MAs | Purpose |",
+        "|---|---|---|",
+        "| **Fast Signal** | SMA 10 / SMA 30 | Entry and exit triggers |",
+        "| **Regime Filter** | SMA 20 / SMA 50 | Trend context — blocks longs in strong bear regimes |",
+        "| **Price Override** | Close > MA50 × 1.02 | Overrides bearish regime if price has clearly recovered |",
+        "| **Position Sizing** | 40% max allocation | Risk-based sizing with 1.5% stop-loss |", "",
+        "**Rules:**",
+        "- BUY when MA10 > MA30 AND regime ≠ STRONG_BEAR",
+        "- BUY when price > 2% above MA50 AND above both fast MAs (price override)",
+        "- SELL when MA10 < MA30 (unless price override active)",
+        "- Long-only (no shorting)", "",
+    ]
+
+    # Trade History — show ALL trades
+    if trades:
+        closed = [t for t in trades if t["status"] == "CLOSED"]
+        open_t = next((t for t in trades if t["status"] == "OPEN"), None)
+        total_real = sum(t["pnl"] for t in closed)
+
+        L += [
+            "## Trade History", "",
+            f"**Total trades:** {len(trades)} | **Closed:** {len(closed)} | "
+            f"**Open:** {'Yes' if open_t else 'No'} | "
+            f"**Cumulative Realized P&L:** {_fmt(total_real)}", "",
+            "| Trade | Entry | Exit | Shares | P&L | Status |",
+            "|---|---|---|---|---|---|",
+        ]
+        for t in trades:
+            if t["status"] == "CLOSED":
+                L.append(f"| T{t['id']} | ${t['entry_price']:.3f} ({t['entry_date']}) | "
+                          f"${t['exit_price']:.3f} ({t['exit_date']}) | "
+                          f"{t['shares']} | {_fmt(t['pnl'])} | ✅ Closed |")
+            else:
+                L.append(f"| T{t['id']} | ${t['entry_price']:.3f} ({t['entry_date']}) | "
+                          f"— | {t['shares']} | — | 🟢 Open |")
+        L.append("")
+
+    # Legacy trade summary
+    L += [
+        "## Account Summary", "",
         "| Field | Value |", "|---|---|",
         f"| Symbol | {SYMBOL} |",
-        f"| Entry (Alpaca fill) | ${actual_entry:.3f}/share — {entry_date} |",
-    ]
-    if has_exited:
-        L += [
-            f"| Exit (Alpaca fill) | ${actual_exit:.3f}/share — {exit_date} |",
-            f"| Realized P&L | {_fmt(realized_pnl)} |",
-        ]
-    L += [
-        f"| Shares | {int(total_buy_qty)} |",
-        f"| Capital deployed | ${actual_entry * total_buy_qty:,.2f} |",
         f"| Starting capital | ${STARTING_CASH:,} |",
         f"| Alpaca equity | ${portfolio_val:,.2f} |",
         f"| Alpaca cash | ${cash:,.2f} |",
+        f"| Cumulative realized P&L | {_fmt(realized_pnl)} |",
         "",
     ]
 
@@ -530,10 +718,28 @@ def build_md(journal, actual_entry, actual_exit, has_exited, realized_pnl,
             "---", "",
         ]
 
+    # Strategy evolution log — shows the fix
+    L += [
+        "## Strategy Evolution Log", "",
+        "| Date | Change | Rationale |",
+        "|---|---|---|",
+        "| 2026-03-09 | Initial deployment: SMA 20/50 crossover | Simple trend-following baseline |",
+        "| 2026-04-16 | Upgraded to dual-timeframe SMA 10/30 + 20/50 regime filter | "
+        "SMA 20/50 too slow — sat flat 24/27 days during volatile market. "
+        "Faster MAs capture recovery rallies. 20/50 retained as regime filter. |",
+        "| 2026-04-16 | Added price-action override | If price closes >2% above MA50 AND above "
+        "both fast MAs, override bearish regime filter. Prevents sitting flat during V-shaped recoveries. "
+        "Multi-trade journal tracking added. |",
+        "",
+    ]
+
     L += [
         "## Anomaly Log", "",
         "| # | Date | Observation | Hypothesis | Status |",
         "|---|---|---|---|---|",
+        "| 1 | 2026-03-12 to 2026-04-15 | System sat FLAT for 24 consecutive days despite "
+        "10%+ SPY recovery | SMA 20/50 too slow to catch regime change; death cross persisted "
+        "even as price recovered above both MAs | Fixed — switched to SMA 10/30 |",
         "| _add entries here_ | | | | |", "",
         "---",
         f"_Day {total_days} of 90 · Alpaca equity: ${portfolio_val:,.2f}"
@@ -547,10 +753,11 @@ def build_md(journal, actual_entry, actual_exit, has_exited, realized_pnl,
 # ============================================================
 md_content = build_md(
     journal, actual_entry, actual_exit, has_exited, realized_pnl,
-    entry_date, exit_date, portfolio_val, cash, total_buy_qty,
+    first_entry_date, exit_date, portfolio_val, cash, total_buy_qty,
     benchmark_shares, benchmark_entry_price, SYMBOL, STARTING_CASH,
     narratives=narratives,
-    signal_state=signal_state
+    signal_state=signal_state,
+    trades=trades
 )
 
 md_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "alpaca_journal.md")
