@@ -1,8 +1,15 @@
 {
-  "date": "2026-04-15",
-  "session": "AFTER_HOURS",
-  "signal": "BEARISH",
-  "ma20": 660.36,
-  "ma50": 672.95,
-  "confirmed_days": 2
+  "date": "2026-04-16",
+  "session": "CLOSED",
+  "signal": "BULLISH",
+  "ma10": 674.51,
+  "ma30": 665.29,
+  "ma20": 661.91,
+  "ma50": 673.08,
+  "regime": "STRONG_BEAR",
+  "regime_gap_pct": -1.66,
+  "momentum": "STRONG",
+  "close": 699.94,
+  "price_override": true,
+  "price_pct_above_ma50": 3.99
 }
