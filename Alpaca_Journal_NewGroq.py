@@ -394,6 +394,7 @@ def generate_narrative(day_label, row, ctx, actual_entry, realized_pnl,
 
     client   = Groq(api_key=GROQ_API_KEY)
     is_flat  = row["Status"] == "FLAT"
+    day_has_pos = not is_flat
 
     pnl_line = (
         f"Realized P&L locked: ${realized_pnl:+.2f} (position exited)"
@@ -405,8 +406,8 @@ def generate_narrative(day_label, row, ctx, actual_entry, realized_pnl,
         if has_exited else ""
     )
     what_i_did_auto = generate_what_i_did(
-        signal, has_position, has_exited, realized_pnl,
-        pct_chg=row["PnL_Pct"] if not is_flat else None
+        signal, day_has_pos, has_exited, realized_pnl,
+        pct_chg=row["PnL_Pct"] if day_has_pos else None
     )
     headlines_block = "\n".join(f"  - {h}" for h in ctx["headlines"])
 
@@ -501,12 +502,15 @@ def get_or_generate_narrative(day_label, row, narratives, ctx,
                                actual_entry, realized_pnl, has_exited,
                                has_position, force_regenerate=False):
     date_key = row["Date"]
+    is_flat  = row["Status"] == "FLAT"
+    day_has_pos = not is_flat
+
     if date_key in narratives:
         existing = narratives[date_key]
         # Always refresh what_i_did_today — never use stale version
         existing["what_i_did_today"] = generate_what_i_did(
-            signal, has_position, has_exited, realized_pnl,
-            pct_chg=row["PnL_Pct"] if row["Status"] != "FLAT" else None
+            signal, day_has_pos, has_exited, realized_pnl,
+            pct_chg=row["PnL_Pct"] if day_has_pos else None
         )
         if existing.get("source") == "manual":
             print(f"  {day_label} ({date_key}): manual narrative — preserved")
