@@ -389,8 +389,17 @@ def fetch_market_context() -> dict:
 # ============================================================
 def generate_narrative(day_label, row, ctx, actual_entry, realized_pnl,
                        has_exited, has_position):
+
+    is_flat  = row["Status"] == "FLAT"
+    day_has_pos = not is_flat
+    
+    what_i_did_auto = generate_what_i_did(
+        signal, day_has_pos, has_exited, realized_pnl,
+        pct_chg=row["PnL_Pct"] if day_has_pos else None
+    )
+
     if not GROQ_API_KEY:
-        return _placeholder_narrative()
+        return _placeholder_narrative(what_i_did_auto)
 
     client   = Groq(api_key=GROQ_API_KEY)
     is_flat  = row["Status"] == "FLAT"
@@ -404,10 +413,6 @@ def generate_narrative(day_label, row, ctx, actual_entry, realized_pnl,
     signal_saved_line = (
         f"Signal saved vs passive hold: ${row['Signal_Saved']:+.2f}"
         if has_exited else ""
-    )
-    what_i_did_auto = generate_what_i_did(
-        signal, day_has_pos, has_exited, realized_pnl,
-        pct_chg=row["PnL_Pct"] if day_has_pos else None
     )
     headlines_block = "\n".join(f"  - {h}" for h in ctx["headlines"])
 
@@ -473,15 +478,15 @@ No explanation, no markdown, no extra keys. Pure JSON only."""
         return result
     except Exception as e:
         print(f"  Groq call failed: {e}")
-        return _placeholder_narrative()
+        return _placeholder_narrative(what_i_did_auto)
 
-def _placeholder_narrative():
+def _placeholder_narrative(what_i_did_auto):
     return {
         "regime_call":    "_fill in_",
         "market_context": "_fill in_",
         "strategy_note":  "_fill in_",
         "key_learning":   "_fill in_",
-        "what_i_did_today": generate_what_i_did(signal, has_position, has_exited, realized_pnl),
+        "what_i_did_today": what_i_did_auto,
         "source":         "placeholder"
     }
 
@@ -678,7 +683,7 @@ def build_md(journal, actual_entry, actual_exit, has_exited, realized_pnl,
     for lbl, row in journal.iterrows():
         is_long  = row["Status"] != "FLAT"
         date_key = row["Date"]
-        narr     = narratives.get(date_key, _placeholder_narrative())
+        narr     = narratives.get(date_key, _placeholder_narrative("_fill in_"))
 
         regime_call    = narr.get("regime_call",      "_fill in_")
         market_context = narr.get("market_context",   "_fill in_")
