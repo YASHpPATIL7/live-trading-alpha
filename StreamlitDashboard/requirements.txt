@@ -9,4 +9,5 @@ shap>=0.44.0
 optuna>=3.5.0
 kaleido>=0.2.1
 matplotlib>=3.8.0
-torch>=2.0.0
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch
