@@ -23,7 +23,7 @@ st.markdown("""
 | 3 | Trading Signals | Decision Tree | Accuracy ~68% |
 | 4 | Ensemble Improvement | Random Forest (100 trees) | Accuracy ~74% |
 | 5 | Gradient Boosting | XGBoost + SHAP + Optuna | Accuracy ~78% |
-| 6 | Time Series | LSTM *(coming soon)* | — |
+| 6 | Time Series | LSTM (60-day window) | Dir. Acc ≈ 52% |
 | 7 | Sector Clustering | K-Means + PCA | 5 clusters |
 
 ---

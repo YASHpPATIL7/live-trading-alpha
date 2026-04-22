@@ -1,0 +1,8 @@
+{
+  "rmse": 0.010044719020966911,
+  "mae": 0.007696026514154996,
+  "directional_accuracy": 52.33050847457628,
+  "strategy_sharpe": 0.7395096489156955,
+  "buy_hold_sharpe": 0.7395096489156955,
+  "test_samples": 472
+}
