@@ -197,6 +197,9 @@ if st.sidebar.button("🚀 Run All Models", type="primary"):
                 mean_shap = np.mean([np.abs(sv).mean(axis=0) for sv in shap_values], axis=0)
             else:
                 mean_shap = np.abs(shap_values).mean(axis=0)
+            if mean_shap.ndim > 1:
+                mean_shap = mean_shap.mean(axis=0)
+            mean_shap = np.array(mean_shap).flatten()
             shap_df = pd.DataFrame({"Feature": features, "Mean |SHAP|": mean_shap})
             shap_df = shap_df.sort_values("Mean |SHAP|", ascending=True)
             fig_shap = go.Figure(go.Bar(
