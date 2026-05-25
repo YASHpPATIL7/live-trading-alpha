@@ -11,7 +11,7 @@ _Signal source: signal_state.json | Narrative: Groq llama-3.1-8b-instant_
 > 📡 **CURRENT SIGNAL** (2026-05-25): **BULLISH** | ⚡ Price Override Active (+7.1% above MA50)  
 > Fast: MA10 $740.91 | MA30 $722.35  
 > Slow: MA20 $731.58 | MA50 $696.49  
-> Regime: **BULL** | Momentum: **STRONG** | Session: REGULAR
+> Regime: **BULL** | Momentum: **STRONG** | Session: AFTER_HOURS
 
 ## Strategy Description
 
