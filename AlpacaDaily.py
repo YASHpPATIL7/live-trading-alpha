@@ -53,6 +53,14 @@ print(f"Session: {session}")
 spy   = yf.download(SYMBOL, period="6mo", auto_adjust=True, progress=False)
 close = spy["Close"].squeeze()
 
+# Fix 2026-05-27: drop the partial intraday bar when market is open.
+# yf.download(period='6mo') includes today's incomplete bar as iloc[-1] during REGULAR hours.
+# MA signals computed against a partial bar are non-reproducible and inflated mid-day.
+# We drop it during REGULAR session so we always compute on fully-closed bars only.
+if session == "REGULAR":
+    close = close.iloc[:-1]
+    print("Note: dropped partial intraday bar — MAs computed on last fully-closed session.")
+
 # Fast MAs — entry/exit signals
 ma_10 = close.rolling(10).mean()
 ma_30 = close.rolling(30).mean()
