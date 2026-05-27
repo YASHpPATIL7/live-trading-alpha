@@ -438,5 +438,13 @@
     "key_learning": "Strong momentum can persist for extended periods, but regime context remains crucial for risk management.",
     "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $733.36 vs MA50 $698.3). Momentum: STRONG. Unrealized P&L: +3.85% from entry. No exit triggered.",
     "source": "groq"
+  },
+  "2026-05-27": {
+    "regime_call": "Bullish",
+    "market_context": "Markets continued their rally, with the SPY closing at $750.30. Short sellers are betting record amounts against stocks, but the market is rallying on a potential deal between Trump and Iran. The VIX remains relatively low at 16.79.",
+    "strategy_note": "The dual-timeframe signal remained bullish, with a fast golden cross and a strong regime context. The system held long SPY, with an unrealized P&L of +3.82% from entry.",
+    "key_learning": "A strong regime context can lead to increased confidence in a bullish signal, but it's essential to monitor the market context and adjust the strategy accordingly.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $733.36 vs MA50 $698.3). Momentum: STRONG. Unrealized P&L: +3.82% from entry. No exit triggered.",
+    "source": "groq"
   }
 }
