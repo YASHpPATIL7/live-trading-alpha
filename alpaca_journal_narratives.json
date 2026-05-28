@@ -446,5 +446,13 @@
     "key_learning": "A strong regime context can lead to increased confidence in a bullish signal, but it's essential to monitor the market context and adjust the strategy accordingly.",
     "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $735.29 vs MA50 $699.96). Momentum: STRONG. Unrealized P&L: +3.86% from entry. No exit triggered.",
     "source": "groq"
+  },
+  "2026-05-28": {
+    "regime_call": "BULL",
+    "market_context": "The market saw a strong day with SPY closing at $754.62. Headlines focused on the acceleration of 'The Great Migration' from tech to value and the outperformance of certain ETFs. Economic data was also released, including PCE and claims.",
+    "strategy_note": "The dual-timeframe signal remained BULLISH, with a Fast Golden Cross and a strong momentum. The system held long SPY, with an unrealized P&L of +4.42% from entry.",
+    "key_learning": "A strong momentum and a bullish signal can lead to significant gains, but risk management is crucial to avoid over-leveraging.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $735.29 vs MA50 $699.96). Momentum: STRONG. Unrealized P&L: +4.42% from entry. No exit triggered.",
+    "source": "groq"
   }
 }
