@@ -454,5 +454,13 @@
     "key_learning": "A strong momentum and a bullish signal can lead to significant gains, but risk management is crucial to avoid over-leveraging.",
     "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $737.44 vs MA50 $701.67). Momentum: STRONG. Unrealized P&L: +4.43% from entry. No exit triggered.",
     "source": "groq"
+  },
+  "2026-05-29": {
+    "regime_call": "BULL",
+    "market_context": "Markets were mostly up on lower volume, driven by hopes of a US-Iran deal, with exchange-traded funds and equity futures rising pre-bell.",
+    "strategy_note": "The system held long SPY, with a BULLISH fast signal and a BULL regime, resulting in an unrealized P&L of +4.71% from entry.",
+    "key_learning": "Strong momentum can persist even with lower volume, but regime context remains crucial for risk management.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $737.44 vs MA50 $701.67). Momentum: STRONG. Unrealized P&L: +4.71% from entry. No exit triggered.",
+    "source": "groq"
   }
 }

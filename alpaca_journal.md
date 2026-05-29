@@ -1,5 +1,5 @@
 # ALPACA PAPER JOURNAL — SPY
-_Last updated: May 28, 2026 | Day 57 of 90_
+_Last updated: May 29, 2026 | Day 58 of 90_
 _Strategy: Dual-Timeframe SMA Crossover (Fast: 10/30, Regime: 20/50) + Price Override_
 _Source of truth: Alpaca fills | Close prices: Alpaca Market Data API_
 _Signal source: signal_state.json | Narrative: Groq llama-3.1-8b-instant_
@@ -8,10 +8,10 @@ _Signal source: signal_state.json | Narrative: Groq llama-3.1-8b-instant_
 > All P&L uses Alpaca fill prices. First entry: **$666.436/share**
 > (2026-03-09, after-hours fill).
 
-> 📡 **CURRENT SIGNAL** (2026-05-28): **BULLISH** | ⚡ Price Override Active (+7.5% above MA50)  
+> 📡 **CURRENT SIGNAL** (2026-05-29): **BULLISH** | ⚡ Price Override Active (+7.5% above MA50)  
 > Fast: MA10 $744.5 | MA30 $728.18  
 > Slow: MA20 $737.44 | MA50 $701.67  
-> Regime: **BULL** | Momentum: **STRONG** | Session: AFTER_HOURS
+> Regime: **BULL** | Momentum: **STRONG** | Session: REGULAR
 
 ## Strategy Description
 
@@ -51,7 +51,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 |---|---|
 | Symbol | SPY |
 | Starting capital | $100,000 |
-| Alpaca equity | $101,806.44 |
+| Alpaca equity | $101,896.09 |
 | Alpaca cash | $60,272.64 |
 | Cumulative realized P&L | +$17.86 |
 
@@ -116,6 +116,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 | Day 55 | 2026-05-26 | $750.46 | Long 55 SPY (T8) | +$1528.47 | +3.846% | $101,546.33 |
 | Day 56 | 2026-05-27 | $750.59 | Long 55 SPY (T8) | +$1535.62 | +3.864% | $101,553.48 |
 | Day 57 | 2026-05-28 | $754.68 | Long 55 SPY (T8) | +$1760.57 | +4.429% | $101,778.43 |
+| Day 58 | 2026-05-29 | $756.70 | Long 55 SPY (T8) | +$1871.67 | +4.709% | $101,889.53 |
 
 ## Benchmark vs Strategy
 
@@ -178,6 +179,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 | Day 55 | 2026-05-26 | $101,546.33 | $110,945.83 | +1.5463% | +10.946% | **-9.400%** |
 | Day 56 | 2026-05-27 | $101,553.48 | $110,965.05 | +1.5535% | +10.965% | **-9.412%** |
 | Day 57 | 2026-05-28 | $101,778.43 | $111,569.70 | +1.7784% | +11.570% | **-9.792%** |
+| Day 58 | 2026-05-29 | $101,889.53 | $111,868.33 | +1.8895% | +11.868% | **-9.978%** |
 
 ## Signal Saved vs Holding
 
@@ -240,6 +242,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 | Day 55 | 2026-05-26 | $750.46 | +$840.24 | -$822.38 | Position open |
 | Day 56 | 2026-05-27 | $750.59 | +$841.54 | -$823.68 | Position open |
 | Day 57 | 2026-05-28 | $754.68 | +$882.44 | -$864.58 | Position open |
+| Day 58 | 2026-05-29 | $756.70 | +$902.64 | -$884.78 | Position open |
 
 ---
 
@@ -1700,6 +1703,31 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 ---
 
+### Day 58 — 2026-05-29 _(narrative: groq)_
+
+| Field | Value |
+|---|---|
+| Position | Long 55 SPY (T8) |
+| Entry (Alpaca fill) | $666.436/share |
+| Close price | $756.70 |
+| Unrealized P&L | +$1871.67 |
+| P&L % | +4.709% |
+| Portfolio value | $101,889.53 |
+| Benchmark value | $111,868.33 |
+| Alpha (cumulative) | -9.978% |
+
+**Regime call:** BULL
+
+**Market context:** Markets were mostly up on lower volume, driven by hopes of a US-Iran deal, with exchange-traded funds and equity futures rising pre-bell.
+
+**Strategy note:** The system held long SPY, with a BULLISH fast signal and a BULL regime, resulting in an unrealized P&L of +4.71% from entry.
+
+**What I did today:** System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $737.44 vs MA50 $701.67). Momentum: STRONG. Unrealized P&L: +4.71% from entry. No exit triggered.
+
+**Key learning:** Strong momentum can persist even with lower volume, but regime context remains crucial for risk management.
+
+---
+
 ## Strategy Evolution Log
 
 | Date | Change | Rationale |
@@ -1716,4 +1744,4 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 | _add entries here_ | | | | |
 
 ---
-_Day 57 of 90 · Alpaca equity: $101,806.44 · Cumulative alpha vs SPY: -9.792%_
+_Day 58 of 90 · Alpaca equity: $101,896.09 · Cumulative alpha vs SPY: -9.978%_
