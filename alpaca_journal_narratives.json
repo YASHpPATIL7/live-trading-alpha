@@ -462,5 +462,13 @@
     "key_learning": "Strong momentum can persist even with lower volume, but regime context remains crucial for risk management.",
     "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $739.34 vs MA50 $703.61). Momentum: STRONG. Unrealized P&L: +4.66% from entry. No exit triggered.",
     "source": "groq"
+  },
+  "2026-06-01": {
+    "regime_call": "BULL",
+    "market_context": "Markets remained bullish with a strong close in SPY, despite negative news from the Middle East. The VIX index also stayed low at 15.74. Oil prices were stable at $92.57/barrel.",
+    "strategy_note": "The dual-timeframe SMA crossover strategy held a long position in SPY, with a fast signal remaining bullish and a strong momentum. The slow filter regime also confirmed a bull regime.",
+    "key_learning": "Strong momentum and a confirmed bull regime do not guarantee continued price appreciation, and the system must remain vigilant for potential reversals.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $739.34 vs MA50 $703.61). Momentum: STRONG. Unrealized P&L: +5.12% from entry. No exit triggered.",
+    "source": "groq"
   }
 }
