@@ -470,5 +470,13 @@
     "key_learning": "Strong momentum and a confirmed bull regime do not guarantee continued price appreciation, and the system must remain vigilant for potential reversals.",
     "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $741.23 vs MA50 $705.62). Momentum: STRONG. Unrealized P&L: +4.95% from entry. No exit triggered.",
     "source": "groq"
+  },
+  "2026-06-02": {
+    "regime_call": "BULL",
+    "market_context": "The S&P 500 hit a new high, with strong momentum and a bullish signal. The VIX remained relatively low at 16.06. Global macro data showed stable oil prices and a 4.45% 10Y Treasury yield.",
+    "strategy_note": "The dual-timeframe signal remained bullish, with a fast golden cross and a strong momentum. The system held long SPY, with an unrealized P&L of +5.05% from entry.",
+    "key_learning": "Bullish regimes can be prolonged, but a strong momentum is essential to ride the trend.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $741.23 vs MA50 $705.62). Momentum: STRONG. Unrealized P&L: +5.05% from entry. No exit triggered.",
+    "source": "groq"
   }
 }
