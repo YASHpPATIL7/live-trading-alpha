@@ -478,5 +478,13 @@
     "key_learning": "Bullish regimes can be prolonged, but a strong momentum is essential to ride the trend.",
     "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $743.31 vs MA50 $707.84). Momentum: STRONG. Unrealized P&L: +5.09% from entry. No exit triggered.",
     "source": "groq"
+  },
+  "2026-06-03": {
+    "regime_call": "BULL",
+    "market_context": "The market had a strong day, with the SPY closing at $755.33. AbbVie and UFO stocks delivered significant returns, while the S&P 500 and exchange-traded funds were mixed. Economic signals were fresh, but no clear direction emerged.",
+    "strategy_note": "The dual-timeframe signal remained BULLISH, with a Fast Golden Cross and a strong momentum. The system held long SPY, with an unrealized P&L of +4.52% from entry.",
+    "key_learning": "The system's ability to ride out a strong trend in a BULL regime is crucial for its success, but requires careful management of risk and position sizing.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $743.31 vs MA50 $707.84). Momentum: STRONG. Unrealized P&L: +4.52% from entry. No exit triggered.",
+    "source": "groq"
   }
 }
