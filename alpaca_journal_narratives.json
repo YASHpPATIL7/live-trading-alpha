@@ -486,5 +486,13 @@
     "key_learning": "The system's ability to ride out a strong trend in a BULL regime is crucial for its success, but requires careful management of risk and position sizing.",
     "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $744.83 vs MA50 $709.82). Momentum: STRONG. Unrealized P&L: +4.36% from entry. No exit triggered.",
     "source": "groq"
+  },
+  "2026-06-04": {
+    "regime_call": "BULL",
+    "market_context": "Markets closed mixed, with some positive headlines in tech and energy, but overall economic data weighed on investor sentiment. The VIX index remains relatively low at 15.52. Oil prices slightly increased to $93.09 per barrel.",
+    "strategy_note": "The system held long SPY due to a bullish fast signal and a bull regime context. The slow filter's MA20 crossed above MA50, confirming the bull regime.",
+    "key_learning": "A strong bull regime can mask underlying market weakness, making it essential to monitor momentum and economic data.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $744.83 vs MA50 $709.82). Momentum: STRONG. Unrealized P&L: +4.62% from entry. No exit triggered.",
+    "source": "groq"
   }
 }
