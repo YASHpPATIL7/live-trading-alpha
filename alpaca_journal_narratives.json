@@ -494,5 +494,13 @@
     "key_learning": "A strong bull regime can mask underlying market weakness, making it essential to monitor momentum and economic data.",
     "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $745.99 vs MA50 $711.9). Momentum: STRONG. Unrealized P&L: +4.75% from entry. No exit triggered.",
     "source": "groq"
+  },
+  "2026-06-05": {
+    "regime_call": "BULL",
+    "market_context": "The Jobs Report was released today, which is considered great news for the market, but could negatively impact bond yields. WTI Oil price is stable at $90.9/barrel. The VIX index is at 17.19.",
+    "strategy_note": "The dual-timeframe signal remained BULLISH, with a Fast Golden Cross and a strong momentum. The system held long SPY.",
+    "key_learning": "The market's strong reaction to positive economic news can sometimes be short-lived and may lead to a pullback.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $745.99 vs MA50 $711.9). Momentum: STRONG. Unrealized P&L: +3.17% from entry. No exit triggered.",
+    "source": "groq"
   }
 }
