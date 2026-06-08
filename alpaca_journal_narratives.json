@@ -502,5 +502,13 @@
     "key_learning": "The market's strong reaction to positive economic news can sometimes be short-lived and may lead to a pullback.",
     "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $746.29 vs MA50 $713.51). Momentum: RECOVERING. Unrealized P&L: +2.04% from entry. No exit triggered.",
     "source": "groq"
+  },
+  "2026-06-08": {
+    "regime_call": "BULL",
+    "market_context": "Markets continued their recovery rally, with SPY closing at $742.25. News headlines were mixed, but overall sentiment remained positive. VIX remained relatively low at 18.45.",
+    "strategy_note": "The dual-timeframe SMA crossover strategy held its long position in SPY, with the fast signal remaining bullish. The slow filter regime remained in a bull context, with MA20 above MA50.",
+    "key_learning": "A strong bull regime can persist even with some market volatility, but it's essential to monitor the slow filter for signs of weakening momentum.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $746.29 vs MA50 $713.51). Momentum: RECOVERING. Unrealized P&L: +2.71% from entry. No exit triggered.",
+    "source": "groq"
   }
 }
