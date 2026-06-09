@@ -510,5 +510,13 @@
     "key_learning": "A strong bull regime can persist even with some market volatility, but it's essential to monitor the slow filter for signs of weakening momentum.",
     "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $746.37 vs MA50 $715.39). Momentum: RECOVERING. Unrealized P&L: +2.29% from entry. No exit triggered.",
     "source": "groq"
+  },
+  "2026-06-09": {
+    "regime_call": "RISK-NEUTRAL",
+    "market_context": "Markets were generally higher with the Dow Jones ETFs outperforming the S&P 500 and Nasdaq. Inflation data is expected ahead of CPI and SPCX. Oil prices remained relatively stable.",
+    "strategy_note": "The system held long SPY as the fast signal remained BULLISH and the regime context indicated a BULL market. No exit was triggered.",
+    "key_learning": "A recovering momentum in a bull regime can lead to positive unrealized P&L, but requires careful management of risk.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $746.37 vs MA50 $715.39). Momentum: RECOVERING. Unrealized P&L: +0.55% from entry. No exit triggered.",
+    "source": "groq"
   }
 }
