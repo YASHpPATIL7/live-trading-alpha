@@ -518,5 +518,13 @@
     "key_learning": "A recovering momentum in a bull regime can lead to positive unrealized P&L, but requires careful management of risk.",
     "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $746.26 vs MA50 $717.45). Momentum: WEAK. Unrealized P&L: +1.99% from entry. No exit triggered.",
     "source": "groq"
+  },
+  "2026-06-10": {
+    "regime_call": "BULL",
+    "market_context": "The market headlines were dominated by inflation concerns, with the CPI inflation rate reaching +4.2%, the hottest in 3 years. The VIX index also rose to 21.68. Oil prices remained steady at $91.01 per barrel.",
+    "strategy_note": "The system held a long position in SPY as the fast signal remained BULLISH, with a weak momentum context. The slow filter regime also confirmed a BULL regime.",
+    "key_learning": "A weak momentum context can persist even as the fast signal remains bullish, suggesting a need for caution in the current market environment.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $746.26 vs MA50 $717.45). Momentum: WEAK. Unrealized P&L: +1.03% from entry. No exit triggered.",
+    "source": "groq"
   }
 }

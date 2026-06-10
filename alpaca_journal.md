@@ -1,5 +1,5 @@
 # ALPACA PAPER JOURNAL — SPY
-_Last updated: June 09, 2026 | Day 65 of 90_
+_Last updated: June 10, 2026 | Day 66 of 90_
 _Strategy: Dual-Timeframe SMA Crossover (Fast: 10/30, Regime: 20/50) + Price Override_
 _Source of truth: Alpaca fills | Close prices: Alpaca Market Data API_
 _Signal source: signal_state.json | Narrative: Groq llama-3.1-8b-instant_
@@ -8,10 +8,10 @@ _Signal source: signal_state.json | Narrative: Groq llama-3.1-8b-instant_
 > All P&L uses Alpaca fill prices. First entry: **$666.436/share**
 > (2026-03-09, after-hours fill).
 
-> 📡 **CURRENT SIGNAL** (2026-06-09): **BULLISH**  
+> 📡 **CURRENT SIGNAL** (2026-06-10): **BULLISH**  
 > Fast: MA10 $750.48 | MA30 $739.06  
 > Slow: MA20 $746.26 | MA50 $717.45  
-> Regime: **BULL** | Momentum: **WEAK** | Session: AFTER_HOURS
+> Regime: **BULL** | Momentum: **WEAK** | Session: REGULAR
 
 ## Strategy Description
 
@@ -51,7 +51,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 |---|---|
 | Symbol | SPY |
 | Starting capital | $100,000 |
-| Alpaca equity | $100,734.99 |
+| Alpaca equity | $100,427.04 |
 | Alpaca cash | $60,272.64 |
 | Cumulative realized P&L | +$17.86 |
 
@@ -124,6 +124,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 | Day 63 | 2026-06-05 | $737.45 | Long 55 SPY (T8) | +$812.92 | +2.045% | $100,830.78 |
 | Day 64 | 2026-06-08 | $739.24 | Long 55 SPY (T8) | +$911.37 | +2.293% | $100,929.23 |
 | Day 65 | 2026-06-09 | $737.07 | Long 55 SPY (T8) | +$792.02 | +1.993% | $100,809.88 |
+| Day 66 | 2026-06-10 | $730.09 | Long 55 SPY (T8) | +$408.12 | +1.027% | $100,425.98 |
 
 ## Benchmark vs Strategy
 
@@ -194,6 +195,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 | Day 63 | 2026-06-05 | $100,830.78 | $109,022.47 | +0.8308% | +9.022% | **-8.191%** |
 | Day 64 | 2026-06-08 | $100,929.23 | $109,287.10 | +0.9292% | +9.287% | **-8.358%** |
 | Day 65 | 2026-06-09 | $100,809.88 | $108,966.29 | +0.8099% | +8.966% | **-8.156%** |
+| Day 66 | 2026-06-10 | $100,425.98 | $107,934.39 | +0.4260% | +7.934% | **-7.508%** |
 
 ## Signal Saved vs Holding
 
@@ -264,6 +266,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 | Day 63 | 2026-06-05 | $737.45 | +$710.14 | -$692.28 | Position open |
 | Day 64 | 2026-06-08 | $739.24 | +$728.04 | -$710.18 | Position open |
 | Day 65 | 2026-06-09 | $737.07 | +$706.34 | -$688.48 | Position open |
+| Day 66 | 2026-06-10 | $730.09 | +$636.54 | -$618.68 | Position open |
 
 ---
 
@@ -1924,6 +1927,31 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 ---
 
+### Day 66 — 2026-06-10 _(narrative: groq)_
+
+| Field | Value |
+|---|---|
+| Position | Long 55 SPY (T8) |
+| Entry (Alpaca fill) | $666.436/share |
+| Close price | $730.09 |
+| Unrealized P&L | +$408.12 |
+| P&L % | +1.027% |
+| Portfolio value | $100,425.98 |
+| Benchmark value | $107,934.39 |
+| Alpha (cumulative) | -7.508% |
+
+**Regime call:** BULL
+
+**Market context:** The market headlines were dominated by inflation concerns, with the CPI inflation rate reaching +4.2%, the hottest in 3 years. The VIX index also rose to 21.68. Oil prices remained steady at $91.01 per barrel.
+
+**Strategy note:** The system held a long position in SPY as the fast signal remained BULLISH, with a weak momentum context. The slow filter regime also confirmed a BULL regime.
+
+**What I did today:** System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $746.26 vs MA50 $717.45). Momentum: WEAK. Unrealized P&L: +1.03% from entry. No exit triggered.
+
+**Key learning:** A weak momentum context can persist even as the fast signal remains bullish, suggesting a need for caution in the current market environment.
+
+---
+
 ## Strategy Evolution Log
 
 | Date | Change | Rationale |
@@ -1940,4 +1968,4 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 | _add entries here_ | | | | |
 
 ---
-_Day 65 of 90 · Alpaca equity: $100,734.99 · Cumulative alpha vs SPY: -8.156%_
+_Day 66 of 90 · Alpaca equity: $100,427.04 · Cumulative alpha vs SPY: -7.508%_
