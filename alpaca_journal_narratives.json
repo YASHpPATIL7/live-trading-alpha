@@ -526,5 +526,13 @@
     "key_learning": "A weak momentum context can persist even as the fast signal remains bullish, suggesting a need for caution in the current market environment.",
     "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $745.62 vs MA50 $719.32). Momentum: WEAK. Unrealized P&L: +0.40% from entry. No exit triggered.",
     "source": "groq"
+  },
+  "2026-06-11": {
+    "regime_call": "BULL",
+    "market_context": "Energy stocks continued their rally, with IYE up 27% YTD. The market remains relatively calm, with VIX at 21.4. US attacks on Iran are causing some volatility.",
+    "strategy_note": "The system held long SPY, with a bullish fast signal and a bull regime, and did not trigger an exit.",
+    "key_learning": "The system's ability to hold long in a bull regime is being tested, but the weak momentum is a concern.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $745.62 vs MA50 $719.32). Momentum: WEAK. Unrealized P&L: +0.50% from entry. No exit triggered.",
+    "source": "groq"
   }
 }
