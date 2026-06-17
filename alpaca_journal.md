@@ -1,5 +1,5 @@
 # ALPACA PAPER JOURNAL — SPY
-_Last updated: June 16, 2026 | Day 70 of 90_
+_Last updated: June 17, 2026 | Day 71 of 90_
 _Strategy: Dual-Timeframe SMA Crossover (Fast: 10/30, Regime: 20/50) + Price Override_
 _Source of truth: Alpaca fills | Close prices: Alpaca Market Data API_
 _Signal source: signal_state.json | Narrative: Groq llama-3.1-8b-instant_
@@ -8,10 +8,10 @@ _Signal source: signal_state.json | Narrative: Groq llama-3.1-8b-instant_
 > All P&L uses Alpaca fill prices. First entry: **$666.436/share**
 > (2026-03-09, after-hours fill).
 
-> 📡 **CURRENT SIGNAL** (2026-06-16): **BULLISH** | ⚡ Price Override Active (+3.3% above MA50)  
+> 📡 **CURRENT SIGNAL** (2026-06-17): **BULLISH** | ⚡ Price Override Active (+3.3% above MA50)  
 > Fast: MA10 $743.52 | MA30 $743.38  
 > Slow: MA20 $746.44 | MA50 $726.61  
-> Regime: **BULL** | Momentum: **STRONG** | Session: AFTER_HOURS
+> Regime: **BULL** | Momentum: **STRONG** | Session: REGULAR
 
 ## Strategy Description
 
@@ -51,7 +51,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 |---|---|
 | Symbol | SPY |
 | Starting capital | $100,000 |
-| Alpaca equity | $101,579.84 |
+| Alpaca equity | $101,525.94 |
 | Alpaca cash | $60,272.64 |
 | Cumulative realized P&L | +$17.86 |
 
@@ -129,6 +129,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 | Day 68 | 2026-06-12 | $741.67 | Long 55 SPY (T8) | +$1045.02 | +2.629% | $101,062.88 |
 | Day 69 | 2026-06-15 | $754.75 | Long 55 SPY (T8) | +$1764.42 | +4.439% | $101,782.28 |
 | Day 70 | 2026-06-16 | $750.58 | Long 55 SPY (T8) | +$1535.07 | +3.862% | $101,552.93 |
+| Day 71 | 2026-06-17 | $750.02 | Long 55 SPY (T8) | +$1504.27 | +3.785% | $101,522.13 |
 
 ## Benchmark vs Strategy
 
@@ -204,6 +205,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 | Day 68 | 2026-06-12 | $101,062.88 | $109,646.34 | +1.0629% | +9.646% | **-8.583%** |
 | Day 69 | 2026-06-15 | $101,782.28 | $111,580.05 | +1.7823% | +11.580% | **-9.798%** |
 | Day 70 | 2026-06-16 | $101,552.93 | $110,963.57 | +1.5529% | +10.964% | **-9.411%** |
+| Day 71 | 2026-06-17 | $101,522.13 | $110,880.78 | +1.5221% | +10.881% | **-9.359%** |
 
 ## Signal Saved vs Holding
 
@@ -279,6 +281,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 | Day 68 | 2026-06-12 | $741.67 | +$752.34 | -$734.48 | Position open |
 | Day 69 | 2026-06-15 | $754.75 | +$883.14 | -$865.28 | Position open |
 | Day 70 | 2026-06-16 | $750.58 | +$841.44 | -$823.58 | Position open |
+| Day 71 | 2026-06-17 | $750.02 | +$835.84 | -$817.98 | Position open |
 
 ---
 
@@ -2064,6 +2067,31 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 ---
 
+### Day 71 — 2026-06-17 _(narrative: groq)_
+
+| Field | Value |
+|---|---|
+| Position | Long 55 SPY (T8) |
+| Entry (Alpaca fill) | $666.436/share |
+| Close price | $750.02 |
+| Unrealized P&L | +$1504.27 |
+| P&L % | +3.785% |
+| Portfolio value | $101,522.13 |
+| Benchmark value | $110,880.78 |
+| Alpha (cumulative) | -9.359% |
+
+**Regime call:** BULL
+
+**Market context:** The S&P 500 futures edged higher ahead of the Fed rate decision. Tech ETFs are doing something unprecedented, but investors are advised to wait. The VIX remains relatively low at 16.84.
+
+**Strategy note:** The dual-timeframe signal remained BULLISH with a Fast Golden Cross, and the system held long SPY. The regime context is still BULL, with MA20 above MA50.
+
+**What I did today:** System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $746.44 vs MA50 $726.61). Momentum: STRONG. Unrealized P&L: +3.79% from entry. No exit triggered.
+
+**Key learning:** The system's ability to hold long during a strong bull regime is key to its performance, but it still trails the benchmark by a significant margin.
+
+---
+
 ## Strategy Evolution Log
 
 | Date | Change | Rationale |
@@ -2080,4 +2108,4 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 | _add entries here_ | | | | |
 
 ---
-_Day 70 of 90 · Alpaca equity: $101,579.84 · Cumulative alpha vs SPY: -9.411%_
+_Day 71 of 90 · Alpaca equity: $101,525.94 · Cumulative alpha vs SPY: -9.359%_

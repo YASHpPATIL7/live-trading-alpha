@@ -558,5 +558,13 @@
     "key_learning": "A strong bullish regime context can override a weak fast signal, but a strong momentum is still required for a valid trade",
     "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $746.44 vs MA50 $726.61). Momentum: STRONG. Unrealized P&L: +3.86% from entry. No exit triggered.",
     "source": "groq"
+  },
+  "2026-06-17": {
+    "regime_call": "BULL",
+    "market_context": "The S&P 500 futures edged higher ahead of the Fed rate decision. Tech ETFs are doing something unprecedented, but investors are advised to wait. The VIX remains relatively low at 16.84.",
+    "strategy_note": "The dual-timeframe signal remained BULLISH with a Fast Golden Cross, and the system held long SPY. The regime context is still BULL, with MA20 above MA50.",
+    "key_learning": "The system's ability to hold long during a strong bull regime is key to its performance, but it still trails the benchmark by a significant margin.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $746.44 vs MA50 $726.61). Momentum: STRONG. Unrealized P&L: +3.79% from entry. No exit triggered.",
+    "source": "groq"
   }
 }
