@@ -1,15 +1,15 @@
 {
   "date": "2026-06-18",
-  "session": "REGULAR",
+  "session": "AFTER_HOURS",
   "signal": "BEARISH",
-  "ma10": 742.2,
-  "ma30": 743.95,
-  "ma20": 746.8,
-  "ma50": 728.24,
+  "ma10": 741.16,
+  "ma30": 744.38,
+  "ma20": 747.08,
+  "ma50": 729.66,
   "regime": "BULL",
-  "regime_gap_pct": 2.55,
-  "momentum": "WEAK",
-  "close": 740.96,
+  "regime_gap_pct": 2.39,
+  "momentum": "RECOVERING",
+  "close": 746.74,
   "price_override": false,
-  "price_pct_above_ma50": 1.75
+  "price_pct_above_ma50": 2.34
 }
