@@ -590,5 +590,13 @@
     "key_learning": "A bearish fast signal can occur even in a bull regime, highlighting the importance of both short-term and long-term signals.",
     "what_i_did_today": "System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $744.93 vs MA50 $730.26). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.",
     "source": "groq"
+  },
+  "2026-06-24": {
+    "regime_call": "BULL",
+    "market_context": "US-Iran tensions eased, boosting futures, while VIX remained relatively low at 18.29. Rivian's decline weighed on sentiment, but the market context remains bullish.",
+    "strategy_note": "The system exited the position due to a bearish fast signal (MA10/MA30 death cross) in a bullish regime (MA20/MA50 crossover).",
+    "key_learning": "A bearish fast signal can override a bullish regime context, leading to a position exit.",
+    "what_i_did_today": "System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $744.93 vs MA50 $730.26). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.",
+    "source": "groq"
   }
 }
