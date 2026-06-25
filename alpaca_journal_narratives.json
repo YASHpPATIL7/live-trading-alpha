@@ -598,5 +598,13 @@
     "key_learning": "A bearish fast signal can override a bullish regime context, leading to a position exit.",
     "what_i_did_today": "System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $744.15 vs MA50 $731.24). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.",
     "source": "groq"
+  },
+  "2026-06-25": {
+    "regime_call": "Bullish Regime",
+    "market_context": "Markets were up pre-bell on Thursday, driven by investors' enthusiasm for AI growth themes and reduced Middle East risks. The S&P 500 ETF with a 20% yield outperformed most covered call ETFs. The VIX index remained relatively low at 18.75.",
+    "strategy_note": "The system exited the position based on a bearish fast signal (MA10/MA30 death cross) in a bullish regime (MA20/MA50). The system is now monitoring for a re-entry on the next fast golden cross.",
+    "key_learning": "A bearish signal in a bullish regime led to a profitable exit, highlighting the importance of regime context in the dual-timeframe strategy.",
+    "what_i_did_today": "System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $744.15 vs MA50 $731.24). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.",
+    "source": "groq"
   }
 }
