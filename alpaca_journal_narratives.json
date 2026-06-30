@@ -622,5 +622,13 @@
     "key_learning": "The system's ability to lock in gains on a bearish signal highlights the importance of discipline in adhering to the dual-timeframe strategy.",
     "what_i_did_today": "System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $741.58 vs MA50 $733.51). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.",
     "source": "groq"
+  },
+  "2026-06-30": {
+    "regime_call": "Consolidation",
+    "market_context": "The Nasdaq tested a critical level, and equity futures retreated ahead of high-stakes US-Iran talks. The S&P 500 and Nasdaq ended the quarter higher, while the Dow was driven by Alphabet's debut. The VIX remained relatively low at 16.85.",
+    "strategy_note": "The system exited the position due to a bearish fast signal (MA10/MA30 death cross) in a bull regime.",
+    "key_learning": "The system's ability to exit the position correctly in a bull regime highlights the importance of the slow filter in preventing false signals.",
+    "what_i_did_today": "System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $741.58 vs MA50 $733.51). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.",
+    "source": "groq"
   }
 }
