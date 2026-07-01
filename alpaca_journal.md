@@ -9,9 +9,9 @@ _Signal source: signal_state.json | Narrative: Groq llama-3.1-8b-instant_
 > (2026-03-09, after-hours fill).
 
 > 📡 **CURRENT SIGNAL** (2026-07-01): **BEARISH**  
-> Fast: MA10 $739.65 | MA30 $742.51  
-> Slow: MA20 $741.09 | MA50 $734.28  
-> Regime: **BULL** | Momentum: **RECOVERING** | Session: REGULAR
+> Fast: MA10 $739.38 | MA30 $742.81  
+> Slow: MA20 $740.5 | MA50 $735.06  
+> Regime: **BULL** | Momentum: **RECOVERING** | Session: AFTER_HOURS
 
 ## Strategy Description
 
@@ -139,7 +139,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 | Day 77 | 2026-06-26 | $729.35 | FLAT | — | — | $101,188.82 |
 | Day 78 | 2026-06-29 | $740.86 | FLAT | — | — | $101,188.82 |
 | Day 79 | 2026-06-30 | $746.65 | FLAT | — | — | $101,188.82 |
-| Day 80 | 2026-07-01 | $748.85 | FLAT | — | — | $101,188.82 |
+| Day 80 | 2026-07-01 | $745.66 | FLAT | — | — | $101,188.82 |
 
 ## Benchmark vs Strategy
 
@@ -224,7 +224,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 | Day 77 | 2026-06-26 | $101,188.82 | $108,103.09 | +1.1888% | +8.103% | **-6.914%** |
 | Day 78 | 2026-06-29 | $101,188.82 | $109,809.08 | +1.1888% | +9.809% | **-8.620%** |
 | Day 79 | 2026-06-30 | $101,188.82 | $110,667.27 | +1.1888% | +10.667% | **-9.478%** |
-| Day 80 | 2026-07-01 | $101,188.82 | $110,993.35 | +1.1888% | +10.993% | **-9.804%** |
+| Day 80 | 2026-07-01 | $101,188.82 | $110,520.53 | +1.1888% | +10.521% | **-9.332%** |
 
 ## Signal Saved vs Holding
 
@@ -309,7 +309,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 | Day 77 | 2026-06-26 | $729.35 | +$629.14 | +$559.68 | Flat saved **+$559.68** vs holding |
 | Day 78 | 2026-06-29 | $740.86 | +$744.24 | +$444.58 | Flat saved **+$444.58** vs holding |
 | Day 79 | 2026-06-30 | $746.65 | +$802.14 | +$386.68 | Flat saved **+$386.68** vs holding |
-| Day 80 | 2026-07-01 | $748.85 | +$824.14 | +$364.68 | Flat saved **+$364.68** vs holding |
+| Day 80 | 2026-07-01 | $745.66 | +$792.24 | +$396.58 | Flat saved **+$396.58** vs holding |
 
 ---
 
@@ -334,7 +334,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The system correctly identified a bearish trend and entered a long position in SPY, but the MA20/MA50 crossover strategy did not trigger a trade today due to the Death Cross signal.
 
-**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Momentum: RECOVERING. Unrealized P&L: +1.24% from entry. No exit triggered.
+**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Momentum: RECOVERING. Unrealized P&L: +1.24% from entry. No exit triggered.
 
 **Key learning:** The system's ability to identify a bearish trend is correct, but the Death Cross signal overrides the MA20/MA50 crossover strategy, resulting in a missed trade opportunity.
 
@@ -359,7 +359,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The MA20/MA50 crossover system did not trigger a sell signal today, as the MA20 is still below the MA50, indicating a bearish signal is not present. However, the system's inaction was correct as the market is experiencing a risk-off regime.
 
-**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Momentum: RECOVERING. Unrealized P&L: +1.06% from entry. No exit triggered.
+**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Momentum: RECOVERING. Unrealized P&L: +1.06% from entry. No exit triggered.
 
 **Key learning:** The system's inaction during a risk-off regime is correct, as the primary focus is on preserving capital during such periods.
 
@@ -384,7 +384,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** MA20 ($660.25) is below MA50 ($675.76), indicating a bearish signal. The system did not enter a trade today, as the signal is not conducive to a long position.
 
-**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Momentum: RECOVERING. Unrealized P&L: +0.94% from entry. No exit triggered.
+**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Momentum: RECOVERING. Unrealized P&L: +0.94% from entry. No exit triggered.
 
 **Key learning:** The strategy's ability to avoid a losing trade is more valuable than a single winning trade.
 
@@ -410,7 +410,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The MA20/MA50 crossover system generated a bearish signal today, but the system did not short as the long position was already open. This was correct because the system is not designed to short.
 
-**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
+**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
 
 **Key learning:** The system's long position was profitable today despite the bearish signal, highlighting the importance of position sizing and risk management in a trend-following strategy.
 
@@ -436,7 +436,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The MA20/MA50 crossover strategy correctly identified a bearish signal, but the system did not enter a trade as the position status was already FLAT. This was correct because the signal was not a buy signal.
 
-**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
+**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
 
 **Key learning:** A bearish MA crossover signal does not necessarily mean a trade should be entered if the position is already flat.
 
@@ -462,7 +462,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** MA20 is below MA50, indicating a bearish crossover. The system did not enter a trade today as it was flat, but the signal would have been to sell given the bearish crossover.
 
-**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
+**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
 
 **Key learning:** A bearish MA crossover signal is a valid reason to sell, even if the market is rising in the short term.
 
@@ -488,7 +488,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The MA20/MA50 crossover system is in a BEARISH — Death Cross regime. The system did not enter a position today, as the market conditions did not trigger a signal.
 
-**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
+**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
 
 **Key learning:** The system's inaction today was correct, as the market did not trigger a signal, and the realized P&L was locked at +$15.58
 
@@ -514,7 +514,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The MA20/MA50 crossover strategy is in a BEARISH — Death Cross regime, but no trade was executed due to the system being flat. The strategy's inaction was correct as the market is experiencing a risk-off regime.
 
-**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
+**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
 
 **Key learning:** The strategy's ability to lock in profits is crucial in a risk-off regime, as seen today with a $+15.58 realized P&L.
 
@@ -540,7 +540,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The system is flat, as the MA20/MA50 crossover strategy did not trigger a trade today. This is correct, as the signal is bearish (Death Cross) and the system is designed to avoid trading during such conditions.
 
-**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
+**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
 
 **Key learning:** The system's risk management approach is effective in avoiding losses during periods of high market volatility.
 
@@ -566,7 +566,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The MA20/MA50 crossover system remained flat as MA20 was below MA50, indicating no buy or sell signal. This was correct as the market did not follow the bearish signal.
 
-**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
+**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
 
 **Key learning:** The system's ability to stay flat in a volatile market environment is crucial for preserving capital.
 
@@ -592,7 +592,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The MA system is in a bearish regime due to the death cross, but did not enter a trade today as the position was already flat. The system's inaction was correct as the market did not provide a clear buy or sell signal.
 
-**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
+**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
 
 **Key learning:** The system's ability to avoid trading during periods of high volatility is crucial in maintaining its overall performance.
 
@@ -618,7 +618,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The MA20/MA50 crossover strategy correctly identified a bearish signal, but the system remained flat due to the signal being a death cross, which typically indicates a sell signal. The strategy's inaction was correct as the market declined.
 
-**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
+**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
 
 **Key learning:** A death cross signal should be treated with caution and may require a more nuanced approach to determine the optimal course of action.
 
@@ -644,7 +644,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The MA20/MA50 crossover strategy is currently in a BEARISH — Death Cross regime. The system did not enter a trade today, as the MA20 was below the MA50 and the signal was bearish.
 
-**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
+**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
 
 **Key learning:** A dead-cat bounce can occur even in a bearish market regime, highlighting the importance of staying nimble and not over-interpreting short-term market movements.
 
@@ -670,7 +670,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The MA20/MA50 crossover strategy did not trigger any trades today, as the signal was bearish (Death Cross) and the system remained flat.
 
-**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
+**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
 
 **Key learning:** A bearish MA crossover signal may not always be a buy signal, and staying flat can be a correct decision in uncertain market conditions.
 
@@ -696,7 +696,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The MA20/MA50 system remained flat as the Death Cross signal did not trigger a trade. This was correct as the market did not experience a significant downturn.
 
-**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
+**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
 
 **Key learning:** The system's inaction during a period of heightened uncertainty highlights the importance of a well-defined trading plan and risk management.
 
@@ -722,7 +722,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The system remained flat as the MA20/MA50 crossover strategy indicated a bearish signal, which was correct given the market's cautious behavior.
 
-**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
+**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
 
 **Key learning:** The strategy's ability to lock in profits and avoid new positions during a dead-cat bounce is crucial for preserving capital.
 
@@ -748,7 +748,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The system did not enter a trade today due to a bearish signal from the MA20/MA50 crossover. The system's inaction was correct as the market experienced a dead-cat bounce.
 
-**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
+**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
 
 **Key learning:** A bearish signal from the MA20/MA50 crossover does not guarantee a sell signal, as the market can experience a dead-cat bounce.
 
@@ -774,7 +774,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The MA20/MA50 crossover system correctly identified a bearish signal, but did not enter a trade as the position was already flat.
 
-**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
+**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
 
 **Key learning:** The system's ability to identify bearish signals is intact, but it must be used in conjunction with position management to maximize returns.
 
@@ -800,7 +800,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The MA20/MA50 crossover strategy is currently in a BEARISH signal due to the Death Cross, but no trades were executed as the position was flat.
 
-**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
+**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
 
 **Key learning:** The strategy correctly identified a bearish signal, but the lack of a trade execution highlights the importance of position sizing and risk management.
 
@@ -826,7 +826,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** MA20 crossed below MA50, triggering a bullish signal. The system remains flat, with no trades executed today.
 
-**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
+**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
 
 **Key learning:** The strategy's alpha continues to outperform the benchmark, with a cumulative alpha of +2.610%
 
@@ -852,7 +852,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** MA20 crossed below MA50, triggering a bearish signal. The system exited the position.
 
-**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
+**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
 
 **Key learning:** VIX levels can significantly influence market sentiment and impact our strategy's performance.
 
@@ -878,7 +878,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The MA20/MA50 crossover strategy remained bearish, with a death cross. The system exited the position and is now flat, waiting for a golden cross to re-enter.
 
-**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
+**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
 
 **Key learning:** The strategy's bearish signal was correct, but the realized P&L was relatively low, highlighting the importance of position sizing and risk management.
 
@@ -904,7 +904,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** MA20/MA50 crossover strategy exited position based on bearish signal. System now flat, waiting for next golden cross.
 
-**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
+**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
 
 **Key learning:** MA crossover strategy underperformed passive hold, reinforcing need for robust risk management
 
@@ -930,7 +930,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The system exited the position due to a bearish MA cross, and is now flat. The MA20 is below the MA50, indicating a bearish trend.
 
-**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
+**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
 
 **Key learning:** The system's bearish signal was correct, but the realized P&L was lower than the passive hold, highlighting the importance of risk management in trading strategies.
 
@@ -956,7 +956,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** MA50 crossed above MA20, triggering a bearish signal. The system exited the position, locking a realized P&L of $+15.58.
 
-**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
+**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
 
 **Key learning:** A bearish signal does not guarantee losses, as the system's realized P&L was positive despite the market downturn.
 
@@ -982,7 +982,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** MA20 ($660.21) is below MA50 ($672.89), indicating a bearish signal. The system exited the position, locking in a $+15.58 P&L.
 
-**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
+**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
 
 **Key learning:** A death cross in the MA crossover strategy led to a premature exit, resulting in a missed opportunity to ride the market's upward momentum.
 
@@ -1008,7 +1008,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** MA20/MA50 crossover strategy is in a BEARISH regime due to a Death Cross. The system exited the position, locking a realized P&L of $+15.58.
 
-**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
+**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
 
 **Key learning:** The strategy's realized P&L outperformed a passive hold by $15.58, but still trailed the benchmark by $286.66.
 
@@ -1034,7 +1034,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The dual-timeframe SMA crossover strategy held a long position in SPY, despite the bear regime, due to a bullish fast signal. The system's unrealized P&L increased by 0.06% from entry.
 
-**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
+**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
 
 **Key learning:** A bullish fast signal does not guarantee success in a bear regime, and the system's performance may be impacted by the prevailing market conditions.
 
@@ -1060,7 +1060,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The system exited the position due to a bear regime, as confirmed by the slow MA20/MA50 crossover. A bullish fast signal was generated, but the system prioritized the slow regime filter.
 
-**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
+**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
 
 **Key learning:** The system's regime filter is more important than the fast signal in determining position entry and exit decisions.
 
@@ -1085,7 +1085,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The system held long SPY due to a BULLISH Fast signal and BEAR regime, despite strong momentum. No exit was triggered.
 
-**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Momentum: RECOVERING. Unrealized P&L: +0.03% from entry. No exit triggered.
+**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Momentum: RECOVERING. Unrealized P&L: +0.03% from entry. No exit triggered.
 
 **Key learning:** A strong momentum environment can override a bearish regime context, but may also increase risk of a false signal.
 
@@ -1111,7 +1111,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The system remained long SPY despite a BEAR regime, as the fast signal remained BULLISH due to a strong golden cross. No exit was triggered.
 
-**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
+**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
 
 **Key learning:** The system's regime filter can sometimes conflict with the fast signal, requiring careful consideration of both indicators.
 
@@ -1136,7 +1136,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The system held a long SPY position, despite a bear regime, due to a bullish fast signal from the 10/30 SMA crossover. Unrealized P&L was -0.01% from entry.
 
-**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Momentum: RECOVERING. Unrealized P&L: -0.06% from entry. No exit triggered.
+**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Momentum: RECOVERING. Unrealized P&L: -0.06% from entry. No exit triggered.
 
 **Key learning:** A bear regime does not necessarily mean a bear market, as the system's fast signal can override the slow filter.
 
@@ -1162,7 +1162,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The dual-timeframe signal remained bullish, with a fast golden cross and strong momentum, causing the system to hold long SPY.
 
-**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
+**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
 
 **Key learning:** The system's ability to hold long in a bull regime despite rising VIX is being tested.
 
@@ -1187,7 +1187,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The system exited the position based on a bullish fast signal (MA10/MA30 golden cross) in a bull regime (MA20/MA50).
 
-**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Momentum: RECOVERING. Unrealized P&L: +0.12% from entry. No exit triggered.
+**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Momentum: RECOVERING. Unrealized P&L: +0.12% from entry. No exit triggered.
 
 **Key learning:** The system's ability to lock in losses is crucial in maintaining a positive cumulative alpha.
 
@@ -1212,7 +1212,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The dual-timeframe SMA crossover strategy held its long position in SPY, with a bullish fast signal and a bullish regime context. Unrealized P&L increased to +0.19% from entry.
 
-**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Momentum: RECOVERING. Unrealized P&L: +0.29% from entry. No exit triggered.
+**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Momentum: RECOVERING. Unrealized P&L: +0.29% from entry. No exit triggered.
 
 **Key learning:** Strong momentum in a bullish regime context can lead to increased unrealized profits, but also raises the risk of a potential reversal.
 
@@ -1237,7 +1237,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The system held long SPY as the fast signal remained BULLISH, with a strong momentum and a bull regime confirmed by the slow MAs.
 
-**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Momentum: RECOVERING. Unrealized P&L: -0.20% from entry. No exit triggered.
+**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Momentum: RECOVERING. Unrealized P&L: -0.20% from entry. No exit triggered.
 
 **Key learning:** A strong bull regime can still result in losses if the system's timing is off, highlighting the importance of precise entry and exit signals.
 
@@ -1263,7 +1263,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The dual-timeframe signal remained BULLISH, with a Fast Golden Cross and a BULL regime. The system held long SPY and did not trigger an exit.
 
-**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
+**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
 
 **Key learning:** A strong momentum environment can mask underlying risks, and the system's slow filter remains critical in avoiding longs in strong bear regimes.
 
@@ -1289,7 +1289,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The system exited the position based on a bullish fast signal (MA10/MA30 golden cross) within a bull regime (MA20/MA50). The system is now monitoring for a re-entry on the next fast golden cross.
 
-**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
+**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
 
 **Key learning:** A strong bull regime does not guarantee a successful trade, as the system still exited with a loss.
 
@@ -1314,7 +1314,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The system exited the position due to a bullish fast signal (MA10/MA30 golden cross) in a bull regime (MA20/MA50).
 
-**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Momentum: RECOVERING. Unrealized P&L: -0.56% from entry. No exit triggered.
+**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Momentum: RECOVERING. Unrealized P&L: -0.56% from entry. No exit triggered.
 
 **Key learning:** A strong bull regime can persist even with low consumer sentiment.
 
@@ -1339,7 +1339,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The system held long SPY, with a bullish fast signal and a bull regime. The unrealized P&L is -0.63% from entry.
 
-**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Momentum: RECOVERING. Unrealized P&L: -0.89% from entry. No exit triggered.
+**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Momentum: RECOVERING. Unrealized P&L: -0.89% from entry. No exit triggered.
 
 **Key learning:** A strong market rally can quickly turn into a risk-off environment, highlighting the importance of regime awareness in trading decisions.
 
@@ -1364,7 +1364,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The dual-timeframe SMA crossover strategy held a long position in SPY, with the fast signal remaining bullish due to the MA10 crossing above MA30. The slow filter regime remained in a bullish context, with MA20 above MA50.
 
-**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Momentum: RECOVERING. Unrealized P&L: -0.11% from entry. No exit triggered.
+**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Momentum: RECOVERING. Unrealized P&L: -0.11% from entry. No exit triggered.
 
 **Key learning:** The system's ability to hold onto a winning trade in a strong bull regime is crucial to maintaining its overall performance.
 
@@ -1389,7 +1389,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The system held long SPY, with a bullish fast signal and a bull regime context. The slow filter's MA20/MA50 crossover confirmed the bull regime.
 
-**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Momentum: RECOVERING. Unrealized P&L: +1.27% from entry. No exit triggered.
+**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Momentum: RECOVERING. Unrealized P&L: +1.27% from entry. No exit triggered.
 
 **Key learning:** A strong bull regime can persist even as VIX declines, emphasizing the importance of regime context in trading decisions.
 
@@ -1414,7 +1414,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The system held long SPY, with a BULLISH fast signal and a BULL regime. The unrealized P&L was +1.72% from entry.
 
-**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Momentum: RECOVERING. Unrealized P&L: +0.97% from entry. No exit triggered.
+**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Momentum: RECOVERING. Unrealized P&L: +0.97% from entry. No exit triggered.
 
 **Key learning:** The system's long position in SPY remains profitable, but the regime's strength is being tested by the rising 10Y Treasury yield.
 
@@ -1439,7 +1439,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The system held long SPY due to a bullish signal from the fast MA crossover and a bullish regime context from the slow MAs. The slow MAs confirmed a bullish regime, and the fast signal remained in a strong bullish state.
 
-**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Momentum: RECOVERING. Unrealized P&L: +1.80% from entry. No exit triggered.
+**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Momentum: RECOVERING. Unrealized P&L: +1.80% from entry. No exit triggered.
 
 **Key learning:** The system's ability to hold long in a strong bullish regime resulted in a +2.01% unrealized P&L from entry, underscoring the importance of regime context in the dual-timeframe strategy.
 
@@ -1464,7 +1464,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The dual-timeframe SMA crossover strategy held a long position in SPY based on a bullish fast signal and a bullish regime context.
 
-**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Momentum: RECOVERING. Unrealized P&L: +2.02% from entry. No exit triggered.
+**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Momentum: RECOVERING. Unrealized P&L: +2.02% from entry. No exit triggered.
 
 **Key learning:** The system's ability to adapt to strong momentum environments is crucial for maintaining a profitable edge.
 
@@ -1489,7 +1489,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The system held long SPY due to a bullish fast signal and a bull regime. The slow MA crossover remains in a bull regime, supporting the long position.
 
-**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Momentum: RECOVERING. Unrealized P&L: +1.89% from entry. No exit triggered.
+**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Momentum: RECOVERING. Unrealized P&L: +1.89% from entry. No exit triggered.
 
 **Key learning:** A strong bull regime can override a declining market, but it's essential to monitor momentum and adjust the strategy accordingly.
 
@@ -1514,7 +1514,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The dual-timeframe signal remained BULLISH with a Fast Golden Cross. The system held long SPY as the regime remained BULL and momentum was STRONG.
 
-**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Momentum: RECOVERING. Unrealized P&L: +2.45% from entry. No exit triggered.
+**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Momentum: RECOVERING. Unrealized P&L: +2.45% from entry. No exit triggered.
 
 **Key learning:** A strong bull regime can be sustained even in the face of inflation concerns, but vigilance is still required.
 
@@ -1539,7 +1539,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The dual-timeframe SMA crossover strategy remained in a bullish regime, with the fast signal holding long SPY and the slow filter confirming a bull market context. The system did not trigger an exit today.
 
-**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Momentum: RECOVERING. Unrealized P&L: +3.25% from entry. No exit triggered.
+**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Momentum: RECOVERING. Unrealized P&L: +3.25% from entry. No exit triggered.
 
 **Key learning:** The system's long position in SPY generated a 3.55% unrealized profit, highlighting the importance of maintaining a bullish regime and strong momentum in the current market environment.
 
@@ -1564,7 +1564,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The dual-timeframe signal remained BULLISH with a fast golden cross, and the system held long SPY as the regime remained BULL with strong momentum.
 
-**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Momentum: RECOVERING. Unrealized P&L: +2.01% from entry. No exit triggered.
+**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Momentum: RECOVERING. Unrealized P&L: +2.01% from entry. No exit triggered.
 
 **Key learning:** The system's risk management via slow filter (SMA20/50) was not triggered to exit the long position today.
 
@@ -1589,7 +1589,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The system held long SPY based on a bullish fast signal and a bull regime, with an unrealized P&L of +1.84%.
 
-**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Momentum: RECOVERING. Unrealized P&L: +1.91% from entry. No exit triggered.
+**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Momentum: RECOVERING. Unrealized P&L: +1.91% from entry. No exit triggered.
 
 **Key learning:** A strong bull regime does not guarantee a positive alpha, as the system's long position underperformed the benchmark.
 
@@ -1614,7 +1614,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The dual-timeframe SMA crossover system held a long position in SPY, triggered by a fast golden cross, and maintained a bullish regime based on the slow MAs. The unrealized P&L was +1.63%.
 
-**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Momentum: RECOVERING. Unrealized P&L: +1.28% from entry. No exit triggered.
+**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Momentum: RECOVERING. Unrealized P&L: +1.28% from entry. No exit triggered.
 
 **Key learning:** The system's ability to adapt to changing market conditions, particularly in the recovery phase, is crucial for maintaining its performance.
 
@@ -1639,7 +1639,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The dual-timeframe SMA crossover strategy remained in a bullish regime, holding long SPY with an unrealized P&L of +2.23%. The fast signal remained bullish with a fast golden cross.
 
-**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Momentum: RECOVERING. Unrealized P&L: +2.32% from entry. No exit triggered.
+**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Momentum: RECOVERING. Unrealized P&L: +2.32% from entry. No exit triggered.
 
 **Key learning:** The system's ability to adapt to changing market regimes is crucial in maintaining its performance, as seen in today's recovery from a previous bearish regime.
 
@@ -1664,7 +1664,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** System held long SPY based on bullish fast signal and bullish regime, with unrealized P&L of +2.24%.
 
-**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Momentum: RECOVERING. Unrealized P&L: +2.51% from entry. No exit triggered.
+**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Momentum: RECOVERING. Unrealized P&L: +2.51% from entry. No exit triggered.
 
 **Key learning:** A strong bullish regime is not a guarantee of continued gains, and a recovery rally can be fragile.
 
@@ -1689,7 +1689,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The dual-timeframe signal remained bullish with a fast golden cross, and the system held long SPY. The slow filter regime remained in a bull context.
 
-**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Momentum: RECOVERING. Unrealized P&L: +2.92% from entry. No exit triggered.
+**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Momentum: RECOVERING. Unrealized P&L: +2.92% from entry. No exit triggered.
 
 **Key learning:** A strong momentum environment can persist even with some volatility, as seen in today's market action.
 
@@ -1714,7 +1714,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The dual-timeframe SMA crossover strategy held long SPY, with a bullish fast signal and a bullish regime. The system's unrealized P&L increased to +3.67% from entry.
 
-**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Momentum: RECOVERING. Unrealized P&L: +3.58% from entry. No exit triggered.
+**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Momentum: RECOVERING. Unrealized P&L: +3.58% from entry. No exit triggered.
 
 **Key learning:** Strong momentum can persist for extended periods, but regime context remains crucial for risk management.
 
@@ -1739,7 +1739,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The dual-timeframe signal remained bullish, with a fast golden cross and a strong regime context. The system held long SPY, with an unrealized P&L of +3.82% from entry.
 
-**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Momentum: RECOVERING. Unrealized P&L: +3.60% from entry. No exit triggered.
+**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Momentum: RECOVERING. Unrealized P&L: +3.60% from entry. No exit triggered.
 
 **Key learning:** A strong regime context can lead to increased confidence in a bullish signal, but it's essential to monitor the market context and adjust the strategy accordingly.
 
@@ -1764,7 +1764,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The dual-timeframe signal remained BULLISH, with a Fast Golden Cross and a strong momentum. The system held long SPY, with an unrealized P&L of +4.42% from entry.
 
-**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Momentum: RECOVERING. Unrealized P&L: +4.16% from entry. No exit triggered.
+**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Momentum: RECOVERING. Unrealized P&L: +4.16% from entry. No exit triggered.
 
 **Key learning:** A strong momentum and a bullish signal can lead to significant gains, but risk management is crucial to avoid over-leveraging.
 
@@ -1789,7 +1789,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The system held long SPY, with a BULLISH fast signal and a BULL regime, resulting in an unrealized P&L of +4.71% from entry.
 
-**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Momentum: RECOVERING. Unrealized P&L: +4.39% from entry. No exit triggered.
+**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Momentum: RECOVERING. Unrealized P&L: +4.39% from entry. No exit triggered.
 
 **Key learning:** Strong momentum can persist even with lower volume, but regime context remains crucial for risk management.
 
@@ -1814,7 +1814,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The dual-timeframe SMA crossover strategy held a long position in SPY, with a fast signal remaining bullish and a strong momentum. The slow filter regime also confirmed a bull regime.
 
-**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Momentum: RECOVERING. Unrealized P&L: +4.68% from entry. No exit triggered.
+**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Momentum: RECOVERING. Unrealized P&L: +4.68% from entry. No exit triggered.
 
 **Key learning:** Strong momentum and a confirmed bull regime do not guarantee continued price appreciation, and the system must remain vigilant for potential reversals.
 
@@ -1839,7 +1839,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The dual-timeframe signal remained bullish, with a fast golden cross and a strong momentum. The system held long SPY, with an unrealized P&L of +5.05% from entry.
 
-**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Momentum: RECOVERING. Unrealized P&L: +4.82% from entry. No exit triggered.
+**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Momentum: RECOVERING. Unrealized P&L: +4.82% from entry. No exit triggered.
 
 **Key learning:** Bullish regimes can be prolonged, but a strong momentum is essential to ride the trend.
 
@@ -1864,7 +1864,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The dual-timeframe signal remained BULLISH, with a Fast Golden Cross and a strong momentum. The system held long SPY, with an unrealized P&L of +4.52% from entry.
 
-**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Momentum: RECOVERING. Unrealized P&L: +4.09% from entry. No exit triggered.
+**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Momentum: RECOVERING. Unrealized P&L: +4.09% from entry. No exit triggered.
 
 **Key learning:** The system's ability to ride out a strong trend in a BULL regime is crucial for its success, but requires careful management of risk and position sizing.
 
@@ -1889,7 +1889,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The system held long SPY due to a bullish fast signal and a bull regime context. The slow filter's MA20 crossed above MA50, confirming the bull regime.
 
-**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Momentum: RECOVERING. Unrealized P&L: +4.48% from entry. No exit triggered.
+**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Momentum: RECOVERING. Unrealized P&L: +4.48% from entry. No exit triggered.
 
 **Key learning:** A strong bull regime can mask underlying market weakness, making it essential to monitor momentum and economic data.
 
@@ -1914,7 +1914,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The dual-timeframe signal remained BULLISH, with a Fast Golden Cross and a strong momentum. The system held long SPY.
 
-**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Momentum: RECOVERING. Unrealized P&L: +1.78% from entry. No exit triggered.
+**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Momentum: RECOVERING. Unrealized P&L: +1.78% from entry. No exit triggered.
 
 **Key learning:** The market's strong reaction to positive economic news can sometimes be short-lived and may lead to a pullback.
 
@@ -1939,7 +1939,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The dual-timeframe SMA crossover strategy held its long position in SPY, with the fast signal remaining bullish. The slow filter regime remained in a bull context, with MA20 above MA50.
 
-**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Momentum: RECOVERING. Unrealized P&L: +2.03% from entry. No exit triggered.
+**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Momentum: RECOVERING. Unrealized P&L: +2.03% from entry. No exit triggered.
 
 **Key learning:** A strong bull regime can persist even with some market volatility, but it's essential to monitor the slow filter for signs of weakening momentum.
 
@@ -1964,7 +1964,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The system held long SPY as the fast signal remained BULLISH and the regime context indicated a BULL market. No exit was triggered.
 
-**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Momentum: RECOVERING. Unrealized P&L: +1.73% from entry. No exit triggered.
+**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Momentum: RECOVERING. Unrealized P&L: +1.73% from entry. No exit triggered.
 
 **Key learning:** A recovering momentum in a bull regime can lead to positive unrealized P&L, but requires careful management of risk.
 
@@ -1989,7 +1989,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The system held a long position in SPY as the fast signal remained BULLISH, with a weak momentum context. The slow filter regime also confirmed a BULL regime.
 
-**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Momentum: RECOVERING. Unrealized P&L: +0.14% from entry. No exit triggered.
+**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Momentum: RECOVERING. Unrealized P&L: +0.14% from entry. No exit triggered.
 
 **Key learning:** A weak momentum context can persist even as the fast signal remains bullish, suggesting a need for caution in the current market environment.
 
@@ -2014,7 +2014,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The system held long SPY, with a bullish fast signal and a bull regime, and did not trigger an exit.
 
-**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Momentum: RECOVERING. Unrealized P&L: +1.81% from entry. No exit triggered.
+**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Momentum: RECOVERING. Unrealized P&L: +1.81% from entry. No exit triggered.
 
 **Key learning:** The system's ability to hold long in a bull regime is being tested, but the weak momentum is a concern.
 
@@ -2039,7 +2039,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** Dual-timeframe signal remains BULLISH with Fast Golden Cross, while Slow MAs confirm BULL regime. System held long SPY as no exit trigger was met.
 
-**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Momentum: RECOVERING. Unrealized P&L: +2.37% from entry. No exit triggered.
+**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Momentum: RECOVERING. Unrealized P&L: +2.37% from entry. No exit triggered.
 
 **Key learning:** Momentum remains WEAK despite a BULL regime, requiring continued monitoring for potential regime shift.
 
@@ -2064,7 +2064,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The system held long SPY as the fast signal remained BULLISH and the regime remained BULL. No exit was triggered.
 
-**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Momentum: RECOVERING. Unrealized P&L: +4.17% from entry. No exit triggered.
+**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Momentum: RECOVERING. Unrealized P&L: +4.17% from entry. No exit triggered.
 
 **Key learning:** The system's ability to ride out consolidations is key to its long-term performance.
 
@@ -2089,7 +2089,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The system held long SPY due to a bullish fast signal and a bullish regime context, with the slow MA20 above MA50. The fast signal remained bullish with a strong momentum.
 
-**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Momentum: RECOVERING. Unrealized P&L: +3.60% from entry. No exit triggered.
+**What I did today:** System held long SPY. Fast signal remained BEARISH. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Momentum: RECOVERING. Unrealized P&L: +3.60% from entry. No exit triggered.
 
 **Key learning:** A strong bullish regime context can override a weak fast signal, but a strong momentum is still required for a valid trade
 
@@ -2115,7 +2115,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The dual-timeframe signal remained BULLISH with a Fast Golden Cross, and the system held long SPY. The regime context is still BULL, with MA20 above MA50.
 
-**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
+**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
 
 **Key learning:** The system's ability to hold long during a strong bull regime is key to its performance, but it still trails the benchmark by a significant margin.
 
@@ -2141,7 +2141,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The system exited the position due to a bearish fast signal (MA10/MA30 death cross) in a BULL regime, locking a realized P&L of $1189.93. Monitoring for re-entry on next fast golden cross.
 
-**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
+**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
 
 **Key learning:** A bearish fast signal can still occur in a BULL regime, illustrating the importance of both fast and slow signals in a dual-timeframe strategy.
 
@@ -2167,7 +2167,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The system held long SPY based on a bullish fast signal and a bull regime, with the fast MAs showing a golden cross.
 
-**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
+**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
 
 **Key learning:** A strong bull regime can override a bearish momentum environment, but still requires careful monitoring.
 
@@ -2193,7 +2193,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The system exited the position due to a bearish fast signal (MA10 < MA30) in a bull regime context (MA20 > MA50).
 
-**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
+**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
 
 **Key learning:** A bearish fast signal can occur even in a bull regime, highlighting the importance of both short-term and long-term signals.
 
@@ -2219,7 +2219,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The system exited the position due to a bearish fast signal (MA10/MA30 death cross) in a bullish regime (MA20/MA50 crossover).
 
-**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
+**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
 
 **Key learning:** A bearish fast signal can override a bullish regime context, leading to a position exit.
 
@@ -2245,7 +2245,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The system exited the position based on a bearish fast signal (MA10/MA30 death cross) in a bullish regime (MA20/MA50). The system is now monitoring for a re-entry on the next fast golden cross.
 
-**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
+**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
 
 **Key learning:** A bearish signal in a bullish regime led to a profitable exit, highlighting the importance of regime context in the dual-timeframe strategy.
 
@@ -2271,7 +2271,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The system exited the position based on a bearish fast signal (MA10/MA30 death cross) in a bull regime. Monitoring for re-entry on the next fast golden cross.
 
-**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
+**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
 
 **Key learning:** A bearish fast signal can occur even in a bull regime, highlighting the importance of monitoring multiple timeframes and signals.
 
@@ -2297,7 +2297,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The system exited the position on a bearish fast signal, with MA10 crossing below MA30, and is now monitoring for re-entry on a next fast golden cross.
 
-**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
+**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
 
 **Key learning:** The system's ability to lock in gains on a bearish signal highlights the importance of discipline in adhering to the dual-timeframe strategy.
 
@@ -2323,7 +2323,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The system exited the position due to a bearish fast signal (MA10/MA30 death cross) in a bull regime.
 
-**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
+**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
 
 **Key learning:** The system's ability to exit the position correctly in a bull regime highlights the importance of the slow filter in preventing false signals.
 
@@ -2335,13 +2335,13 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 |---|---|
 | Position | FLAT |
 | Entry (Alpaca fill) | $666.436/share |
-| Close price | $748.85 |
+| Close price | $745.66 |
 | Realized P&L (locked) | +$1188.82 |
-| Reference if held | +$824.14 |
-| Signal saved | +$364.68 |
+| Reference if held | +$792.24 |
+| Signal saved | +$396.58 |
 | Portfolio value | $101,188.82 |
-| Benchmark value | $110,993.35 |
-| Alpha (cumulative) | -9.804% |
+| Benchmark value | $110,520.53 |
+| Alpha (cumulative) | -9.332% |
 
 **Regime call:** Consolidation
 
@@ -2349,7 +2349,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 **Strategy note:** The system exited the position based on a bearish fast signal (MA10/MA30 death cross) and a bull regime (MA20/MA50), resulting in a realized P&L of $+1188.82.
 
-**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $741.09 vs MA50 $734.28). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
+**What I did today:** System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $740.5 vs MA50 $735.06). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
 
 **Key learning:** The system's ability to adapt to changing market regimes and signals is crucial in maximizing returns and minimizing losses.
 
@@ -2371,4 +2371,4 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 | _add entries here_ | | | | |
 
 ---
-_Day 80 of 90 · Alpaca equity: $101,190.39 · Cumulative alpha vs SPY: -9.804%_
+_Day 80 of 90 · Alpaca equity: $101,190.39 · Cumulative alpha vs SPY: -9.332%_
