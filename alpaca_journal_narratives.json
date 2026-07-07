@@ -654,5 +654,13 @@
     "key_learning": "A bearish fast signal can override a bullish slow regime, leading to profitable exits.",
     "what_i_did_today": "System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $739.93 vs MA50 $736.75). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.",
     "source": "groq"
+  },
+  "2026-07-07": {
+    "regime_call": "Recovery Rally",
+    "market_context": "The Nasdaq sank as Samsung tumbled, while equity futures were mixed amid caution over the chip sector outlook. The VIX index remained relatively low at 16.25. Oil prices were steady at $70.51 per barrel.",
+    "strategy_note": "The dual-timeframe SMA crossover strategy exited the position due to a bearish fast signal (Fast Death Cross), while the slow filter indicated a bullish regime. The system is now monitoring for a re-entry on the next fast golden cross.",
+    "key_learning": "A bearish fast signal can occur even in a bullish regime, highlighting the importance of monitoring multiple timeframes and signals.",
+    "what_i_did_today": "System exited the position. Realized P&L locked at $+1188.82. Regime: BULL (MA20 $739.93 vs MA50 $736.75). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.",
+    "source": "groq"
   }
 }
