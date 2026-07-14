@@ -694,5 +694,13 @@
     "key_learning": "The system's ability to hold through market volatility and maintain a bullish stance is a testament to the effectiveness of the dual-timeframe strategy in capturing market trends.",
     "what_i_did_today": "System exited the position. Realized P&L locked at $+1027.70. Regime: BULL (MA20 $744.0 vs MA50 $740.69). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
     "source": "groq"
+  },
+  "2026-07-14": {
+    "regime_call": "BULL",
+    "market_context": "Equity futures were mixed pre-bell, while ETFs rose ahead of testimony. The VIX index remained relatively low at 16.45. Oil prices were steady at $78.7 per barrel.",
+    "strategy_note": "The dual-timeframe SMA crossover strategy exited the position due to a bullish fast signal (MA10/MA30 golden cross), with the slow filter regime remaining in a bullish context.",
+    "key_learning": "The system's ability to lock in a positive P&L of $1027.70 underscores the importance of discipline in exiting positions on strong bullish signals.",
+    "what_i_did_today": "System exited the position. Realized P&L locked at $+1027.70. Regime: BULL (MA20 $744.0 vs MA50 $740.69). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
+    "source": "groq"
   }
 }
