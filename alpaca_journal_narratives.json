@@ -726,5 +726,13 @@
     "key_learning": "The system's risk management strategy effectively locked in profits during a period of market consolidation.",
     "what_i_did_today": "System exited the position. Realized P&L locked at $+721.68. Regime: BULL (MA20 $745.02 vs MA50 $743.23). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
     "source": "groq"
+  },
+  "2026-07-20": {
+    "regime_call": "BULL",
+    "market_context": "Market futures edged higher ahead of key earnings reports, despite Middle East tensions. The dollar's weakness was a topic of discussion, but its impact on social security checks was highlighted. Momentum in the S&P 500 was weak.",
+    "strategy_note": "The system held long SPY, with a bullish fast signal and a bull regime. The slow filter's MA20 and MA50 remained in a bullish alignment.",
+    "key_learning": "A weak momentum environment can persist even as the market edges higher, highlighting the importance of regime context in trading decisions.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $745.02 vs MA50 $743.23). Momentum: WEAK. Unrealized P&L: +0.01% from entry. No exit triggered.",
+    "source": "groq"
   }
 }
