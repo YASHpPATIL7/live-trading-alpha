@@ -734,5 +734,13 @@
     "key_learning": "A weak momentum environment can persist even as the market edges higher, highlighting the importance of regime context in trading decisions.",
     "what_i_did_today": "System exited the position. Realized P&L locked at $+529.70. Regime: BULL (MA20 $744.79 vs MA50 $743.44). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
     "source": "groq"
+  },
+  "2026-07-21": {
+    "regime_call": "Recovery Rally",
+    "market_context": "Markets rose pre-bell Tuesday, driven by a semiconductor recovery and countering Iran jitters. The Nasdaq and S&P 500 futures rallied, with big tech earnings drawing focus. The VIX remained relatively low at 17.41.",
+    "strategy_note": "The system exited the position, locking in a $+529.70 realized P&L, due to a bullish fast signal (MA10/MA30) in a BULL regime (MA20/MA50).",
+    "key_learning": "A weak momentum reading occurred despite a bullish fast signal, highlighting the importance of monitoring momentum in conjunction with dual-timeframe signals.",
+    "what_i_did_today": "System exited the position. Realized P&L locked at $+529.70. Regime: BULL (MA20 $744.79 vs MA50 $743.44). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
+    "source": "groq"
   }
 }
