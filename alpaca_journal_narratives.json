@@ -742,5 +742,13 @@
     "key_learning": "A weak momentum reading occurred despite a bullish fast signal, highlighting the importance of monitoring momentum in conjunction with dual-timeframe signals.",
     "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $744.98 vs MA50 $743.81). Momentum: RECOVERING. Unrealized P&L: +0.07% from entry. No exit triggered.",
     "source": "groq"
+  },
+  "2026-07-22": {
+    "regime_call": "BULL",
+    "market_context": "Markets opened lower but ended with modest gains, with SPY closing at $748.84. The VIX index remained relatively low at 16.99. Major tech earnings are expected ahead of the bell.",
+    "strategy_note": "The system held long SPY as the fast signal remained BULLISH and the regime context remained in a BULL market, with the slow MAs (MA20 vs MA50) confirming this regime.",
+    "key_learning": "The system's ability to ride the recovery rally and hold onto gains is being tested, highlighting the importance of regime context in strategy decision-making.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $744.98 vs MA50 $743.81). Momentum: RECOVERING. Unrealized P&L: +0.16% from entry. No exit triggered.",
+    "source": "groq"
   }
 }
