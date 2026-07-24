@@ -1,5 +1,5 @@
 # ALPACA PAPER JOURNAL — SPY
-_Last updated: July 23, 2026 | Day 95 of 90_
+_Last updated: July 24, 2026 | Day 96 of 90_
 _Strategy: Dual-Timeframe SMA Crossover (Fast: 10/30, Regime: 20/50) + Price Override_
 _Source of truth: Alpaca fills | Close prices: Alpaca Market Data API_
 _Signal source: signal_state.json | Narrative: Groq llama-3.1-8b-instant_
@@ -8,10 +8,10 @@ _Signal source: signal_state.json | Narrative: Groq llama-3.1-8b-instant_
 > All P&L uses Alpaca fill prices. First entry: **$666.436/share**
 > (2026-03-09, after-hours fill).
 
-> 📡 **CURRENT SIGNAL** (2026-07-23): **BULLISH**  
+> 📡 **CURRENT SIGNAL** (2026-07-24): **BULLISH**  
 > Fast: MA10 $748.07 | MA30 $743.87  
 > Slow: MA20 $745.92 | MA50 $744.06  
-> Regime: **BULL** | Momentum: **WEAK** | Session: AFTER_HOURS
+> Regime: **BULL** | Momentum: **WEAK** | Session: REGULAR
 
 ## Strategy Description
 
@@ -52,7 +52,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 | T14 | $745.500 (2026-07-17) | $742.860 (2026-07-17) | 54 | -$142.56 | ✅ Closed |
 | T15 | $745.455 (2026-07-20) | $741.900 (2026-07-20) | 54 | -$191.98 | ✅ Closed |
 | T16 | $747.620 (2026-07-21) | $735.630 (2026-07-23) | 53 | -$635.47 | ✅ Closed |
-| T17 | $738.840 (2026-07-23) | — | 32 | — | 🟢 Open |
+| T17 | $738.840 (2026-07-23) | — | 52 | — | 🟢 Open |
 
 ## Account Summary
 
@@ -60,8 +60,8 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 |---|---|
 | Symbol | SPY |
 | Starting capital | $100,000 |
-| Alpaca equity | $99,889.49 |
-| Alpaca cash | $61,475.99 |
+| Alpaca equity | $100,005.89 |
+| Alpaca cash | $61,475.97 |
 | Cumulative realized P&L | -$105.77 |
 
 ## Master Table
@@ -162,7 +162,8 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 | Day 92 | 2026-07-20 | $742.15 | FLAT | — | — | $100,529.70 |
 | Day 93 | 2026-07-21 | $748.15 | Long 53 SPY (T16) | +$28.09 | +0.071% | $100,557.79 |
 | Day 94 | 2026-07-22 | $747.49 | Long 53 SPY (T16) | -$6.89 | -0.017% | $100,522.81 |
-| Day 95 | 2026-07-23 | $738.06 | Long 32 SPY (T17) | -$24.96 | -0.106% | $99,869.27 |
+| Day 95 | 2026-07-23 | $738.06 | Long 52 SPY (T17) | -$40.56 | -0.106% | $99,853.67 |
+| Day 96 | 2026-07-24 | $740.96 | Long 52 SPY (T17) | +$110.24 | +0.287% | $100,004.47 |
 
 ## Benchmark vs Strategy
 
@@ -262,7 +263,8 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 | Day 92 | 2026-07-20 | $100,529.70 | $110,000.29 | +0.5297% | +10.000% | **-9.470%** |
 | Day 93 | 2026-07-21 | $100,557.79 | $110,889.60 | +0.5578% | +10.890% | **-10.332%** |
 | Day 94 | 2026-07-22 | $100,522.81 | $110,791.77 | +0.5228% | +10.792% | **-10.269%** |
-| Day 95 | 2026-07-23 | $99,869.27 | $109,394.07 | -0.1307% | +9.394% | **-9.525%** |
+| Day 95 | 2026-07-23 | $99,853.67 | $109,394.07 | -0.1463% | +9.394% | **-9.540%** |
+| Day 96 | 2026-07-24 | $100,004.47 | $109,823.91 | +0.0045% | +9.824% | **-9.820%** |
 
 ## Signal Saved vs Holding
 
@@ -363,6 +365,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 | Day 93 | 2026-07-21 | $748.15 | +$817.14 | -$922.91 | Position open |
 | Day 94 | 2026-07-22 | $747.49 | +$810.54 | -$916.31 | Position open |
 | Day 95 | 2026-07-23 | $738.06 | +$716.24 | -$822.01 | Position open |
+| Day 96 | 2026-07-24 | $740.96 | +$745.24 | -$851.01 | Position open |
 
 ---
 
@@ -2774,14 +2777,14 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 | Field | Value |
 |---|---|
-| Position | Long 32 SPY (T17) |
+| Position | Long 52 SPY (T17) |
 | Entry (Alpaca fill) | $666.436/share |
 | Close price | $738.06 |
-| Unrealized P&L | -$24.96 |
+| Unrealized P&L | -$40.56 |
 | P&L % | -0.106% |
-| Portfolio value | $99,869.27 |
+| Portfolio value | $99,853.67 |
 | Benchmark value | $109,394.07 |
-| Alpha (cumulative) | -9.525% |
+| Alpha (cumulative) | -9.540% |
 
 **Regime call:** BULL
 
@@ -2792,6 +2795,31 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 **What I did today:** System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $745.92 vs MA50 $744.06). Momentum: WEAK. Unrealized P&L: -0.11% from entry. No exit triggered.
 
 **Key learning:** The system's ability to exit positions in line with the slow filter's regime context helped mitigate losses, but a re-entry on the next fast golden cross may be needed to recapture gains.
+
+---
+
+### Day 96 — 2026-07-24 _(narrative: groq)_
+
+| Field | Value |
+|---|---|
+| Position | Long 52 SPY (T17) |
+| Entry (Alpaca fill) | $666.436/share |
+| Close price | $740.96 |
+| Unrealized P&L | +$110.24 |
+| P&L % | +0.287% |
+| Portfolio value | $100,004.47 |
+| Benchmark value | $109,823.91 |
+| Alpha (cumulative) | -9.820% |
+
+**Regime call:** BULL
+
+**Market context:** US stocks and equity futures rose pre-bell amid new US tariffs, while VIX remained relatively low at 18.19. Oil prices were stable at $89.8/barrel. The 10Y Treasury yield held steady at 4.67%.
+
+**Strategy note:** The dual-timeframe signal remained BULLISH, with a Fast Golden Cross and a BULL regime from the Slow MAs. The system held long SPY.
+
+**What I did today:** System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $745.92 vs MA50 $744.06). Momentum: WEAK. Unrealized P&L: +0.29% from entry. No exit triggered.
+
+**Key learning:** A weak momentum reading does not necessarily lead to a short-term reversal, especially when the regime remains BULL.
 
 ---
 
@@ -2811,4 +2839,4 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 | _add entries here_ | | | | |
 
 ---
-_Day 95 of 90 · Alpaca equity: $99,889.49 · Cumulative alpha vs SPY: -9.525%_
+_Day 96 of 90 · Alpaca equity: $100,005.89 · Cumulative alpha vs SPY: -9.820%_
