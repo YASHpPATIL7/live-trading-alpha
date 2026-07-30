@@ -790,5 +790,13 @@
     "key_learning": "The system's ability to exit positions in bearish regimes is crucial in maintaining overall performance.",
     "what_i_did_today": "System exited the position. Realized P&L locked at $-66.44. Regime: BULL (MA20 $745.79 vs MA50 $743.82). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.",
     "source": "groq"
+  },
+  "2026-07-30": {
+    "regime_call": "Consolidation",
+    "market_context": "The market was relatively calm with no major catalysts, and the VIX remained low at 19.05. Nvidia and AMD stocks were in the news, but their performance did not significantly impact the overall market. The 10Y Treasury yield was steady at 4.68%.",
+    "strategy_note": "The system exited the position due to a bearish fast signal, with the MA10 crossing below the MA30. The slow filter remained in a bull regime, but the system prioritized the fast signal for entry and exit decisions.",
+    "key_learning": "The system's reliance on the fast signal led to a loss, highlighting the importance of considering the regime context in high-impact decisions.",
+    "what_i_did_today": "System exited the position. Realized P&L locked at $-66.44. Regime: BULL (MA20 $745.79 vs MA50 $743.82). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.",
+    "source": "groq"
   }
 }
