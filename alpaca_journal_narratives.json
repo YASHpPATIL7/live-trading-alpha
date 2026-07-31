@@ -798,5 +798,13 @@
     "key_learning": "The system's reliance on the fast signal led to a loss, highlighting the importance of considering the regime context in high-impact decisions.",
     "what_i_did_today": "System exited the position. Realized P&L locked at $-66.44. Regime: BULL (MA20 $745.58 vs MA50 $743.92). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.",
     "source": "groq"
+  },
+  "2026-07-31": {
+    "regime_call": "Consolidation",
+    "market_context": "The market ended the week on a mixed note, with ETFs and equity futures higher pre-bell Friday, but the S&P 500 and Nasdaq ended the best day in a month on the previous day.",
+    "strategy_note": "The system exited the position due to a bearish fast signal (MA10/MA30 death cross) in a bull regime, locking in a realized P&L of $-66.44.",
+    "key_learning": "The system's ability to exit a position in a bull regime highlights the importance of maintaining a regime-aware strategy.",
+    "what_i_did_today": "System exited the position. Realized P&L locked at $-66.44. Regime: BULL (MA20 $745.58 vs MA50 $743.92). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.",
+    "source": "groq"
   }
 }
