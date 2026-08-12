@@ -862,5 +862,13 @@
     "key_learning": "A strong bull regime and momentum can lead to prolonged periods of sideways or slightly upward movement, making it essential to set realistic expectations for returns.",
     "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $752.3 vs MA50 $747.34). Momentum: STRONG. Unrealized P&L: -0.40% from entry. No exit triggered.",
     "source": "groq"
+  },
+  "2026-08-12": {
+    "regime_call": "BULL",
+    "market_context": "Markets continued their upward trend with the S&P 500 closing at $772.04, driven by tech gains and in-line consumer inflation data. The VIX index remained relatively low at 14.83. Oil prices also remained stable at $82.68 per barrel.",
+    "strategy_note": "The dual-timeframe SMA crossover strategy held a long position in SPY, with the fast signal remaining bullish due to a golden cross. The slow filter regime remained in a bull context, with MA20 above MA50.",
+    "key_learning": "The system's unrealized P&L remains negative, highlighting the need for improved entry timing and risk management.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $752.3 vs MA50 $747.34). Momentum: STRONG. Unrealized P&L: -0.21% from entry. No exit triggered.",
+    "source": "groq"
   }
 }
