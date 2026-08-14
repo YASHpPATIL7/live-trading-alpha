@@ -878,5 +878,13 @@
     "key_learning": "A strong bull regime can persist even with a relatively low VIX, as seen in today's market action.",
     "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $754.54 vs MA50 $748.06). Momentum: STRONG. Unrealized P&L: +0.54% from entry. No exit triggered.",
     "source": "groq"
+  },
+  "2026-08-14": {
+    "regime_call": "BULL",
+    "market_context": "Wall Street's riskiest trades are back on top, and ETFs are higher, while equity futures are mixed, amid retail sales data. The Average Social Security Check gets a raise every January, but a $500,000 portfolio\u2019s \u2018paycheck\u2019 doesn\u2019t. The 10Y Treasury yield remains at 4.66%.",
+    "strategy_note": "The system held long SPY, with a BULLISH fast signal and a BULL regime, and saw an unrealized P&L of +0.49% from entry.",
+    "key_learning": "The system remains in a BULL regime, but the strong momentum and bullish fast signal suggest caution is warranted.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $754.54 vs MA50 $748.06). Momentum: STRONG. Unrealized P&L: +0.49% from entry. No exit triggered.",
+    "source": "groq"
   }
 }
