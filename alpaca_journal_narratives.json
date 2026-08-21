@@ -918,5 +918,13 @@
     "key_learning": "_fill in_",
     "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $760.99 vs MA50 $750.72). Momentum: RECOVERING. Unrealized P&L: -1.43% from entry. No exit triggered.",
     "source": "placeholder"
+  },
+  "2026-08-21": {
+    "regime_call": "_fill in_",
+    "market_context": "_fill in_",
+    "strategy_note": "_fill in_",
+    "key_learning": "_fill in_",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $760.99 vs MA50 $750.72). Momentum: RECOVERING. Unrealized P&L: -1.08% from entry. No exit triggered.",
+    "source": "placeholder"
   }
 }
