@@ -1,5 +1,5 @@
 # ALPACA PAPER JOURNAL — SPY
-_Last updated: August 27, 2026 | Day 87 of 90_
+_Last updated: August 28, 2026 | Day 87 of 90_
 _Strategy: Dual-Timeframe SMA Crossover (Fast: 10/30, Regime: 20/50) + Price Override_
 _Source of truth: Alpaca fills | Close prices: Alpaca Market Data API_
 _Signal source: signal_state.json | Narrative: Groq llama-3.1-8b-instant_
@@ -8,10 +8,10 @@ _Signal source: signal_state.json | Narrative: Groq llama-3.1-8b-instant_
 > All P&L uses Alpaca fill prices. First entry: **$711.280/share**
 > (2026-04-24, after-hours fill).
 
-> 📡 **CURRENT SIGNAL** (2026-08-27): **BULLISH** | ⚡ Price Override Active (+2.4% above MA50)  
+> 📡 **CURRENT SIGNAL** (2026-08-28): **BULLISH** | ⚡ Price Override Active (+2.4% above MA50)  
 > Fast: MA10 $768.04 | MA30 $759.04  
 > Slow: MA20 $768.1 | MA50 $753.35  
-> Regime: **BULL** | Momentum: **STRONG** | Session: AFTER_HOURS
+> Regime: **BULL** | Momentum: **STRONG** | Session: CLOSED
 
 ## Strategy Description
 
@@ -60,7 +60,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 |---|---|
 | Symbol | SPY |
 | Starting capital | $100,000 |
-| Alpaca equity | $99,719.25 |
+| Alpaca equity | $99,772.80 |
 | Alpaca cash | $60,445.17 |
 | Cumulative realized P&L | +$58.35 |
 
@@ -2569,4 +2569,4 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 | _add entries here_ | | | | |
 
 ---
-_Day 87 of 90 · Alpaca equity: $99,719.25 · Cumulative alpha vs SPY: -8.357%_
+_Day 87 of 90 · Alpaca equity: $99,772.80 · Cumulative alpha vs SPY: -8.357%_
