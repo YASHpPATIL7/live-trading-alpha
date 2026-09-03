@@ -308,7 +308,7 @@
     "market_context": "Risk-on trade returned to the market as the CBOE VIX fell to 16, and the S&P 500 continued its strong May footing. However, consumer sentiment posted its lowest score in history.",
     "strategy_note": "The system exited the position due to a bullish fast signal (MA10/MA30 golden cross) in a bull regime (MA20/MA50).",
     "key_learning": "A strong bull regime can persist even with low consumer sentiment.",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: -0.56% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: -0.56% from entry. No exit triggered.",
     "source": "groq"
   },
   "2026-05-04": {
@@ -316,7 +316,7 @@
     "market_context": "The market experienced a bullish signal with a fast golden cross, while the slow regime remains in a bull context. The VIX remains relatively low at 18.29. Market news focused on a potential market rally and the performance of individual stocks.",
     "strategy_note": "The system held long SPY, with a bullish fast signal and a bull regime. The unrealized P&L is -0.63% from entry.",
     "key_learning": "A strong market rally can quickly turn into a risk-off environment, highlighting the importance of regime awareness in trading decisions.",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: -0.89% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: -0.89% from entry. No exit triggered.",
     "source": "groq"
   },
   "2026-05-05": {
@@ -324,7 +324,7 @@
     "market_context": "The market remained in a bullish regime, with the SPY price closing at $723.71. The VIX index remained relatively low at 17.38, indicating a stable market environment. Oil prices also remained stable at $102.68 per barrel.",
     "strategy_note": "The dual-timeframe SMA crossover strategy held a long position in SPY, with the fast signal remaining bullish due to the MA10 crossing above MA30. The slow filter regime remained in a bullish context, with MA20 above MA50.",
     "key_learning": "The system's ability to hold onto a winning trade in a strong bull regime is crucial to maintaining its overall performance.",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: -0.11% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: -0.11% from entry. No exit triggered.",
     "source": "groq"
   },
   "2026-05-06": {
@@ -332,7 +332,7 @@
     "market_context": "Risk appetite improved as VIX slid toward 17, driven by a surge in tech stocks and a decline in oil prices. The S&P 500 extended its record run, with semiconductors leading the charge. Market sentiment remains optimistic.",
     "strategy_note": "The system held long SPY, with a bullish fast signal and a bull regime context. The slow filter's MA20/MA50 crossover confirmed the bull regime.",
     "key_learning": "A strong bull regime can persist even as VIX declines, emphasizing the importance of regime context in trading decisions.",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: +1.27% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: +1.27% from entry. No exit triggered.",
     "source": "groq"
   },
   "2026-05-07": {
@@ -340,7 +340,7 @@
     "market_context": "The S&P 500 gained on chip stock strength and falling oil, with investors returning to optimism. Corporate earnings and economic data also boosted equity futures. The 10Y Treasury yield stood at 4.36%.",
     "strategy_note": "The system held long SPY, with a BULLISH fast signal and a BULL regime. The unrealized P&L was +1.72% from entry.",
     "key_learning": "The system's long position in SPY remains profitable, but the regime's strength is being tested by the rising 10Y Treasury yield.",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: +0.97% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: +0.97% from entry. No exit triggered.",
     "source": "groq"
   },
   "2026-05-08": {
@@ -348,7 +348,7 @@
     "market_context": "Equities rose pre-bell Friday amid positive employment data, while Tesla's 19% drop in a month sparked sell concerns. Lower ETF fees are saving 401(k) investors thousands, and stock funds posted their best month since 2020. The VIX remained relatively low at 17.35.",
     "strategy_note": "The system held long SPY due to a bullish signal from the fast MA crossover and a bullish regime context from the slow MAs. The slow MAs confirmed a bullish regime, and the fast signal remained in a strong bullish state.",
     "key_learning": "The system's ability to hold long in a strong bullish regime resulted in a +2.01% unrealized P&L from entry, underscoring the importance of regime context in the dual-timeframe strategy.",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: +1.80% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: +1.80% from entry. No exit triggered.",
     "source": "groq"
   },
   "2026-05-11": {
@@ -356,7 +356,7 @@
     "market_context": "The market showed resilience with SPY closing at $740.13, despite the presence of bearish headlines. VIX remained relatively low at 17.93. Oil prices continued to fluctuate around $97.99 per barrel.",
     "strategy_note": "The dual-timeframe SMA crossover strategy held a long position in SPY based on a bullish fast signal and a bullish regime context.",
     "key_learning": "The system's ability to adapt to strong momentum environments is crucial for maintaining a profitable edge.",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: +2.02% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: +2.02% from entry. No exit triggered.",
     "source": "groq"
   },
   "2026-05-12": {
@@ -364,7 +364,7 @@
     "market_context": "Markets declined today amid rising oil prices and higher inflation expectations. The Dow and Nasdaq fell, while chip stocks saw a boost. The VIX index rose to 18.83.",
     "strategy_note": "The system held long SPY due to a bullish fast signal and a bull regime. The slow MA crossover remains in a bull regime, supporting the long position.",
     "key_learning": "A strong bull regime can override a declining market, but it's essential to monitor momentum and adjust the strategy accordingly.",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: +1.89% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: +1.89% from entry. No exit triggered.",
     "source": "groq"
   },
   "2026-05-13": {
@@ -372,7 +372,7 @@
     "market_context": "The market showed mixed movements with the Dow Jones futures falling and the Nasdaq gaining. Producer inflation spiked to 6%, fueling fears of a Fed rate hike. The S&P 500 and Nasdaq-100 indices were in focus.",
     "strategy_note": "The dual-timeframe signal remained BULLISH with a Fast Golden Cross. The system held long SPY as the regime remained BULL and momentum was STRONG.",
     "key_learning": "A strong bull regime can be sustained even in the face of inflation concerns, but vigilance is still required.",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: +2.45% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: +2.45% from entry. No exit triggered.",
     "source": "groq"
   },
   "2026-05-14": {
@@ -380,7 +380,7 @@
     "market_context": "The S&P 500 continued its upward trend, with the SPY closing at $748.35. The VIX index remained relatively low at 17.91, indicating a calm market environment. Market headlines focused on various economic and financial topics, including ETFs and the US-China meeting.",
     "strategy_note": "The dual-timeframe SMA crossover strategy remained in a bullish regime, with the fast signal holding long SPY and the slow filter confirming a bull market context. The system did not trigger an exit today.",
     "key_learning": "The system's long position in SPY generated a 3.55% unrealized profit, highlighting the importance of maintaining a bullish regime and strong momentum in the current market environment.",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: +3.25% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: +3.25% from entry. No exit triggered.",
     "source": "groq"
   },
   "2026-05-15": {
@@ -388,7 +388,7 @@
     "market_context": "The S&P 500 barely yielded 2% with some dividend stocks performing better, while a 10% correction this summer is predicted due to being above moving averages. Pre-market slid as China summit ended without major commitments, and exchange-traded funds and equity futures declined due to oil surge, higher yields, and geopolitical uncertainty.",
     "strategy_note": "The dual-timeframe signal remained BULLISH with a fast golden cross, and the system held long SPY as the regime remained BULL with strong momentum.",
     "key_learning": "The system's risk management via slow filter (SMA20/50) was not triggered to exit the long position today.",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: +2.01% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: +2.01% from entry. No exit triggered.",
     "source": "groq"
   },
   "2026-05-18": {
@@ -396,7 +396,7 @@
     "market_context": "Markets remained relatively stable with a slight recovery in sentiment, despite inflation concerns and stalled Iran peace efforts.",
     "strategy_note": "The system held long SPY based on a bullish fast signal and a bull regime, with an unrealized P&L of +1.84%.",
     "key_learning": "A strong bull regime does not guarantee a positive alpha, as the system's long position underperformed the benchmark.",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: +1.91% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: +1.91% from entry. No exit triggered.",
     "source": "groq"
   },
   "2026-05-19": {
@@ -404,7 +404,7 @@
     "market_context": "Markets remained in a recovery phase, with the VIX index at 18.03, while the 10Y Treasury yield increased to 4.67%. The SPY price rose to $734.48.",
     "strategy_note": "The dual-timeframe SMA crossover system held a long position in SPY, triggered by a fast golden cross, and maintained a bullish regime based on the slow MAs. The unrealized P&L was +1.63%.",
     "key_learning": "The system's ability to adapt to changing market conditions, particularly in the recovery phase, is crucial for maintaining its performance.",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: +1.28% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: +1.28% from entry. No exit triggered.",
     "source": "groq"
   },
   "2026-05-20": {
@@ -412,7 +412,7 @@
     "market_context": "The market rebounded today with ETFs and equity futures advancing ahead of the Nvidia earnings report. The VIX index remained relatively low at 17.79. Oil prices stabilized at $99.54 per barrel.",
     "strategy_note": "The dual-timeframe SMA crossover strategy remained in a bullish regime, holding long SPY with an unrealized P&L of +2.23%. The fast signal remained bullish with a fast golden cross.",
     "key_learning": "The system's ability to adapt to changing market regimes is crucial in maintaining its performance, as seen in today's recovery from a previous bearish regime.",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: +2.32% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: +2.32% from entry. No exit triggered.",
     "source": "groq"
   },
   "2026-05-21": {
@@ -420,7 +420,7 @@
     "market_context": "US stocks rose as small caps gained momentum, despite uncertainty surrounding US-Iran talks and recession fears.",
     "strategy_note": "System held long SPY based on bullish fast signal and bullish regime, with unrealized P&L of +2.24%.",
     "key_learning": "A strong bullish regime is not a guarantee of continued gains, and a recovery rally can be fragile.",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: +2.51% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: +2.51% from entry. No exit triggered.",
     "source": "groq"
   },
   "2026-05-22": {
@@ -428,7 +428,7 @@
     "market_context": "The market remained bullish with strong momentum, and the VIX index remained low at 16.59. Corporate earnings season boosted equity futures and exchange-traded funds. The 10Y Treasury yield was steady at 4.57%.",
     "strategy_note": "The dual-timeframe signal remained bullish with a fast golden cross, and the system held long SPY. The slow filter regime remained in a bull context.",
     "key_learning": "A strong momentum environment can persist even with some volatility, as seen in today's market action.",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: +2.92% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: +2.92% from entry. No exit triggered.",
     "source": "groq"
   },
   "2026-05-26": {
@@ -436,7 +436,7 @@
     "market_context": "The stock market saw one of its best 8-week stretches ever, with the S&P 500 experiencing strong gains. VIX remains low at 17.04. Oil prices are stable at $94.13/barrel.",
     "strategy_note": "The dual-timeframe SMA crossover strategy held long SPY, with a bullish fast signal and a bullish regime. The system's unrealized P&L increased to +3.67% from entry.",
     "key_learning": "Strong momentum can persist for extended periods, but regime context remains crucial for risk management.",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: +3.58% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: +3.58% from entry. No exit triggered.",
     "source": "groq"
   },
   "2026-05-27": {
@@ -444,7 +444,7 @@
     "market_context": "Markets continued their rally, with the SPY closing at $750.30. Short sellers are betting record amounts against stocks, but the market is rallying on a potential deal between Trump and Iran. The VIX remains relatively low at 16.79.",
     "strategy_note": "The dual-timeframe signal remained bullish, with a fast golden cross and a strong regime context. The system held long SPY, with an unrealized P&L of +3.82% from entry.",
     "key_learning": "A strong regime context can lead to increased confidence in a bullish signal, but it's essential to monitor the market context and adjust the strategy accordingly.",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: +3.60% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: +3.60% from entry. No exit triggered.",
     "source": "groq"
   },
   "2026-05-28": {
@@ -452,7 +452,7 @@
     "market_context": "The market saw a strong day with SPY closing at $754.62. Headlines focused on the acceleration of 'The Great Migration' from tech to value and the outperformance of certain ETFs. Economic data was also released, including PCE and claims.",
     "strategy_note": "The dual-timeframe signal remained BULLISH, with a Fast Golden Cross and a strong momentum. The system held long SPY, with an unrealized P&L of +4.42% from entry.",
     "key_learning": "A strong momentum and a bullish signal can lead to significant gains, but risk management is crucial to avoid over-leveraging.",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: +4.16% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: +4.16% from entry. No exit triggered.",
     "source": "groq"
   },
   "2026-05-29": {
@@ -460,7 +460,7 @@
     "market_context": "Markets were mostly up on lower volume, driven by hopes of a US-Iran deal, with exchange-traded funds and equity futures rising pre-bell.",
     "strategy_note": "The system held long SPY, with a BULLISH fast signal and a BULL regime, resulting in an unrealized P&L of +4.71% from entry.",
     "key_learning": "Strong momentum can persist even with lower volume, but regime context remains crucial for risk management.",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: +4.39% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: +4.39% from entry. No exit triggered.",
     "source": "groq"
   },
   "2026-06-01": {
@@ -468,7 +468,7 @@
     "market_context": "Markets remained bullish with a strong close in SPY, despite negative news from the Middle East. The VIX index also stayed low at 15.74. Oil prices were stable at $92.57/barrel.",
     "strategy_note": "The dual-timeframe SMA crossover strategy held a long position in SPY, with a fast signal remaining bullish and a strong momentum. The slow filter regime also confirmed a bull regime.",
     "key_learning": "Strong momentum and a confirmed bull regime do not guarantee continued price appreciation, and the system must remain vigilant for potential reversals.",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: +4.68% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: +4.68% from entry. No exit triggered.",
     "source": "groq"
   },
   "2026-06-02": {
@@ -476,7 +476,7 @@
     "market_context": "The S&P 500 hit a new high, with strong momentum and a bullish signal. The VIX remained relatively low at 16.06. Global macro data showed stable oil prices and a 4.45% 10Y Treasury yield.",
     "strategy_note": "The dual-timeframe signal remained bullish, with a fast golden cross and a strong momentum. The system held long SPY, with an unrealized P&L of +5.05% from entry.",
     "key_learning": "Bullish regimes can be prolonged, but a strong momentum is essential to ride the trend.",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: +4.82% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: +4.82% from entry. No exit triggered.",
     "source": "groq"
   },
   "2026-06-03": {
@@ -484,7 +484,7 @@
     "market_context": "The market had a strong day, with the SPY closing at $755.33. AbbVie and UFO stocks delivered significant returns, while the S&P 500 and exchange-traded funds were mixed. Economic signals were fresh, but no clear direction emerged.",
     "strategy_note": "The dual-timeframe signal remained BULLISH, with a Fast Golden Cross and a strong momentum. The system held long SPY, with an unrealized P&L of +4.52% from entry.",
     "key_learning": "The system's ability to ride out a strong trend in a BULL regime is crucial for its success, but requires careful management of risk and position sizing.",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: +4.09% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: +4.09% from entry. No exit triggered.",
     "source": "groq"
   },
   "2026-06-04": {
@@ -492,7 +492,7 @@
     "market_context": "Markets closed mixed, with some positive headlines in tech and energy, but overall economic data weighed on investor sentiment. The VIX index remains relatively low at 15.52. Oil prices slightly increased to $93.09 per barrel.",
     "strategy_note": "The system held long SPY due to a bullish fast signal and a bull regime context. The slow filter's MA20 crossed above MA50, confirming the bull regime.",
     "key_learning": "A strong bull regime can mask underlying market weakness, making it essential to monitor momentum and economic data.",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: +4.48% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: +4.48% from entry. No exit triggered.",
     "source": "groq"
   },
   "2026-06-05": {
@@ -500,7 +500,7 @@
     "market_context": "The Jobs Report was released today, which is considered great news for the market, but could negatively impact bond yields. WTI Oil price is stable at $90.9/barrel. The VIX index is at 17.19.",
     "strategy_note": "The dual-timeframe signal remained BULLISH, with a Fast Golden Cross and a strong momentum. The system held long SPY.",
     "key_learning": "The market's strong reaction to positive economic news can sometimes be short-lived and may lead to a pullback.",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: +1.78% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: +1.78% from entry. No exit triggered.",
     "source": "groq"
   },
   "2026-06-08": {
@@ -508,7 +508,7 @@
     "market_context": "Markets continued their recovery rally, with SPY closing at $742.25. News headlines were mixed, but overall sentiment remained positive. VIX remained relatively low at 18.45.",
     "strategy_note": "The dual-timeframe SMA crossover strategy held its long position in SPY, with the fast signal remaining bullish. The slow filter regime remained in a bull context, with MA20 above MA50.",
     "key_learning": "A strong bull regime can persist even with some market volatility, but it's essential to monitor the slow filter for signs of weakening momentum.",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: +2.03% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: +2.03% from entry. No exit triggered.",
     "source": "groq"
   },
   "2026-06-09": {
@@ -516,7 +516,7 @@
     "market_context": "Markets were generally higher with the Dow Jones ETFs outperforming the S&P 500 and Nasdaq. Inflation data is expected ahead of CPI and SPCX. Oil prices remained relatively stable.",
     "strategy_note": "The system held long SPY as the fast signal remained BULLISH and the regime context indicated a BULL market. No exit was triggered.",
     "key_learning": "A recovering momentum in a bull regime can lead to positive unrealized P&L, but requires careful management of risk.",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: +1.73% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: +1.73% from entry. No exit triggered.",
     "source": "groq"
   },
   "2026-06-10": {
@@ -524,7 +524,7 @@
     "market_context": "The market headlines were dominated by inflation concerns, with the CPI inflation rate reaching +4.2%, the hottest in 3 years. The VIX index also rose to 21.68. Oil prices remained steady at $91.01 per barrel.",
     "strategy_note": "The system held a long position in SPY as the fast signal remained BULLISH, with a weak momentum context. The slow filter regime also confirmed a BULL regime.",
     "key_learning": "A weak momentum context can persist even as the fast signal remains bullish, suggesting a need for caution in the current market environment.",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: +0.14% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: +0.14% from entry. No exit triggered.",
     "source": "groq"
   },
   "2026-06-11": {
@@ -532,7 +532,7 @@
     "market_context": "Energy stocks continued their rally, with IYE up 27% YTD. The market remains relatively calm, with VIX at 21.4. US attacks on Iran are causing some volatility.",
     "strategy_note": "The system held long SPY, with a bullish fast signal and a bull regime, and did not trigger an exit.",
     "key_learning": "The system's ability to hold long in a bull regime is being tested, but the weak momentum is a concern.",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: +1.81% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: +1.81% from entry. No exit triggered.",
     "source": "groq"
   },
   "2026-06-12": {
@@ -540,7 +540,7 @@
     "market_context": "Energy sector continues to rally with XLE up 29% YTD. Market headlines focus on ETFs, equity futures, and SpaceX debut. Retail ETFs face challenges amidst sticky inflation and robust job growth.",
     "strategy_note": "Dual-timeframe signal remains BULLISH with Fast Golden Cross, while Slow MAs confirm BULL regime. System held long SPY as no exit trigger was met.",
     "key_learning": "Momentum remains WEAK despite a BULL regime, requiring continued monitoring for potential regime shift.",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: +2.37% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: +2.37% from entry. No exit triggered.",
     "source": "groq"
   },
   "2026-06-15": {
@@ -548,7 +548,7 @@
     "market_context": "Air taxi stocks and AI security plays rose as the broader market also gained. 64 years of raises were highlighted in DGRO, and quantum computing stocks jumped amid risk-on optimism. VIX remained relatively low at 16.18.",
     "strategy_note": "The system held long SPY as the fast signal remained BULLISH and the regime remained BULL. No exit was triggered.",
     "key_learning": "The system's ability to ride out consolidations is key to its long-term performance.",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: +4.17% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: +4.17% from entry. No exit triggered.",
     "source": "groq"
   },
   "2026-06-16": {
@@ -556,7 +556,7 @@
     "market_context": "Oil prices eased after the Strait was opened, while the 10Y Treasury yield remained steady at 4.42%. The S&P 500 is expected to soar to 9000 according to a Wall Street analyst. ETFs and equity futures are higher ahead of the Fed policy meeting.",
     "strategy_note": "The system held long SPY due to a bullish fast signal and a bullish regime context, with the slow MA20 above MA50. The fast signal remained bullish with a strong momentum.",
     "key_learning": "A strong bullish regime context can override a weak fast signal, but a strong momentum is still required for a valid trade",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: +3.60% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: +3.60% from entry. No exit triggered.",
     "source": "groq"
   },
   "2026-06-17": {
@@ -564,7 +564,7 @@
     "market_context": "The S&P 500 futures edged higher ahead of the Fed rate decision. Tech ETFs are doing something unprecedented, but investors are advised to wait. The VIX remains relatively low at 16.84.",
     "strategy_note": "The dual-timeframe signal remained BULLISH with a Fast Golden Cross, and the system held long SPY. The regime context is still BULL, with MA20 above MA50.",
     "key_learning": "The system's ability to hold long during a strong bull regime is key to its performance, but it still trails the benchmark by a significant margin.",
-    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
+    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
     "source": "groq"
   },
   "2026-06-18": {
@@ -572,7 +572,7 @@
     "market_context": "Markets bounced back pre-bell Thursday, lifted by a US-Iran interim deal, despite hawkish Fed outlook. The S&P 500, Dow, and Nasdaq futures climbed, while ETFs and equity futures also rose. VIX fell to 16.8.",
     "strategy_note": "The system exited the position due to a bearish fast signal (MA10/MA30 death cross) in a BULL regime, locking a realized P&L of $1189.93. Monitoring for re-entry on next fast golden cross.",
     "key_learning": "A bearish fast signal can still occur in a BULL regime, illustrating the importance of both fast and slow signals in a dual-timeframe strategy.",
-    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
+    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
     "source": "groq"
   },
   "2026-06-22": {
@@ -580,7 +580,7 @@
     "market_context": "Markets remain in a recovery phase with the VIX at 17.3, and oil prices stable at $73.41 per barrel.",
     "strategy_note": "The system held long SPY based on a bullish fast signal and a bull regime, with the fast MAs showing a golden cross.",
     "key_learning": "A strong bull regime can override a bearish momentum environment, but still requires careful monitoring.",
-    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
+    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
     "source": "groq"
   },
   "2026-06-23": {
@@ -588,7 +588,7 @@
     "market_context": "Markets were mixed today, with slight dips in tech shares, but overall remaining in a bull regime. The VIX index remains relatively low at 19.49. Oil prices are steady at $72.99 per barrel.",
     "strategy_note": "The system exited the position due to a bearish fast signal (MA10 < MA30) in a bull regime context (MA20 > MA50).",
     "key_learning": "A bearish fast signal can occur even in a bull regime, highlighting the importance of both short-term and long-term signals.",
-    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
+    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
     "source": "groq"
   },
   "2026-06-24": {
@@ -596,7 +596,7 @@
     "market_context": "US-Iran tensions eased, boosting futures, while VIX remained relatively low at 18.29. Rivian's decline weighed on sentiment, but the market context remains bullish.",
     "strategy_note": "The system exited the position due to a bearish fast signal (MA10/MA30 death cross) in a bullish regime (MA20/MA50 crossover).",
     "key_learning": "A bearish fast signal can override a bullish regime context, leading to a position exit.",
-    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
+    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
     "source": "groq"
   },
   "2026-06-25": {
@@ -604,7 +604,7 @@
     "market_context": "Markets were up pre-bell on Thursday, driven by investors' enthusiasm for AI growth themes and reduced Middle East risks. The S&P 500 ETF with a 20% yield outperformed most covered call ETFs. The VIX index remained relatively low at 18.75.",
     "strategy_note": "The system exited the position based on a bearish fast signal (MA10/MA30 death cross) in a bullish regime (MA20/MA50). The system is now monitoring for a re-entry on the next fast golden cross.",
     "key_learning": "A bearish signal in a bullish regime led to a profitable exit, highlighting the importance of regime context in the dual-timeframe strategy.",
-    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
+    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
     "source": "groq"
   },
   "2026-06-26": {
@@ -612,7 +612,7 @@
     "market_context": "Global investors shifted focus from Middle East to Technology Stocks, causing ETFs and equity futures to decline. Market sentiment remains uncertain with weak momentum and a bearish fast signal. VIX remains elevated at 19.06.",
     "strategy_note": "The system exited the position based on a bearish fast signal (MA10/MA30 death cross) in a bull regime. Monitoring for re-entry on the next fast golden cross.",
     "key_learning": "A bearish fast signal can occur even in a bull regime, highlighting the importance of monitoring multiple timeframes and signals.",
-    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
+    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
     "source": "groq"
   },
   "2026-06-29": {
@@ -620,7 +620,7 @@
     "market_context": "The S&P 500 closed at $738.53, with VIX at 17.84 and 10Y Treasury yield at 4.38%. Market headlines pointed to emerging headwinds and renewed US-Iran diplomacy hopes.",
     "strategy_note": "The system exited the position on a bearish fast signal, with MA10 crossing below MA30, and is now monitoring for re-entry on a next fast golden cross.",
     "key_learning": "The system's ability to lock in gains on a bearish signal highlights the importance of discipline in adhering to the dual-timeframe strategy.",
-    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
+    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
     "source": "groq"
   },
   "2026-06-30": {
@@ -628,7 +628,7 @@
     "market_context": "The Nasdaq tested a critical level, and equity futures retreated ahead of high-stakes US-Iran talks. The S&P 500 and Nasdaq ended the quarter higher, while the Dow was driven by Alphabet's debut. The VIX remained relatively low at 16.85.",
     "strategy_note": "The system exited the position due to a bearish fast signal (MA10/MA30 death cross) in a bull regime.",
     "key_learning": "The system's ability to exit the position correctly in a bull regime highlights the importance of the slow filter in preventing false signals.",
-    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
+    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
     "source": "groq"
   },
   "2026-07-01": {
@@ -636,7 +636,7 @@
     "market_context": "The market experienced a low-volatility day with the VIX at 16.11, while the WTI Oil price remained relatively stable at $68.15. The 10Y Treasury yield also remained steady at 4.46%. The SPY price closed at $748.85 after a day of mixed headlines.",
     "strategy_note": "The system exited the position based on a bearish fast signal (MA10/MA30 death cross) and a bull regime (MA20/MA50), resulting in a realized P&L of $+1188.82.",
     "key_learning": "The system's ability to adapt to changing market regimes and signals is crucial in maximizing returns and minimizing losses.",
-    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
+    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
     "source": "groq"
   },
   "2026-07-02": {
@@ -644,7 +644,7 @@
     "market_context": "Markets were relatively subdued today, with the S&P 500 futures mixed ahead of the June jobs report. Analysts' warnings about popular income ETFs and Goldman's strategist's comments on Europe's performance were among the notable headlines. The VIX index remained relatively low at 16.66.",
     "strategy_note": "The system exited the position due to a bearish fast signal (MA10/MA30 death cross) in a bull regime (MA20/MA50 crossover). The system is now monitoring for a re-entry on the next fast golden cross.",
     "key_learning": "The system's ability to exit a position in a bull regime highlights the importance of maintaining a clear understanding of the market's regime context.",
-    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
+    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
     "source": "groq"
   },
   "2026-07-06": {
@@ -652,7 +652,7 @@
     "market_context": "Markets were muted ahead of a quiet week, with equity futures mixed and ETFs higher. Chip stocks rebounded, contributing to the positive sentiment. Investors await the release of Fed minutes.",
     "strategy_note": "The system exited the position due to a bearish fast signal (MA10/MA30 death cross) in a bull regime, locking in a $+1188.82 realized P&L.",
     "key_learning": "A bearish fast signal can override a bullish slow regime, leading to profitable exits.",
-    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
+    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
     "source": "groq"
   },
   "2026-07-07": {
@@ -660,7 +660,7 @@
     "market_context": "The Nasdaq sank as Samsung tumbled, while equity futures were mixed amid caution over the chip sector outlook. The VIX index remained relatively low at 16.25. Oil prices were steady at $70.51 per barrel.",
     "strategy_note": "The dual-timeframe SMA crossover strategy exited the position due to a bearish fast signal (Fast Death Cross), while the slow filter indicated a bullish regime. The system is now monitoring for a re-entry on the next fast golden cross.",
     "key_learning": "A bearish fast signal can occur even in a bullish regime, highlighting the importance of monitoring multiple timeframes and signals.",
-    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
+    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
     "source": "groq"
   },
   "2026-07-08": {
@@ -668,7 +668,7 @@
     "market_context": "The stock market reacted to unstable peace talks and Trump's comments on Iran, causing a drop in the Dow. Oil prices remained relatively stable. The VIX index rose slightly.",
     "strategy_note": "The system exited the position due to a bearish fast signal (MA10/MA30 death cross). The regime remains BULL, as the slow MAs (MA20/MA50) indicate.",
     "key_learning": "The system's ability to lock in profits during a bearish signal is crucial to maintaining overall performance.",
-    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
+    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
     "source": "groq"
   },
   "2026-07-09": {
@@ -676,7 +676,7 @@
     "market_context": "Markets traded mixed with equity futures and chip stocks rebounding. The VIX index remained relatively low at 16.14. Oil prices were steady at $72.09 per barrel.",
     "strategy_note": "The dual-timeframe SMA crossover strategy exited the position as the fast signal turned bearish with a death cross. The system is now monitoring for a re-entry on the next fast golden cross.",
     "key_learning": "The system's ability to exit the position in time resulted in a significant realized P&L of $+1188.82.",
-    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
+    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
     "source": "groq"
   },
   "2026-07-10": {
@@ -684,7 +684,7 @@
     "market_context": "US-Iran tensions weighed on markets, while Q2 earnings season is approaching. Equity futures and ETFs were mixed, with precious metals ETFs performing well. VIX remained relatively low at 15.5.",
     "strategy_note": "The system exited the position due to a bearish fast signal (MA10/MA30 Death Cross) in a bull regime (MA20/MA50). The system is now monitoring for a re-entry on the next fast golden cross.",
     "key_learning": "A bearish fast signal can occur even in a bull regime, emphasizing the importance of considering multiple timeframes in trading decisions.",
-    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
+    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
     "source": "groq"
   },
   "2026-07-13": {
@@ -692,7 +692,7 @@
     "market_context": "The market experienced a bullish day with a strong close, despite the Nasdaq dropping amid U.S.-Iran strikes. The VIX remains relatively low at 16.24. Oil prices also remained steady at $74.79 per barrel.",
     "strategy_note": "The system held long SPY due to a bullish fast signal and a bullish regime context. The fast signal remained bullish with a strong momentum.",
     "key_learning": "The system's ability to hold through market volatility and maintain a bullish stance is a testament to the effectiveness of the dual-timeframe strategy in capturing market trends.",
-    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
+    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
     "source": "groq"
   },
   "2026-07-14": {
@@ -700,7 +700,7 @@
     "market_context": "Equity futures were mixed pre-bell, while ETFs rose ahead of testimony. The VIX index remained relatively low at 16.45. Oil prices were steady at $78.7 per barrel.",
     "strategy_note": "The dual-timeframe SMA crossover strategy exited the position due to a bullish fast signal (MA10/MA30 golden cross), with the slow filter regime remaining in a bullish context.",
     "key_learning": "The system's ability to lock in a positive P&L of $1027.70 underscores the importance of discipline in exiting positions on strong bullish signals.",
-    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
+    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
     "source": "groq"
   },
   "2026-07-15": {
@@ -708,7 +708,7 @@
     "market_context": "The market rallied on cool inflation data, with the Dow climbing and the SPY closing at $753.43. Economic reports and earnings releases also contributed to the positive sentiment.",
     "strategy_note": "The system held a long position in SPY, as the fast signal remained BULLISH with a fast golden cross and the slow filter regime confirmed as BULL. The system did not exit the position today.",
     "key_learning": "The system's ability to adapt to changing market conditions, including the regime filter, is crucial in maintaining its performance.",
-    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
+    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
     "source": "groq"
   },
   "2026-07-16": {
@@ -716,7 +716,7 @@
     "market_context": "The market saw a mixed day with the Nasdaq sliding due to tech stocks, while the VIX remained relatively low at 15.87. Oil prices were steady at $79.72 per barrel and the 10Y Treasury yield held at 4.59%. The SPY price closed at $753.01.",
     "strategy_note": "The system exited the position due to a bullish fast signal (MA10/MA30) in a bull regime (MA20/MA50). The system is now monitoring for a re-entry on the next fast golden cross.",
     "key_learning": "The system's ability to exit a position and lock in a profit is a key component of its overall success.",
-    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
+    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
     "source": "groq"
   },
   "2026-07-17": {
@@ -724,7 +724,7 @@
     "market_context": "Markets traded in a relatively calm manner, with the SPY closing at $745.72. The VIX index remained at 18.07, indicating a stable market environment. Chipmaker stocks retreated, contributing to a decline in equity futures.",
     "strategy_note": "The dual-timeframe SMA crossover strategy exited the position, locking in a realized P&L of $+864.24. The system is now waiting for the next fast golden cross to re-enter the market.",
     "key_learning": "The system's risk management strategy effectively locked in profits during a period of market consolidation.",
-    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
+    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
     "source": "groq"
   },
   "2026-07-20": {
@@ -732,7 +732,7 @@
     "market_context": "Market futures edged higher ahead of key earnings reports, despite Middle East tensions. The dollar's weakness was a topic of discussion, but its impact on social security checks was highlighted. Momentum in the S&P 500 was weak.",
     "strategy_note": "The system held long SPY, with a bullish fast signal and a bull regime. The slow filter's MA20 and MA50 remained in a bullish alignment.",
     "key_learning": "A weak momentum environment can persist even as the market edges higher, highlighting the importance of regime context in trading decisions.",
-    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
+    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
     "source": "groq"
   },
   "2026-07-21": {
@@ -740,7 +740,7 @@
     "market_context": "Markets rose pre-bell Tuesday, driven by a semiconductor recovery and countering Iran jitters. The Nasdaq and S&P 500 futures rallied, with big tech earnings drawing focus. The VIX remained relatively low at 17.41.",
     "strategy_note": "The system exited the position, locking in a $+529.70 realized P&L, due to a bullish fast signal (MA10/MA30) in a BULL regime (MA20/MA50).",
     "key_learning": "A weak momentum reading occurred despite a bullish fast signal, highlighting the importance of monitoring momentum in conjunction with dual-timeframe signals.",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: +0.07% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: +0.07% from entry. No exit triggered.",
     "source": "groq"
   },
   "2026-07-22": {
@@ -748,7 +748,7 @@
     "market_context": "Markets opened lower but ended with modest gains, with SPY closing at $748.84. The VIX index remained relatively low at 16.99. Major tech earnings are expected ahead of the bell.",
     "strategy_note": "The system held long SPY as the fast signal remained BULLISH and the regime context remained in a BULL market, with the slow MAs (MA20 vs MA50) confirming this regime.",
     "key_learning": "The system's ability to ride the recovery rally and hold onto gains is being tested, highlighting the importance of regime context in strategy decision-making.",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: -0.02% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: -0.02% from entry. No exit triggered.",
     "source": "groq"
   },
   "2026-07-23": {
@@ -756,7 +756,7 @@
     "market_context": "Markets declined today amidst a tech sell-off, with major indices futures falling. Major news included earnings from Tesla and Alphabet, reviving fears about AI spending. The VIX index rose to 19.83.",
     "strategy_note": "The dual-timeframe SMA crossover system exited the position due to a bullish fast signal (MA10 > MA30), while the slow filter remained in a bull regime (MA20 > MA50).",
     "key_learning": "The system's ability to exit positions in line with the slow filter's regime context helped mitigate losses, but a re-entry on the next fast golden cross may be needed to recapture gains.",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: -0.11% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: -0.11% from entry. No exit triggered.",
     "source": "groq"
   },
   "2026-07-24": {
@@ -764,7 +764,7 @@
     "market_context": "US stocks and equity futures rose pre-bell amid new US tariffs, while VIX remained relatively low at 18.19. Oil prices were stable at $89.8/barrel. The 10Y Treasury yield held steady at 4.67%.",
     "strategy_note": "The dual-timeframe signal remained BULLISH, with a Fast Golden Cross and a BULL regime from the Slow MAs. The system held long SPY.",
     "key_learning": "A weak momentum reading does not necessarily lead to a short-term reversal, especially when the regime remains BULL.",
-    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
+    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
     "source": "groq"
   },
   "2026-07-27": {
@@ -772,7 +772,7 @@
     "market_context": "Oil prices fell, easing fears ahead of the Fed meeting and big tech earnings. Equities futures rose, with the Nasdaq, S&P 500, and Dow futures increasing. Market news focused on ETFs, equity futures, and S&P 500 performance.",
     "strategy_note": "The system exited the position due to a bullish fast signal (MA10/MA30 golden cross) in a bull regime (MA20/MA50). The system is now monitoring for a re-entry on the next fast golden cross.",
     "key_learning": "The system's ability to adapt to changing market conditions and regimes is crucial in avoiding losses and capturing opportunities.",
-    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
+    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
     "source": "groq"
   },
   "2026-07-28": {
@@ -780,7 +780,7 @@
     "market_context": "Markets were mixed ahead of the Fed decision, with semiconductor stocks under pressure. The VIX remained relatively low at 18.06. The 10Y Treasury yield held steady at 4.59%.",
     "strategy_note": "The dual-timeframe SMA crossover strategy held long SPY, with a bullish fast signal and a bullish regime context. The system did not trigger an exit.",
     "key_learning": "A weak momentum reading in a bullish regime context may signal a potential consolidation phase.",
-    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
+    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
     "source": "groq"
   },
   "2026-07-29": {
@@ -788,7 +788,7 @@
     "market_context": "The market headlines were mixed with some sectors performing well, while others struggled. The VIX index remained relatively low at 19.84. The 10Y Treasury yield remained steady at 4.63%.",
     "strategy_note": "The system exited the position due to a bearish fast signal (MA10/MA30 death cross) in a bull regime. The slow filter (MA20/MA50) remains in a bull regime.",
     "key_learning": "The system's ability to exit positions in bearish regimes is crucial in maintaining overall performance.",
-    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
+    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
     "source": "groq"
   },
   "2026-07-30": {
@@ -796,7 +796,7 @@
     "market_context": "The market was relatively calm with no major catalysts, and the VIX remained low at 19.05. Nvidia and AMD stocks were in the news, but their performance did not significantly impact the overall market. The 10Y Treasury yield was steady at 4.68%.",
     "strategy_note": "The system exited the position due to a bearish fast signal, with the MA10 crossing below the MA30. The slow filter remained in a bull regime, but the system prioritized the fast signal for entry and exit decisions.",
     "key_learning": "The system's reliance on the fast signal led to a loss, highlighting the importance of considering the regime context in high-impact decisions.",
-    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
+    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
     "source": "groq"
   },
   "2026-07-31": {
@@ -804,7 +804,7 @@
     "market_context": "The market ended the week on a mixed note, with ETFs and equity futures higher pre-bell Friday, but the S&P 500 and Nasdaq ended the best day in a month on the previous day.",
     "strategy_note": "The system exited the position due to a bearish fast signal (MA10/MA30 death cross) in a bull regime, locking in a realized P&L of $-66.44.",
     "key_learning": "The system's ability to exit a position in a bull regime highlights the importance of maintaining a regime-aware strategy.",
-    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
+    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
     "source": "groq"
   },
   "2026-08-03": {
@@ -812,7 +812,7 @@
     "market_context": "US-Iran truce hopes lifted equity futures and ETFs, but market headlines were mixed with some cautionary notes on the economy.",
     "strategy_note": "The dual-timeframe SMA crossover strategy exited the position due to a bearish fast signal (MA10 < MA30) in a bull regime (MA20 > MA50).",
     "key_learning": "A strong bull regime does not guarantee a bullish signal, and the system's ability to adapt to changing market conditions is crucial.",
-    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
+    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
     "source": "groq"
   },
   "2026-08-04": {
@@ -820,7 +820,7 @@
     "market_context": "Markets were relatively calm with VIX at 16.21, while WTI Oil held steady at $75.31. The 10Y Treasury yield remained at 4.63%. Headlines were mixed, with some stocks experiencing significant price movements.",
     "strategy_note": "The system exited the position due to a bearish fast signal (MA10/MA30 crossover) in a bull regime, locking in a realized P&L of $-66.44.",
     "key_learning": "The system's ability to exit the position before further losses highlights the importance of timely risk management in a dual-timeframe strategy.",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: -0.14% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: -0.14% from entry. No exit triggered.",
     "source": "groq"
   },
   "2026-08-05": {
@@ -828,7 +828,7 @@
     "market_context": "US stock futures were flat after S&P500 and Dow ended at record highs on strong earnings and easing geopolitical concerns. VIX remained low at 16.32. Oil price was stable at $75.25/barrel.",
     "strategy_note": "The dual-timeframe signal remained BULLISH with a Fast Golden Cross, and the system held long SPY. The slow filter regime remained BULL.",
     "key_learning": "A strong momentum environment can mask underlying regime shifts, highlighting the importance of both fast and slow signals in a dual-timeframe strategy.",
-    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
+    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
     "source": "groq"
   },
   "2026-08-06": {
@@ -836,7 +836,7 @@
     "market_context": "Markets ended lower amid Hormuz uncertainty and awaited jobs data to judge Fed rate course. SPY fell $58.81 from its previous close. VIX remained relatively low at 15.15.",
     "strategy_note": "The system exited the position based on a bullish fast signal (MA10/MA30) and a BULL regime context (MA20/MA50).",
     "key_learning": "A strong bull regime does not guarantee a successful trade, as the system still experienced a loss.",
-    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
+    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
     "source": "groq"
   },
   "2026-08-07": {
@@ -844,7 +844,7 @@
     "market_context": "Markets traded higher pre-bell Friday amid strong tech results, with ETFs and equity futures also rising. VIX remained relatively low at 14.89. Oil prices were stable at $77.41 per barrel.",
     "strategy_note": "The system held long SPY due to a bullish dual-timeframe signal, with MA10 crossing above MA30 and a strong bull regime. No exit was triggered.",
     "key_learning": "The system remains in a bull regime but has yet to generate significant alpha, highlighting the need for further refinement in the strategy.",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: +0.08% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: +0.08% from entry. No exit triggered.",
     "source": "groq"
   },
   "2026-08-10": {
@@ -852,7 +852,7 @@
     "market_context": "Equity futures were mixed pre-bell Monday as oil prices rose, while the S&P 500 companies' second-quarter profit boomed. The VIX remained relatively low at 15.24. Oil prices continued to rise, reaching $80.36 per barrel.",
     "strategy_note": "The system held long SPY due to a bullish fast signal and a bullish regime context. The slow filter MA20 MA50 also confirmed the bullish regime.",
     "key_learning": "The system's ability to capture a strong rally is dependent on its ability to correctly identify the regime context.",
-    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
+    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
     "source": "groq"
   },
   "2026-08-11": {
@@ -860,7 +860,7 @@
     "market_context": "Equity futures were mixed pre-bell Tuesday amid stalled US-Iran talks, while exchange-traded funds were higher. The VIX remained relatively low at 15.4. Oil prices were stable at $82.0/barrel.",
     "strategy_note": "The system held long SPY based on a bullish fast signal and a bull regime, with strong momentum. No exit was triggered today.",
     "key_learning": "A strong bull regime and momentum can lead to prolonged periods of sideways or slightly upward movement, making it essential to set realistic expectations for returns.",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: -0.40% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: -0.40% from entry. No exit triggered.",
     "source": "groq"
   },
   "2026-08-12": {
@@ -868,7 +868,7 @@
     "market_context": "Markets continued their upward trend with the S&P 500 closing at $772.04, driven by tech gains and in-line consumer inflation data. The VIX index remained relatively low at 14.83. Oil prices also remained stable at $82.68 per barrel.",
     "strategy_note": "The dual-timeframe SMA crossover strategy held a long position in SPY, with the fast signal remaining bullish due to a golden cross. The slow filter regime remained in a bull context, with MA20 above MA50.",
     "key_learning": "The system's unrealized P&L remains negative, highlighting the need for improved entry timing and risk management.",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: -0.14% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: -0.14% from entry. No exit triggered.",
     "source": "groq"
   },
   "2026-08-13": {
@@ -876,7 +876,7 @@
     "market_context": "US stocks rose, with the SPY trading higher. Producer inflation data was released, and exchange-traded funds and equity futures were higher pre-bell. The VIX remained relatively low at 14.74.",
     "strategy_note": "The system held long SPY due to a bullish fast signal and a bull regime, with the slow MA20 crossing above MA50. No exit was triggered.",
     "key_learning": "A strong bull regime can persist even with a relatively low VIX, as seen in today's market action.",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: +0.54% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: +0.54% from entry. No exit triggered.",
     "source": "groq"
   },
   "2026-08-14": {
@@ -884,7 +884,7 @@
     "market_context": "Wall Street's riskiest trades are back on top, and ETFs are higher, while equity futures are mixed, amid retail sales data. The Average Social Security Check gets a raise every January, but a $500,000 portfolio\u2019s \u2018paycheck\u2019 doesn\u2019t. The 10Y Treasury yield remains at 4.66%.",
     "strategy_note": "The system held long SPY, with a BULLISH fast signal and a BULL regime, and saw an unrealized P&L of +0.49% from entry.",
     "key_learning": "The system remains in a BULL regime, but the strong momentum and bullish fast signal suggest caution is warranted.",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: +0.34% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: +0.34% from entry. No exit triggered.",
     "source": "groq"
   },
   "2026-08-17": {
@@ -892,7 +892,7 @@
     "market_context": "_fill in_",
     "strategy_note": "_fill in_",
     "key_learning": "_fill in_",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: -0.13% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: -0.13% from entry. No exit triggered.",
     "source": "placeholder"
   },
   "2026-08-18": {
@@ -900,7 +900,7 @@
     "market_context": "_fill in_",
     "strategy_note": "_fill in_",
     "key_learning": "_fill in_",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: -0.81% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: -0.81% from entry. No exit triggered.",
     "source": "placeholder"
   },
   "2026-08-19": {
@@ -908,7 +908,7 @@
     "market_context": "_fill in_",
     "strategy_note": "_fill in_",
     "key_learning": "_fill in_",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: -0.59% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: -0.59% from entry. No exit triggered.",
     "source": "placeholder"
   },
   "2026-08-20": {
@@ -916,7 +916,7 @@
     "market_context": "_fill in_",
     "strategy_note": "_fill in_",
     "key_learning": "_fill in_",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: -1.43% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: -1.43% from entry. No exit triggered.",
     "source": "placeholder"
   },
   "2026-08-21": {
@@ -924,7 +924,7 @@
     "market_context": "_fill in_",
     "strategy_note": "_fill in_",
     "key_learning": "_fill in_",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: -1.03% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: -1.03% from entry. No exit triggered.",
     "source": "placeholder"
   },
   "2026-08-24": {
@@ -932,7 +932,7 @@
     "market_context": "_fill in_",
     "strategy_note": "_fill in_",
     "key_learning": "_fill in_",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: -1.32% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: -1.32% from entry. No exit triggered.",
     "source": "placeholder"
   },
   "2026-08-25": {
@@ -940,7 +940,7 @@
     "market_context": "_fill in_",
     "strategy_note": "_fill in_",
     "key_learning": "_fill in_",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: -1.01% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: -1.01% from entry. No exit triggered.",
     "source": "placeholder"
   },
   "2026-08-26": {
@@ -948,7 +948,7 @@
     "market_context": "_fill in_",
     "strategy_note": "_fill in_",
     "key_learning": "_fill in_",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: -0.99% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: -0.99% from entry. No exit triggered.",
     "source": "placeholder"
   },
   "2026-08-27": {
@@ -956,7 +956,7 @@
     "market_context": "_fill in_",
     "strategy_note": "_fill in_",
     "key_learning": "_fill in_",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: -0.32% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: -0.32% from entry. No exit triggered.",
     "source": "placeholder"
   },
   "2026-08-28": {
@@ -964,7 +964,7 @@
     "market_context": "_fill in_",
     "strategy_note": "_fill in_",
     "key_learning": "_fill in_",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: -0.56% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: -0.56% from entry. No exit triggered.",
     "source": "placeholder"
   },
   "2026-08-31": {
@@ -972,7 +972,7 @@
     "market_context": "_fill in_",
     "strategy_note": "_fill in_",
     "key_learning": "_fill in_",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: -0.88% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: -0.88% from entry. No exit triggered.",
     "source": "placeholder"
   },
   "2026-09-01": {
@@ -980,7 +980,7 @@
     "market_context": "_fill in_",
     "strategy_note": "_fill in_",
     "key_learning": "_fill in_",
-    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
+    "what_i_did_today": "System exited the position. Realized P&L locked at $-729.23. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Fast signal (MA10/MA30): bullish. Monitoring for re-entry on next fast golden cross.",
     "source": "placeholder"
   },
   "2026-09-02": {
@@ -988,7 +988,7 @@
     "market_context": "_fill in_",
     "strategy_note": "_fill in_",
     "key_learning": "_fill in_",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: +0.03% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: +0.03% from entry. No exit triggered.",
     "source": "placeholder"
   },
   "2026-09-03": {
@@ -996,7 +996,7 @@
     "market_context": "_fill in_",
     "strategy_note": "_fill in_",
     "key_learning": "_fill in_",
-    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $768.98 vs MA50 $755.34). Momentum: RECOVERING. Unrealized P&L: +1.03% from entry. No exit triggered.",
+    "what_i_did_today": "System held long SPY. Fast signal remained BULLISH. Regime: BULL (MA20 $769.21 vs MA50 $756.14). Momentum: STRONG. Unrealized P&L: +1.07% from entry. No exit triggered.",
     "source": "placeholder"
   }
 }
