@@ -1,15 +1,15 @@
 {
   "date": "2026-10-27",
-  "session": "CLOSED",
-  "signal": "NEUTRAL",
-  "ma10": NaN,
-  "ma30": NaN,
-  "ma20": NaN,
-  "ma50": NaN,
-  "regime": "BEAR",
-  "regime_gap_pct": NaN,
+  "session": "REGULAR",
+  "signal": "BEARISH",
+  "ma10": 768.06,
+  "ma30": 768.39,
+  "ma20": 770.14,
+  "ma50": 766.72,
+  "regime": "BULL",
+  "regime_gap_pct": 0.45,
   "momentum": "WEAK",
-  "close": NaN,
+  "close": 765.37,
   "price_override": false,
-  "price_pct_above_ma50": NaN
+  "price_pct_above_ma50": -0.18
 }
