@@ -1,5 +1,5 @@
 # ALPACA PAPER JOURNAL — SPY
-_Last updated: November 11, 2026 | Day 82 of 90_
+_Last updated: November 11, 2026 | Day 83 of 90_
 _Strategy: Dual-Timeframe SMA Crossover (Fast: 10/30, Regime: 20/50) + Price Override_
 _Source of truth: Alpaca fills | Close prices: Alpaca Market Data API_
 _Signal source: signal_state.json | Narrative: Groq llama-3.1-8b-instant_
@@ -11,7 +11,7 @@ _Signal source: signal_state.json | Narrative: Groq llama-3.1-8b-instant_
 > 📡 **CURRENT SIGNAL** (2026-11-11): **BEARISH**  
 > Fast: MA10 $754.15 | MA30 $764.99  
 > Slow: MA20 $760.69 | MA50 $764.55  
-> Regime: **BEAR** | Momentum: **WEAK** | Session: AFTER_HOURS
+> Regime: **BEAR** | Momentum: **WEAK** | Session: REGULAR
 
 ## Strategy Description
 
@@ -151,6 +151,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 | Day 80 | 2026-11-06 | $735.40 | FLAT | — | — | $98,184.04 |
 | Day 81 | 2026-11-09 | $752.72 | FLAT | — | — | $98,184.04 |
 | Day 82 | 2026-11-10 | $749.93 | FLAT | — | — | $98,184.04 |
+| Day 83 | 2026-11-11 | $760.38 | FLAT | — | — | $98,184.04 |
 
 ## Benchmark vs Strategy
 
@@ -238,6 +239,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 | Day 80 | 2026-11-06 | $98,184.04 | $99,185.38 | -1.8160% | -0.815% | **-1.001%** |
 | Day 81 | 2026-11-09 | $98,184.04 | $101,521.38 | -1.8160% | +1.521% | **-3.337%** |
 | Day 82 | 2026-11-10 | $98,184.04 | $101,145.08 | -1.8160% | +1.145% | **-2.961%** |
+| Day 83 | 2026-11-11 | $98,184.04 | $102,554.50 | -1.8160% | +2.554% | **-4.370%** |
 
 ## Signal Saved vs Holding
 
@@ -325,6 +327,7 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 | Day 80 | 2026-11-06 | $735.40 | -$545.40 | -$1270.56 | Holding would have been **$1270.56** better — honest entry |
 | Day 81 | 2026-11-09 | $752.72 | +$389.88 | -$2205.84 | Holding would have been **$2205.84** better — honest entry |
 | Day 82 | 2026-11-10 | $749.93 | +$239.22 | -$2055.18 | Holding would have been **$2055.18** better — honest entry |
+| Day 83 | 2026-11-11 | $760.38 | +$803.52 | -$2619.48 | Holding would have been **$2619.48** better — honest entry |
 
 ---
 
@@ -2421,6 +2424,32 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 
 ---
 
+### Day 83 — 2026-11-11
+
+| Field | Value |
+|---|---|
+| Position | FLAT |
+| Entry (Alpaca fill) | $745.500/share |
+| Close price | $760.38 |
+| Realized P&L (locked) | -$1815.96 |
+| Reference if held | +$803.52 |
+| Signal saved | -$2619.48 |
+| Portfolio value | $98,184.04 |
+| Benchmark value | $102,554.50 |
+| Alpha (cumulative) | -4.370% |
+
+**Regime call:** _fill in_
+
+**Market context:** _fill in_
+
+**Strategy note:** _fill in_
+
+**What I did today:** System exited the position. Realized P&L locked at $-1815.96. Regime: BEAR (MA20 $760.69 vs MA50 $764.55). Fast signal (MA10/MA30): bearish. Monitoring for re-entry on next fast golden cross.
+
+**Key learning:** _fill in_
+
+---
+
 ## Strategy Evolution Log
 
 | Date | Change | Rationale |
@@ -2437,4 +2466,4 @@ This journal tracks a **dual-timeframe SMA crossover** strategy on SPY:
 | _add entries here_ | | | | |
 
 ---
-_Day 82 of 90 · Alpaca equity: $99,040.41 · Cumulative alpha vs SPY: -2.961%_
+_Day 83 of 90 · Alpaca equity: $99,040.41 · Cumulative alpha vs SPY: -4.370%_
