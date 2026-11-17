@@ -1,5 +1,5 @@
 # ALPACA PAPER JOURNAL — SPY
-_Last updated: November 16, 2026 | Day 86 of 90_
+_Last updated: November 17, 2026 | Day 86 of 90_
 _Strategy: Dual-Timeframe SMA Crossover (Fast: 10/30, Regime: 20/50) + Price Override_
 _Source of truth: Alpaca fills | Close prices: Alpaca Market Data API_
 _Signal source: signal_state.json | Narrative: Groq llama-3.1-8b-instant_
@@ -8,10 +8,10 @@ _Signal source: signal_state.json | Narrative: Groq llama-3.1-8b-instant_
 > All P&L uses Alpaca fill prices. First entry: **$745.500/share**
 > (2026-07-17, after-hours fill).
 
-> 📡 **CURRENT SIGNAL** (2026-11-16): **BEARISH**  
+> 📡 **CURRENT SIGNAL** (2026-11-17): **BEARISH**  
 > Fast: MA10 $750.33 | MA30 $763.0  
 > Slow: MA20 $757.69 | MA50 $763.52  
-> Regime: **BEAR** | Momentum: **WEAK** | Session: AFTER_HOURS
+> Regime: **BEAR** | Momentum: **WEAK** | Session: CLOSED
 
 ## Strategy Description
 
