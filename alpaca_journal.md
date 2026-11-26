@@ -11,7 +11,7 @@ _Signal source: signal_state.json | Narrative: Groq llama-3.1-8b-instant_
 > 📡 **CURRENT SIGNAL** (2026-11-26): **BEARISH**  
 > Fast: MA10 $727.75 | MA30 $749.38  
 > Slow: MA20 $740.33 | MA50 $757.85  
-> Regime: **STRONG_BEAR** | Momentum: **WEAK** | Session: CLOSED
+> Regime: **STRONG_BEAR** | Momentum: **WEAK** | Session: AFTER_HOURS
 
 ## Strategy Description
 
